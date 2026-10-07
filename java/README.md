@@ -8,7 +8,7 @@ The official Java client for Crawlora's hosted Flashscore API. It calls Crawlora
 <dependency>
   <groupId>net.crawlora</groupId>
   <artifactId>crawlora-flashscore</artifactId>
-  <version>0.1.4</version>
+  <version>0.2.0</version>
 </dependency>
 ```
 

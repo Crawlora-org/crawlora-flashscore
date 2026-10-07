@@ -8,7 +8,7 @@ The packages do not run a browser or scrape Flashscore locally. Crawlora is an i
 - Python: [`crawlora-flashscore`](python/README.md)
 - Go: [`github.com/Crawlora-org/crawlora-flashscore`](go.mod)
 - Ruby: [`crawlora-flashscore`](ruby/README.md)
-- Java: [`net.crawlora:crawlora-flashscore:0.1.4`](java/README.md)
+- Java: [`net.crawlora:crawlora-flashscore:0.2.0`](java/README.md)
 - PHP: [`crawlora/flashscore`](php/README.md)
 - Full endpoint and parameter reference: [docs/usage.md](docs/usage.md)
 - Runnable samples: [examples/](examples/)
@@ -26,7 +26,7 @@ gem install crawlora-flashscore
 composer require crawlora/flashscore
 ```
 
-For Java, add `net.crawlora:crawlora-flashscore:0.1.4` to your Maven dependencies; see [java/README.md](java/README.md).
+For Java, add `net.crawlora:crawlora-flashscore:0.2.0` to your Maven dependencies; see [java/README.md](java/README.md).
 
 Set your Crawlora key in the environment before running a client:
 
@@ -72,7 +72,7 @@ The checked-in JavaScript example imports the generated local source at `javascr
 
 ## Contract
 
-This package release is `0.1.4`. The generated client methods follow the bundled `openapi/public.json` contract at revision `sha256:380bb303ffcb6ff808a1db512dcc3bd90c9b7d20d62e64d1b368f37c9a6771bd`. `scripts/generate.py` regenerates all six language clients and the documentation from the shared source.
+This package release is `0.2.0`. The generated client methods follow the bundled `openapi/public.json` contract at revision `sha256:fcaf7e58d82dcbe73e54cddcffc79511b5d01e2c25d511531656862dfe91fb3e`. `scripts/generate.py` regenerates all six language clients and the documentation from the shared source.
 
 ## Contract updates and releases
 

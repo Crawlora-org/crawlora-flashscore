@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0 — 2026-10-07
+
+- Added operations: flashscore-match-missing-players, flashscore-match-odds, flashscore-match-predicted-lineups, flashscore-match-tv, flashscore-odds-geos, flashscore-player, flashscore-player-injuries, flashscore-player-transfers, flashscore-team, flashscore-team-fixtures, flashscore-team-news, flashscore-team-results, flashscore-team-squad, flashscore-team-transfers.
+
 ## 0.1.4 — 2026-10-08
 
 - Add focused Go, Ruby, Java, and PHP clients with registry installation examples and Crawlora links.

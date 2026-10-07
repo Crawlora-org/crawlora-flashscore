@@ -9,7 +9,7 @@ import {
 
 export class FlashscoreClient extends CrawloraClient {
   constructor(options = {}) {
-    super({ ...options, userAgent: options.userAgent ?? "crawlora-flashscore-js/0.1.4" });
+    super({ ...options, userAgent: options.userAgent ?? "crawlora-flashscore-js/0.2.0" });
     this["calendar"] = (...args) => this.request("flashscore-calendar", ...args);
     this["calendarCategories"] = (...args) => this.request("flashscore-calendar-categories", ...args);
     this["competitions"] = (...args) => this.request("flashscore-competitions", ...args);
@@ -17,18 +17,32 @@ export class FlashscoreClient extends CrawloraClient {
     this["matchHighlights"] = (...args) => this.request("flashscore-match-highlights", ...args);
     this["matchInfo"] = (...args) => this.request("flashscore-match-info", ...args);
     this["matchLineups"] = (...args) => this.request("flashscore-match-lineups", ...args);
+    this["matchMissingPlayers"] = (...args) => this.request("flashscore-match-missing-players", ...args);
     this["matchNews"] = (...args) => this.request("flashscore-match-news", ...args);
+    this["matchOdds"] = (...args) => this.request("flashscore-match-odds", ...args);
+    this["matchPredictedLineups"] = (...args) => this.request("flashscore-match-predicted-lineups", ...args);
     this["matchStandings"] = (...args) => this.request("flashscore-match-standings", ...args);
     this["matchStats"] = (...args) => this.request("flashscore-match-stats", ...args);
+    this["matchTv"] = (...args) => this.request("flashscore-match-tv", ...args);
     this["navigation"] = (...args) => this.request("flashscore-navigation", ...args);
     this["news"] = (...args) => this.request("flashscore-news", ...args);
     this["newsArticle"] = (...args) => this.request("flashscore-news-article", ...args);
     this["newsCategories"] = (...args) => this.request("flashscore-news-categories", ...args);
+    this["oddsGeos"] = (...args) => this.request("flashscore-odds-geos", ...args);
+    this["player"] = (...args) => this.request("flashscore-player", ...args);
+    this["playerInjuries"] = (...args) => this.request("flashscore-player-injuries", ...args);
+    this["playerTransfers"] = (...args) => this.request("flashscore-player-transfers", ...args);
     this["rankingCategories"] = (...args) => this.request("flashscore-ranking-categories", ...args);
     this["rankings"] = (...args) => this.request("flashscore-rankings", ...args);
     this["scores"] = (...args) => this.request("flashscore-scores", ...args);
     this["search"] = (...args) => this.request("flashscore-search", ...args);
     this["sports"] = (...args) => this.request("flashscore-sports", ...args);
+    this["team"] = (...args) => this.request("flashscore-team", ...args);
+    this["teamFixtures"] = (...args) => this.request("flashscore-team-fixtures", ...args);
+    this["teamNews"] = (...args) => this.request("flashscore-team-news", ...args);
+    this["teamResults"] = (...args) => this.request("flashscore-team-results", ...args);
+    this["teamSquad"] = (...args) => this.request("flashscore-team-squad", ...args);
+    this["teamTransfers"] = (...args) => this.request("flashscore-team-transfers", ...args);
     this["topSearch"] = (...args) => this.request("flashscore-top-search", ...args);
     this["tournamentEvents"] = (...args) => this.request("flashscore-tournament-events", ...args);
     this["tournamentSeasons"] = (...args) => this.request("flashscore-tournament-seasons", ...args);
@@ -46,5 +60,5 @@ export {
   CrawloraServerError
 };
 export { groups, operations, operationCount, OperationIds } from "./operations.js";
-export const VERSION = "0.1.4";
+export const VERSION = "0.2.0";
 export default FlashscoreClient;

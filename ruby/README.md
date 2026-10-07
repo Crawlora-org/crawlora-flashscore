@@ -20,7 +20,7 @@ puts result
 client.close
 ```
 
-Use a generated operation method for normal calls. `request(operation_id, params = {}, response_type: :auto)` is available for every operation. `response_type: :text` returns raw response text. This gem contains 24 operations and follows contract revision `sha256:380bb303ffcb6ff808a1db512dcc3bd90c9b7d20d62e64d1b368f37c9a6771bd`.
+Use a generated operation method for normal calls. `request(operation_id, params = {}, response_type: :auto)` is available for every operation. `response_type: :text` returns raw response text. This gem contains 38 operations and follows contract revision `sha256:fcaf7e58d82dcbe73e54cddcffc79511b5d01e2c25d511531656862dfe91fb3e`.
 
 ```ruby
 client = Crawlora::Flashscore::Client.new(api_key: ENV.fetch("CRAWLORA_API_KEY"), timeout: 30)
@@ -28,6 +28,6 @@ client = Crawlora::Flashscore::Client.new(api_key: ENV.fetch("CRAWLORA_API_KEY")
 client.close
 ```
 
-Client options include `api_key`, `base_url`, and `timeout`. Ruby stdlib provides the HTTP and JSON transport. The gem follows contract revision `sha256:380bb303ffcb6ff808a1db512dcc3bd90c9b7d20d62e64d1b368f37c9a6771bd` and contains 24 operations.
+Client options include `api_key`, `base_url`, and `timeout`. Ruby stdlib provides the HTTP and JSON transport. The gem follows contract revision `sha256:fcaf7e58d82dcbe73e54cddcffc79511b5d01e2c25d511531656862dfe91fb3e` and contains 38 operations.
 
 See [Crawlora](https://crawlora.net/), the [API documentation](https://crawlora.net/docs), and [the package repository](https://github.com/Crawlora-org/crawlora-flashscore) for account setup, the generated operation reference, and release history.

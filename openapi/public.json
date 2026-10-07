@@ -17,6 +17,775 @@
       },
       "type": "object"
     },
+    "flashscore.CareerCompetition": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.CareerPart": {
+      "properties": {
+        "stage": {
+          "type": "string"
+        },
+        "stats": {
+          "additionalProperties": {},
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.CareerRow": {
+      "properties": {
+        "competition": {
+          "$ref": "#/definitions/flashscore.CareerCompetition"
+        },
+        "parts": {
+          "items": {
+            "$ref": "#/definitions/flashscore.CareerPart"
+          },
+          "type": "array"
+        },
+        "season": {
+          "type": "string"
+        },
+        "stats": {
+          "additionalProperties": {},
+          "type": "object"
+        },
+        "team": {
+          "$ref": "#/definitions/flashscore.CareerTeam"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.CareerTab": {
+      "properties": {
+        "columns": {
+          "items": {
+            "$ref": "#/definitions/flashscore.SquadColumn"
+          },
+          "type": "array"
+        },
+        "key": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "rows": {
+          "items": {
+            "$ref": "#/definitions/flashscore.CareerRow"
+          },
+          "type": "array"
+        },
+        "total": {
+          "additionalProperties": {},
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.CareerTeam": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.EventCompetition": {
+      "properties": {
+        "country": {
+          "type": "string"
+        },
+        "full_name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "stage_id": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.EventSide": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "logo_url": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "short_name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.PlayerDetail": {
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.PlayerInjuriesResponse": {
+      "properties": {
+        "injuries": {
+          "items": {
+            "$ref": "#/definitions/flashscore.PlayerInjury"
+          },
+          "type": "array"
+        },
+        "injury_count": {
+          "type": "integer"
+        },
+        "page_url": {
+          "type": "string"
+        },
+        "player": {
+          "$ref": "#/definitions/flashscore.PlayerProfile"
+        },
+        "source_url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.PlayerInjury": {
+      "properties": {
+        "from": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "until": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.PlayerProfile": {
+      "properties": {
+        "birth_date": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "country_id": {
+          "type": "integer"
+        },
+        "full_name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "photo_url": {
+          "type": "string"
+        },
+        "ranking": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "sport": {
+          "type": "string"
+        },
+        "sport_id": {
+          "type": "integer"
+        },
+        "team": {
+          "$ref": "#/definitions/flashscore.PlayerTeam"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.PlayerResponse": {
+      "properties": {
+        "age": {
+          "type": "integer"
+        },
+        "career": {
+          "items": {
+            "$ref": "#/definitions/flashscore.CareerTab"
+          },
+          "type": "array"
+        },
+        "contract_expires": {
+          "type": "string"
+        },
+        "details": {
+          "items": {
+            "$ref": "#/definitions/flashscore.PlayerDetail"
+          },
+          "type": "array"
+        },
+        "market_value": {
+          "type": "string"
+        },
+        "page_url": {
+          "type": "string"
+        },
+        "player": {
+          "$ref": "#/definitions/flashscore.PlayerProfile"
+        },
+        "position": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.PlayerTeam": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "logo_url": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.PlayerTransfer": {
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "fee": {
+          "type": "string"
+        },
+        "from": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/flashscore.TransferTeam"
+            }
+          ],
+          "description": "From and To are null when the page shows no club on that side."
+        },
+        "to": {
+          "$ref": "#/definitions/flashscore.TransferTeam"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.PlayerTransfersResponse": {
+      "properties": {
+        "page_url": {
+          "type": "string"
+        },
+        "player": {
+          "$ref": "#/definitions/flashscore.PlayerProfile"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "transfer_count": {
+          "type": "integer"
+        },
+        "transfers": {
+          "items": {
+            "$ref": "#/definitions/flashscore.PlayerTransfer"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.SquadColumn": {
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.SquadGroup": {
+      "properties": {
+        "columns": {
+          "items": {
+            "$ref": "#/definitions/flashscore.SquadColumn"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "players": {
+          "items": {
+            "$ref": "#/definitions/flashscore.SquadPlayer"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.SquadPlayer": {
+      "properties": {
+        "absence": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer"
+        },
+        "club": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "jersey_number": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "player_id": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "stats": {
+          "additionalProperties": {},
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.SquadScope": {
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.TeamCompetition": {
+      "properties": {
+        "country": {
+          "type": "string"
+        },
+        "full_name": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.TeamEvent": {
+      "properties": {
+        "away": {
+          "$ref": "#/definitions/flashscore.EventSide"
+        },
+        "away_score": {
+          "type": "integer"
+        },
+        "competition": {
+          "$ref": "#/definitions/flashscore.EventCompetition"
+        },
+        "home": {
+          "$ref": "#/definitions/flashscore.EventSide"
+        },
+        "home_score": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "string"
+        },
+        "stage": {
+          "type": "string"
+        },
+        "stage_code": {
+          "type": "integer"
+        },
+        "start_time": {
+          "type": "integer"
+        },
+        "start_time_iso": {
+          "type": "string"
+        },
+        "status_code": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.TeamEventsResponse": {
+      "properties": {
+        "event_count": {
+          "type": "integer"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/definitions/flashscore.TeamEvent"
+          },
+          "type": "array"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "section": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "team_id": {
+          "type": "string"
+        },
+        "team_name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.TeamNewsItem": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "image_url": {
+          "type": "string"
+        },
+        "link": {
+          "type": "string"
+        },
+        "published_at": {
+          "type": "integer"
+        },
+        "published_at_iso": {
+          "type": "string"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.TeamNewsResponse": {
+      "properties": {
+        "item_count": {
+          "type": "integer"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/flashscore.TeamNewsItem"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "team_id": {
+          "type": "string"
+        },
+        "team_name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.TeamProfile": {
+      "properties": {
+        "country": {
+          "type": "string"
+        },
+        "country_id": {
+          "type": "integer"
+        },
+        "full_name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "logo_url": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "sport": {
+          "type": "string"
+        },
+        "sport_id": {
+          "type": "integer"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.TeamResponse": {
+      "properties": {
+        "competitions": {
+          "items": {
+            "$ref": "#/definitions/flashscore.TeamCompetition"
+          },
+          "type": "array"
+        },
+        "page_url": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "team": {
+          "$ref": "#/definitions/flashscore.TeamProfile"
+        },
+        "venue": {
+          "$ref": "#/definitions/flashscore.TeamVenue"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.TeamSquadResponse": {
+      "properties": {
+        "groups": {
+          "items": {
+            "$ref": "#/definitions/flashscore.SquadGroup"
+          },
+          "type": "array"
+        },
+        "scope": {
+          "$ref": "#/definitions/flashscore.SquadScope"
+        },
+        "scopes": {
+          "items": {
+            "$ref": "#/definitions/flashscore.SquadScope"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "team": {
+          "$ref": "#/definitions/flashscore.TeamProfile"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.TeamTransfer": {
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "direction": {
+          "type": "string"
+        },
+        "fee": {
+          "type": "string"
+        },
+        "from": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/flashscore.TransferTeam"
+            }
+          ],
+          "description": "From and To are null when the player had no club on that side (for\nexample a free agent released at the end of a contract)."
+        },
+        "player": {
+          "$ref": "#/definitions/flashscore.TransferPlayer"
+        },
+        "to": {
+          "$ref": "#/definitions/flashscore.TransferTeam"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.TeamTransfersResponse": {
+      "properties": {
+        "page": {
+          "type": "integer"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "team_id": {
+          "type": "string"
+        },
+        "team_name": {
+          "type": "string"
+        },
+        "transfer_count": {
+          "type": "integer"
+        },
+        "transfers": {
+          "items": {
+            "$ref": "#/definitions/flashscore.TeamTransfer"
+          },
+          "type": "array"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.TeamVenue": {
+      "properties": {
+        "capacity": {
+          "type": "integer"
+        },
+        "city": {
+          "type": "string"
+        },
+        "stadium": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.TransferPlayer": {
+      "properties": {
+        "country": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.TransferTeam": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "logo_url": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.broadcasterDoc": {
+      "properties": {
+        "affiliate": {
+          "description": "Affiliate marks entries the provider flags as affiliate links; their tracking URL is omitted.",
+          "example": false,
+          "type": "boolean"
+        },
+        "id": {
+          "example": 680,
+          "type": "integer"
+        },
+        "name": {
+          "example": "Sky Sports Premier League (Gbr)",
+          "type": "string"
+        },
+        "url": {
+          "example": "http://www.skysports.com/",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "flashscore.calendarCategoriesDataDoc": {
       "properties": {
         "categories": {
@@ -196,6 +965,181 @@
       },
       "type": "object"
     },
+    "flashscore.formationLineDoc": {
+      "properties": {
+        "number": {
+          "example": 1,
+          "type": "integer"
+        },
+        "rows": {
+          "items": {
+            "$ref": "#/definitions/flashscore.formationRowDoc"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.formationRowDoc": {
+      "properties": {
+        "player_ids": {
+          "example": [
+            "x2zyKcHK"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "sort_key": {
+          "example": 0,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.lineupAggregatedStatsDoc": {
+      "properties": {
+        "average_age": {
+          "example": 26.6,
+          "type": "number"
+        },
+        "average_height_cm": {
+          "example": 181.1,
+          "type": "number"
+        },
+        "average_rating": {
+          "example": 6.7,
+          "type": "number"
+        },
+        "sum_market_value": {
+          "example": 47598854,
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.lineupGroupDoc": {
+      "properties": {
+        "name": {
+          "example": "Predicted lineups",
+          "type": "string"
+        },
+        "player_ids": {
+          "example": [
+            "x2zyKcHK"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "type": {
+          "example": "PREDICTED_STARTERS",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.lineupPlayerDoc": {
+      "properties": {
+        "age": {
+          "example": 35,
+          "type": "number"
+        },
+        "average_rating": {
+          "example": 7,
+          "type": "number"
+        },
+        "country": {
+          "example": "Brazil",
+          "type": "string"
+        },
+        "height_cm": {
+          "example": 189,
+          "type": "number"
+        },
+        "id": {
+          "example": "x2zyKcHK",
+          "type": "string"
+        },
+        "list_name": {
+          "example": "Tiago Volpi",
+          "type": "string"
+        },
+        "market_value": {
+          "example": 880751,
+          "type": "number"
+        },
+        "name": {
+          "example": "Tiago Volpi",
+          "type": "string"
+        },
+        "number": {
+          "example": "18",
+          "type": "string"
+        },
+        "roles": {
+          "items": {
+            "$ref": "#/definitions/flashscore.lineupRoleDoc"
+          },
+          "type": "array"
+        },
+        "slug": {
+          "example": "tiago-volpi",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.lineupRoleDoc": {
+      "properties": {
+        "suffix": {
+          "example": "(G)",
+          "type": "string"
+        },
+        "title": {
+          "example": "Goalkeeper",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.matchMissingPlayersDataDoc": {
+      "properties": {
+        "match_id": {
+          "example": "f75igXFG",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://2.ds.lsapp.eu/pq_graphql?_hash=dmpe2&eventId=f75igXFG&projectId=2",
+          "type": "string"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/flashscore.missingPlayersTeamDoc"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.matchMissingPlayersResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.matchMissingPlayersDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "flashscore.matchNewsArticleRefDoc": {
       "properties": {
         "article": {
@@ -274,6 +1218,193 @@
         },
         "name": {
           "example": "articlesOnParticipants",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.matchOddsDataDoc": {
+      "properties": {
+        "bookmakers": {
+          "items": {
+            "$ref": "#/definitions/flashscore.oddsBookmakerDoc"
+          },
+          "type": "array"
+        },
+        "geo": {
+          "example": "GB",
+          "type": "string"
+        },
+        "markets": {
+          "items": {
+            "$ref": "#/definitions/flashscore.oddsMarketDoc"
+          },
+          "type": "array"
+        },
+        "match_id": {
+          "example": "p0aFxkkn",
+          "type": "string"
+        },
+        "participants": {
+          "items": {
+            "$ref": "#/definitions/flashscore.oddsParticipantDoc"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://global.ds.lsapp.eu/odds/pq_graphql?_hash=oce&eventId=p0aFxkkn&geoIpCode=GB&geoIpSubdivisionCode=&projectId=2",
+          "type": "string"
+        },
+        "subdivision": {
+          "example": "NJ",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.matchOddsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.matchOddsDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.matchPredictedLineupsDataDoc": {
+      "properties": {
+        "match_id": {
+          "example": "f75igXFG",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://2.ds.lsapp.eu/pq_graphql?_hash=dplie&eventId=f75igXFG&projectId=2",
+          "type": "string"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/flashscore.predictedLineupTeamDoc"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.matchPredictedLineupsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.matchPredictedLineupsDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.matchTVDataDoc": {
+      "properties": {
+        "broadcasters": {
+          "items": {
+            "$ref": "#/definitions/flashscore.broadcasterDoc"
+          },
+          "type": "array"
+        },
+        "geo": {
+          "example": "GB",
+          "type": "string"
+        },
+        "match_id": {
+          "example": "p0aFxkkn",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://global.flashscore.ninja/2/x/feed/df_dos_1_p0aFxkkn_",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.matchTVResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.matchTVDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.missingPlayerDoc": {
+      "properties": {
+        "country": {
+          "example": "Brazil",
+          "type": "string"
+        },
+        "list_name": {
+          "example": "Davi Gomes",
+          "type": "string"
+        },
+        "name": {
+          "example": "Davi Gomes",
+          "type": "string"
+        },
+        "player_id": {
+          "example": "E9BtZaJL",
+          "type": "string"
+        },
+        "reason": {
+          "example": "Knee Injury",
+          "type": "string"
+        },
+        "slug": {
+          "example": "davi-gomes",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.missingPlayersTeamDoc": {
+      "properties": {
+        "doubtful": {
+          "items": {
+            "$ref": "#/definitions/flashscore.missingPlayerDoc"
+          },
+          "type": "array"
+        },
+        "missing": {
+          "items": {
+            "$ref": "#/definitions/flashscore.missingPlayerDoc"
+          },
+          "type": "array"
+        },
+        "participant_id": {
+          "example": "2FbjCJan",
+          "type": "string"
+        },
+        "side": {
+          "enum": [
+            "home",
+            "away"
+          ],
+          "example": "home",
           "type": "string"
         }
       },
@@ -551,6 +1682,323 @@
         },
         "title": {
           "example": "Haaland brace helps Norway to first win over Scandinavian rivals Denmark",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.oddsBookmakerDoc": {
+      "properties": {
+        "id": {
+          "example": 16,
+          "type": "integer"
+        },
+        "name": {
+          "example": "bet365",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.oddsGeoDoc": {
+      "properties": {
+        "code": {
+          "example": "GB",
+          "type": "string"
+        },
+        "has_bookmakers": {
+          "example": true,
+          "type": "boolean"
+        },
+        "name": {
+          "example": "United Kingdom",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.oddsGeosDataDoc": {
+      "properties": {
+        "betting_scopes": {
+          "example": [
+            "FULL_TIME"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "betting_types": {
+          "example": [
+            "HOME_DRAW_AWAY"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "default_geo": {
+          "example": "GB",
+          "type": "string"
+        },
+        "geos": {
+          "items": {
+            "$ref": "#/definitions/flashscore.oddsGeoDoc"
+          },
+          "type": "array"
+        },
+        "handicap_types": {
+          "example": [
+            "UNKNOWN"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "subdivision_notes": {
+          "example": "subdivision is accepted only with geo US or CA, where it changes which bookmakers are licensed.",
+          "type": "string"
+        },
+        "subdivisions": {
+          "items": {
+            "$ref": "#/definitions/flashscore.oddsSubdivisionDoc"
+          },
+          "type": "array"
+        },
+        "verified_on": {
+          "example": "2026-10-07",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.oddsGeosResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.oddsGeosDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.oddsMarketDoc": {
+      "properties": {
+        "betting_type": {
+          "enum": [
+            "HOME_DRAW_AWAY",
+            "HOME_AWAY",
+            "DRAW_NO_BET",
+            "DOUBLE_CHANCE",
+            "ASIAN_HANDICAP",
+            "EUROPEAN_HANDICAP",
+            "OVER_UNDER",
+            "BOTH_TEAMS_TO_SCORE",
+            "CORRECT_SCORE",
+            "HALF_FULL_TIME",
+            "ODD_OR_EVEN",
+            "TO_QUALIFY",
+            "NEXT_GOAL",
+            "TOP_POSITION_MERGED",
+            "TO_WIN_AND_TOP_POSITION",
+            "WIN_EACH_WAY"
+          ],
+          "example": "HOME_DRAW_AWAY",
+          "type": "string"
+        },
+        "offers": {
+          "items": {
+            "$ref": "#/definitions/flashscore.oddsOfferDoc"
+          },
+          "type": "array"
+        },
+        "scope": {
+          "enum": [
+            "FULL_TIME",
+            "FULL_TIME_OVER_TIME",
+            "FIRST_HALF",
+            "SECOND_HALF",
+            "FIRST_PERIOD",
+            "FIRST_QUARTER",
+            "FIRST_SET",
+            "SECOND_SET"
+          ],
+          "example": "FULL_TIME",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.oddsOfferDoc": {
+      "properties": {
+        "bookmaker_id": {
+          "example": 16,
+          "type": "integer"
+        },
+        "outcomes": {
+          "items": {
+            "$ref": "#/definitions/flashscore.oddsOutcomeDoc"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.oddsOutcomeDoc": {
+      "properties": {
+        "active": {
+          "example": true,
+          "type": "boolean"
+        },
+        "half_full_time": {
+          "example": "1/1",
+          "type": "string"
+        },
+        "handicap": {
+          "example": 2.5,
+          "type": "number"
+        },
+        "handicap_type": {
+          "enum": [
+            "UNKNOWN",
+            "GOALS",
+            "GAMES",
+            "SETS",
+            "POINTS",
+            "FRAMES",
+            "LEGS",
+            "RUNS"
+          ],
+          "example": "UNKNOWN",
+          "type": "string"
+        },
+        "odds": {
+          "example": 2.6,
+          "type": "number"
+        },
+        "opening_odds": {
+          "example": 3,
+          "type": "number"
+        },
+        "participant_id": {
+          "example": "Gzrm3lW6",
+          "type": "string"
+        },
+        "score": {
+          "example": "2:1",
+          "type": "string"
+        },
+        "selection": {
+          "example": "home",
+          "type": "string"
+        },
+        "side": {
+          "enum": [
+            "home",
+            "away"
+          ],
+          "example": "home",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.oddsParticipantDoc": {
+      "properties": {
+        "id": {
+          "example": "Gzrm3lW6",
+          "type": "string"
+        },
+        "side": {
+          "enum": [
+            "home",
+            "away"
+          ],
+          "example": "home",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.oddsSubdivisionDoc": {
+      "properties": {
+        "code": {
+          "example": "NJ",
+          "type": "string"
+        },
+        "geo": {
+          "example": "US",
+          "type": "string"
+        },
+        "name": {
+          "example": "New Jersey",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.predictedFormationDoc": {
+      "properties": {
+        "lines": {
+          "items": {
+            "$ref": "#/definitions/flashscore.formationLineDoc"
+          },
+          "type": "array"
+        },
+        "name": {
+          "example": "4-2-3-1",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.predictedLineupTeamDoc": {
+      "properties": {
+        "aggregated_stats": {
+          "$ref": "#/definitions/flashscore.lineupAggregatedStatsDoc"
+        },
+        "coaches": {
+          "items": {
+            "$ref": "#/definitions/flashscore.lineupPlayerDoc"
+          },
+          "type": "array"
+        },
+        "formation": {
+          "$ref": "#/definitions/flashscore.predictedFormationDoc"
+        },
+        "groups": {
+          "items": {
+            "$ref": "#/definitions/flashscore.lineupGroupDoc"
+          },
+          "type": "array"
+        },
+        "name": {
+          "example": "Bragantino",
+          "type": "string"
+        },
+        "participant_id": {
+          "example": "2FbjCJan",
+          "type": "string"
+        },
+        "players": {
+          "items": {
+            "$ref": "#/definitions/flashscore.lineupPlayerDoc"
+          },
+          "type": "array"
+        },
+        "side": {
+          "enum": [
+            "home",
+            "away"
+          ],
+          "example": "home",
           "type": "string"
         }
       },
@@ -1523,6 +2971,63 @@
         ]
       }
     },
+    "/flashscore/match-missing-players": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the players listed as missing and as doubtful for each side of a match, with the stated reason. Empty lists are a valid answer: nobody is reported missing, or the match has no coverage. Expected return dates are not provided by the source.",
+        "operationId": "flashscore-match-missing-players",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore match id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "f75igXFG"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.matchMissingPlayersResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore missing and doubtful players",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
     "/flashscore/match-news": {
       "get": {
         "consumes": [
@@ -1569,6 +3074,362 @@
           }
         ],
         "summary": "Flashscore match news references",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/match-odds": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns bookmaker odds for a match in one viewer market, grouped by betting type and scope with every bookmaker's priced outcomes, opening odds, handicap or total lines, and a normalized selection label. Bookmakers and prices depend on the market, so pick geo (and subdivision for US or CA) from flashscore-odds-geos. A market with no licensed bookmakers returns empty lists. Promotional bonus text is not included.",
+        "operationId": "flashscore-match-odds",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore match id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "p0aFxkkn"
+          },
+          {
+            "description": "Viewer market country code from flashscore-odds-geos; defaults to GB",
+            "enum": [
+              "AE",
+              "AL",
+              "AM",
+              "AO",
+              "AR",
+              "AT",
+              "AU",
+              "AZ",
+              "BA",
+              "BD",
+              "BE",
+              "BG",
+              "BO",
+              "BR",
+              "BY",
+              "CA",
+              "CH",
+              "CI",
+              "CL",
+              "CM",
+              "CN",
+              "CO",
+              "CR",
+              "CY",
+              "CZ",
+              "DE",
+              "DK",
+              "DO",
+              "DZ",
+              "EC",
+              "EE",
+              "EG",
+              "ES",
+              "ET",
+              "FI",
+              "FR",
+              "GB",
+              "GE",
+              "GH",
+              "GR",
+              "GT",
+              "HK",
+              "HN",
+              "HR",
+              "HU",
+              "ID",
+              "IE",
+              "IL",
+              "IN",
+              "IQ",
+              "IR",
+              "IS",
+              "IT",
+              "JO",
+              "JP",
+              "KE",
+              "KG",
+              "KH",
+              "KR",
+              "KW",
+              "KZ",
+              "LA",
+              "LB",
+              "LK",
+              "LT",
+              "LU",
+              "LV",
+              "LY",
+              "MA",
+              "MD",
+              "ME",
+              "MK",
+              "MM",
+              "MN",
+              "MT",
+              "MX",
+              "MY",
+              "NG",
+              "NI",
+              "NL",
+              "NO",
+              "NP",
+              "NZ",
+              "PA",
+              "PE",
+              "PH",
+              "PK",
+              "PL",
+              "PT",
+              "PY",
+              "QA",
+              "RO",
+              "RS",
+              "RU",
+              "SA",
+              "SD",
+              "SE",
+              "SG",
+              "SI",
+              "SK",
+              "SN",
+              "SV",
+              "TH",
+              "TN",
+              "TR",
+              "TW",
+              "TZ",
+              "UA",
+              "UG",
+              "US",
+              "UY",
+              "UZ",
+              "VE",
+              "VN",
+              "XK",
+              "ZA",
+              "ZM",
+              "ZW"
+            ],
+            "in": "query",
+            "name": "geo",
+            "type": "string",
+            "x-example": "GB"
+          },
+          {
+            "description": "US state (with geo US) or Canadian province (with geo CA) code from flashscore-odds-geos; rejected with any other geo",
+            "enum": [
+              "AB",
+              "AK",
+              "AL",
+              "AR",
+              "AZ",
+              "BC",
+              "CA",
+              "CO",
+              "CT",
+              "DC",
+              "DE",
+              "FL",
+              "GA",
+              "HI",
+              "IA",
+              "ID",
+              "IL",
+              "IN",
+              "KS",
+              "KY",
+              "LA",
+              "MA",
+              "MB",
+              "MD",
+              "ME",
+              "MI",
+              "MN",
+              "MO",
+              "MS",
+              "MT",
+              "NB",
+              "NC",
+              "ND",
+              "NE",
+              "NH",
+              "NJ",
+              "NL",
+              "NM",
+              "NS",
+              "NT",
+              "NU",
+              "NV",
+              "NY",
+              "OH",
+              "OK",
+              "ON",
+              "OR",
+              "PA",
+              "PE",
+              "QC",
+              "RI",
+              "SC",
+              "SD",
+              "SK",
+              "TN",
+              "TX",
+              "UT",
+              "VA",
+              "VT",
+              "WA",
+              "WI",
+              "WV",
+              "WY",
+              "YT"
+            ],
+            "in": "query",
+            "name": "subdivision",
+            "type": "string",
+            "x-example": "NJ"
+          },
+          {
+            "description": "Optional filter to one betting type",
+            "enum": [
+              "HOME_DRAW_AWAY",
+              "HOME_AWAY",
+              "DRAW_NO_BET",
+              "DOUBLE_CHANCE",
+              "ASIAN_HANDICAP",
+              "EUROPEAN_HANDICAP",
+              "OVER_UNDER",
+              "BOTH_TEAMS_TO_SCORE",
+              "CORRECT_SCORE",
+              "HALF_FULL_TIME",
+              "ODD_OR_EVEN",
+              "TO_QUALIFY",
+              "NEXT_GOAL",
+              "TOP_POSITION_MERGED",
+              "TO_WIN_AND_TOP_POSITION",
+              "WIN_EACH_WAY"
+            ],
+            "in": "query",
+            "name": "betting_type",
+            "type": "string",
+            "x-example": "HOME_DRAW_AWAY"
+          },
+          {
+            "description": "Optional filter to one scope",
+            "enum": [
+              "FULL_TIME",
+              "FULL_TIME_OVER_TIME",
+              "FIRST_HALF",
+              "SECOND_HALF",
+              "FIRST_PERIOD",
+              "FIRST_QUARTER",
+              "FIRST_SET",
+              "SECOND_SET"
+            ],
+            "in": "query",
+            "name": "scope",
+            "type": "string",
+            "x-example": "FULL_TIME"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.matchOddsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore match bookmaker odds comparison",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/match-predicted-lineups": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns each side's predicted formation, predicted starters with position tags and player details, lineup groups, and coaches. Predictions usually appear shortly before kickoff for covered matches; a match with no predicted players on either side returns not found.",
+        "operationId": "flashscore-match-predicted-lineups",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore match id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "f75igXFG"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.matchPredictedLineupsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore predicted lineups",
         "tags": [
           "flashscore"
         ]
@@ -1706,6 +3567,190 @@
           }
         ],
         "summary": "Flashscore match statistics",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/match-tv": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the TV channels and streaming services listed for a match in one viewer market, with provider ids, names and website links. Listings are country specific, so pick geo from flashscore-odds-geos; an empty list means no broadcaster is listed for that market. Bookmaker promotions are not included.",
+        "operationId": "flashscore-match-tv",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore match id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "p0aFxkkn"
+          },
+          {
+            "description": "Viewer market country code from flashscore-odds-geos; defaults to GB",
+            "enum": [
+              "AE",
+              "AL",
+              "AM",
+              "AO",
+              "AR",
+              "AT",
+              "AU",
+              "AZ",
+              "BA",
+              "BD",
+              "BE",
+              "BG",
+              "BO",
+              "BR",
+              "BY",
+              "CA",
+              "CH",
+              "CI",
+              "CL",
+              "CM",
+              "CN",
+              "CO",
+              "CR",
+              "CY",
+              "CZ",
+              "DE",
+              "DK",
+              "DO",
+              "DZ",
+              "EC",
+              "EE",
+              "EG",
+              "ES",
+              "ET",
+              "FI",
+              "FR",
+              "GB",
+              "GE",
+              "GH",
+              "GR",
+              "GT",
+              "HK",
+              "HN",
+              "HR",
+              "HU",
+              "ID",
+              "IE",
+              "IL",
+              "IN",
+              "IQ",
+              "IR",
+              "IS",
+              "IT",
+              "JO",
+              "JP",
+              "KE",
+              "KG",
+              "KH",
+              "KR",
+              "KW",
+              "KZ",
+              "LA",
+              "LB",
+              "LK",
+              "LT",
+              "LU",
+              "LV",
+              "LY",
+              "MA",
+              "MD",
+              "ME",
+              "MK",
+              "MM",
+              "MN",
+              "MT",
+              "MX",
+              "MY",
+              "NG",
+              "NI",
+              "NL",
+              "NO",
+              "NP",
+              "NZ",
+              "PA",
+              "PE",
+              "PH",
+              "PK",
+              "PL",
+              "PT",
+              "PY",
+              "QA",
+              "RO",
+              "RS",
+              "RU",
+              "SA",
+              "SD",
+              "SE",
+              "SG",
+              "SI",
+              "SK",
+              "SN",
+              "SV",
+              "TH",
+              "TN",
+              "TR",
+              "TW",
+              "TZ",
+              "UA",
+              "UG",
+              "US",
+              "UY",
+              "UZ",
+              "VE",
+              "VN",
+              "XK",
+              "ZA",
+              "ZM",
+              "ZW"
+            ],
+            "in": "query",
+            "name": "geo",
+            "type": "string",
+            "x-example": "GB"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.matchTVResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore match TV and streaming broadcasters",
         "tags": [
           "flashscore"
         ]
@@ -1955,6 +4000,263 @@
           }
         ],
         "summary": "Flashscore News categories",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/odds-geos": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Lists every country code accepted by flashscore-match-odds and flashscore-match-tv (with whether bookmakers were found for it when verified), the US states and Canadian provinces that change the bookmaker list, and every betting type, scope and handicap type that can appear in odds responses.",
+        "operationId": "flashscore-odds-geos",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.oddsGeosResponseDoc"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore odds markets, subdivisions and odds enums",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/player": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns a player's public profile: name, country, birth date, sport, photo and current team, plus (for team-sport players) position, age, market value, contract expiry, extra details such as height, and career statistics by season, team and competition grouped into league, domestic cups, international cups and national team. Players of individual sports such as tennis return the profile (and ranking text) without a career table.",
+        "operationId": "flashscore-player",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore player id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "UmV9iQmE"
+          },
+          {
+            "description": "Optional player slug; must match the id when supplied",
+            "in": "query",
+            "name": "slug",
+            "type": "string",
+            "x-example": "haaland-erling"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/flashscore.PlayerResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore player profile and career",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/player-injuries": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns a team-sport player's injury history, newest first, with start date, end date (absent while unresolved) and injury type. A player with no recorded injuries returns an empty list. Players of individual sports have no injury page and return not found.",
+        "operationId": "flashscore-player-injuries",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore player id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "UmV9iQmE"
+          },
+          {
+            "description": "Optional player slug; must match the id when supplied",
+            "in": "query",
+            "name": "slug",
+            "type": "string",
+            "x-example": "haaland-erling"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/flashscore.PlayerInjuriesResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore player injury history",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/player-transfers": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns a team-sport player's club history, newest first, with date, type such as Loan or Free agent, fee text and the clubs on each side. A player with no recorded transfers returns an empty list. Players of individual sports have no transfers page and return not found.",
+        "operationId": "flashscore-player-transfers",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore player id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "UmV9iQmE"
+          },
+          {
+            "description": "Optional player slug; must match the id when supplied",
+            "in": "query",
+            "name": "slug",
+            "type": "string",
+            "x-example": "haaland-erling"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/flashscore.PlayerTransfersResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore player transfer history",
         "tags": [
           "flashscore"
         ]
@@ -2269,6 +4571,473 @@
           }
         ],
         "summary": "Flashscore sports and live category counts",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/team": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns a team's public profile: name, country, sport, logo, the stadium and capacity shown on its summary page, and the competitions of its recent and upcoming fixtures. Use a team id from flashscore-search, a Flashscore team URL, a match endpoint's team ids, or flashscore-team-squad and flashscore-player. A player id returns not found.",
+        "operationId": "flashscore-team",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore team id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "Wtn9Stg0"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/flashscore.TeamResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore team profile",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/team-fixtures": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one page of a team's upcoming matches, soonest first, as structured events with start time, both sides and competition. Event ids work with the flashscore match endpoints. Request successive pages until event_count is 0; a page past the end returns an empty list.",
+        "operationId": "flashscore-team-fixtures",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore team id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "Wtn9Stg0"
+          },
+          {
+            "description": "1-based page from 1 to 300; defaults to 1",
+            "in": "query",
+            "maximum": 300,
+            "minimum": 1,
+            "name": "page",
+            "type": "integer",
+            "x-example": 1
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/flashscore.TeamEventsResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore team fixtures",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/team-news": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns up to 100 recent headlines that Flashscore aggregates from news publishers for a team: title, publisher, publication time, image and a Flashscore link that redirects to the publisher's article. These are third-party headlines, separate from Flashscore's own articles in flashscore-news. Article text is not included.",
+        "operationId": "flashscore-team-news",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore team id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "Wtn9Stg0"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/flashscore.TeamNewsResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore team news headlines",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/team-results": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one page of a team's finished and in-progress matches, newest first, as structured events with start time, stage, both sides, score and competition. Event ids work with the flashscore match endpoints. Request successive pages until event_count is 0; a page past the end returns an empty list.",
+        "operationId": "flashscore-team-results",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore team id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "Wtn9Stg0"
+          },
+          {
+            "description": "1-based page from 1 to 300; defaults to 1",
+            "in": "query",
+            "maximum": 300,
+            "minimum": 1,
+            "name": "page",
+            "type": "integer",
+            "x-example": 1
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/flashscore.TeamEventsResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore team results",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/team-squad": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns a team's squad grouped by position (goalkeepers, defenders, and so on, plus the coach) with each person's jersey number, age, country (or club, for national teams), injury or absence note and season statistics. The default scope totals all competitions; the scopes list in every response names the per-competition scopes accepted by the scope parameter. Sports without a squad page return not found.",
+        "operationId": "flashscore-team-squad",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore team id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "Wtn9Stg0"
+          },
+          {
+            "description": "Optional team slug; must match the id when supplied",
+            "in": "query",
+            "name": "slug",
+            "type": "string",
+            "x-example": "manchester-city"
+          },
+          {
+            "description": "Squad statistics scope key from the scopes list of a previous response (for example overall-all or league-SY30SsKF); defaults to overall-all",
+            "in": "query",
+            "name": "scope",
+            "type": "string",
+            "x-example": "overall-all"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/flashscore.TeamSquadResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore team squad",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/team-transfers": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one page (30 rows) of a team's transfer history, newest first: date, direction (in or out), type such as Loan or Transfer, fee text, the player and the clubs on each side. Filter by type to see arrivals or departures only. Request successive pages until transfer_count is 0.",
+        "operationId": "flashscore-team-transfers",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore team id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "Wtn9Stg0"
+          },
+          {
+            "description": "Transfer direction filter; defaults to all",
+            "enum": [
+              "all",
+              "arrivals",
+              "departures"
+            ],
+            "in": "query",
+            "name": "type",
+            "type": "string",
+            "x-example": "all"
+          },
+          {
+            "description": "1-based page from 1 to 300; defaults to 1",
+            "in": "query",
+            "maximum": 300,
+            "minimum": 1,
+            "name": "page",
+            "type": "integer",
+            "x-example": 1
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/flashscore.TeamTransfersResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore team transfers",
         "tags": [
           "flashscore"
         ]

@@ -225,6 +225,32 @@ export const operations = {
       "ApiKeyAuth"
     ]
   },
+  "flashscore-match-missing-players": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "flashscore-match-missing-players",
+    "method": "GET",
+    "path": "/flashscore/match-missing-players",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
   "flashscore-match-news": {
     "bodyParam": null,
     "bodyRequired": false,
@@ -235,6 +261,292 @@ export const operations = {
     "id": "flashscore-match-news",
     "method": "GET",
     "path": "/flashscore/match-news",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "flashscore-match-odds": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "flashscore-match-odds",
+    "method": "GET",
+    "path": "/flashscore/match-odds",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "enum": [
+          "AE",
+          "AL",
+          "AM",
+          "AO",
+          "AR",
+          "AT",
+          "AU",
+          "AZ",
+          "BA",
+          "BD",
+          "BE",
+          "BG",
+          "BO",
+          "BR",
+          "BY",
+          "CA",
+          "CH",
+          "CI",
+          "CL",
+          "CM",
+          "CN",
+          "CO",
+          "CR",
+          "CY",
+          "CZ",
+          "DE",
+          "DK",
+          "DO",
+          "DZ",
+          "EC",
+          "EE",
+          "EG",
+          "ES",
+          "ET",
+          "FI",
+          "FR",
+          "GB",
+          "GE",
+          "GH",
+          "GR",
+          "GT",
+          "HK",
+          "HN",
+          "HR",
+          "HU",
+          "ID",
+          "IE",
+          "IL",
+          "IN",
+          "IQ",
+          "IR",
+          "IS",
+          "IT",
+          "JO",
+          "JP",
+          "KE",
+          "KG",
+          "KH",
+          "KR",
+          "KW",
+          "KZ",
+          "LA",
+          "LB",
+          "LK",
+          "LT",
+          "LU",
+          "LV",
+          "LY",
+          "MA",
+          "MD",
+          "ME",
+          "MK",
+          "MM",
+          "MN",
+          "MT",
+          "MX",
+          "MY",
+          "NG",
+          "NI",
+          "NL",
+          "NO",
+          "NP",
+          "NZ",
+          "PA",
+          "PE",
+          "PH",
+          "PK",
+          "PL",
+          "PT",
+          "PY",
+          "QA",
+          "RO",
+          "RS",
+          "RU",
+          "SA",
+          "SD",
+          "SE",
+          "SG",
+          "SI",
+          "SK",
+          "SN",
+          "SV",
+          "TH",
+          "TN",
+          "TR",
+          "TW",
+          "TZ",
+          "UA",
+          "UG",
+          "US",
+          "UY",
+          "UZ",
+          "VE",
+          "VN",
+          "XK",
+          "ZA",
+          "ZM",
+          "ZW"
+        ],
+        "in": "query",
+        "name": "geo",
+        "type": "string"
+      },
+      {
+        "enum": [
+          "AB",
+          "AK",
+          "AL",
+          "AR",
+          "AZ",
+          "BC",
+          "CA",
+          "CO",
+          "CT",
+          "DC",
+          "DE",
+          "FL",
+          "GA",
+          "HI",
+          "IA",
+          "ID",
+          "IL",
+          "IN",
+          "KS",
+          "KY",
+          "LA",
+          "MA",
+          "MB",
+          "MD",
+          "ME",
+          "MI",
+          "MN",
+          "MO",
+          "MS",
+          "MT",
+          "NB",
+          "NC",
+          "ND",
+          "NE",
+          "NH",
+          "NJ",
+          "NL",
+          "NM",
+          "NS",
+          "NT",
+          "NU",
+          "NV",
+          "NY",
+          "OH",
+          "OK",
+          "ON",
+          "OR",
+          "PA",
+          "PE",
+          "QC",
+          "RI",
+          "SC",
+          "SD",
+          "SK",
+          "TN",
+          "TX",
+          "UT",
+          "VA",
+          "VT",
+          "WA",
+          "WI",
+          "WV",
+          "WY",
+          "YT"
+        ],
+        "in": "query",
+        "name": "subdivision",
+        "type": "string"
+      },
+      {
+        "enum": [
+          "HOME_DRAW_AWAY",
+          "HOME_AWAY",
+          "DRAW_NO_BET",
+          "DOUBLE_CHANCE",
+          "ASIAN_HANDICAP",
+          "EUROPEAN_HANDICAP",
+          "OVER_UNDER",
+          "BOTH_TEAMS_TO_SCORE",
+          "CORRECT_SCORE",
+          "HALF_FULL_TIME",
+          "ODD_OR_EVEN",
+          "TO_QUALIFY",
+          "NEXT_GOAL",
+          "TOP_POSITION_MERGED",
+          "TO_WIN_AND_TOP_POSITION",
+          "WIN_EACH_WAY"
+        ],
+        "in": "query",
+        "name": "betting_type",
+        "type": "string"
+      },
+      {
+        "enum": [
+          "FULL_TIME",
+          "FULL_TIME_OVER_TIME",
+          "FIRST_HALF",
+          "SECOND_HALF",
+          "FIRST_PERIOD",
+          "FIRST_QUARTER",
+          "FIRST_SET",
+          "SECOND_SET"
+        ],
+        "in": "query",
+        "name": "scope",
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "flashscore-match-predicted-lineups": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "flashscore-match-predicted-lineups",
+    "method": "GET",
+    "path": "/flashscore/match-predicted-lineups",
     "pathParams": [],
     "produces": [
       "application/json"
@@ -317,6 +629,157 @@ export const operations = {
         "in": "query",
         "name": "id",
         "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "flashscore-match-tv": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "flashscore-match-tv",
+    "method": "GET",
+    "path": "/flashscore/match-tv",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "enum": [
+          "AE",
+          "AL",
+          "AM",
+          "AO",
+          "AR",
+          "AT",
+          "AU",
+          "AZ",
+          "BA",
+          "BD",
+          "BE",
+          "BG",
+          "BO",
+          "BR",
+          "BY",
+          "CA",
+          "CH",
+          "CI",
+          "CL",
+          "CM",
+          "CN",
+          "CO",
+          "CR",
+          "CY",
+          "CZ",
+          "DE",
+          "DK",
+          "DO",
+          "DZ",
+          "EC",
+          "EE",
+          "EG",
+          "ES",
+          "ET",
+          "FI",
+          "FR",
+          "GB",
+          "GE",
+          "GH",
+          "GR",
+          "GT",
+          "HK",
+          "HN",
+          "HR",
+          "HU",
+          "ID",
+          "IE",
+          "IL",
+          "IN",
+          "IQ",
+          "IR",
+          "IS",
+          "IT",
+          "JO",
+          "JP",
+          "KE",
+          "KG",
+          "KH",
+          "KR",
+          "KW",
+          "KZ",
+          "LA",
+          "LB",
+          "LK",
+          "LT",
+          "LU",
+          "LV",
+          "LY",
+          "MA",
+          "MD",
+          "ME",
+          "MK",
+          "MM",
+          "MN",
+          "MT",
+          "MX",
+          "MY",
+          "NG",
+          "NI",
+          "NL",
+          "NO",
+          "NP",
+          "NZ",
+          "PA",
+          "PE",
+          "PH",
+          "PK",
+          "PL",
+          "PT",
+          "PY",
+          "QA",
+          "RO",
+          "RS",
+          "RU",
+          "SA",
+          "SD",
+          "SE",
+          "SG",
+          "SI",
+          "SK",
+          "SN",
+          "SV",
+          "TH",
+          "TN",
+          "TR",
+          "TW",
+          "TZ",
+          "UA",
+          "UG",
+          "US",
+          "UY",
+          "UZ",
+          "VE",
+          "VN",
+          "XK",
+          "ZA",
+          "ZM",
+          "ZW"
+        ],
+        "in": "query",
+        "name": "geo",
         "type": "string"
       }
     ],
@@ -463,6 +926,118 @@ export const operations = {
       "application/json"
     ],
     "queryParams": [],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "flashscore-odds-geos": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "flashscore-odds-geos",
+    "method": "GET",
+    "path": "/flashscore/odds-geos",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "flashscore-player": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "flashscore-player",
+    "method": "GET",
+    "path": "/flashscore/player",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "slug",
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "flashscore-player-injuries": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "flashscore-player-injuries",
+    "method": "GET",
+    "path": "/flashscore/player-injuries",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "slug",
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "flashscore-player-transfers": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "flashscore-player-transfers",
+    "method": "GET",
+    "path": "/flashscore/player-transfers",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "slug",
+        "type": "string"
+      }
+    ],
     "security": [
       "ApiKeyAuth"
     ]
@@ -662,6 +1237,200 @@ export const operations = {
       "ApiKeyAuth"
     ]
   },
+  "flashscore-team": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "flashscore-team",
+    "method": "GET",
+    "path": "/flashscore/team",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "flashscore-team-fixtures": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "flashscore-team-fixtures",
+    "method": "GET",
+    "paginatable": true,
+    "path": "/flashscore/team-fixtures",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "page",
+        "type": "integer"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "flashscore-team-news": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "flashscore-team-news",
+    "method": "GET",
+    "path": "/flashscore/team-news",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "flashscore-team-results": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "flashscore-team-results",
+    "method": "GET",
+    "paginatable": true,
+    "path": "/flashscore/team-results",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "page",
+        "type": "integer"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "flashscore-team-squad": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "flashscore-team-squad",
+    "method": "GET",
+    "path": "/flashscore/team-squad",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "slug",
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "scope",
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "flashscore-team-transfers": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "flashscore-team-transfers",
+    "method": "GET",
+    "paginatable": true,
+    "path": "/flashscore/team-transfers",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "enum": [
+          "all",
+          "arrivals",
+          "departures"
+        ],
+        "in": "query",
+        "name": "type",
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "page",
+        "type": "integer"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
   "flashscore-top-search": {
     "bodyParam": null,
     "bodyRequired": false,
@@ -822,18 +1591,32 @@ export const groups = {
     "matchHighlights": "flashscore-match-highlights",
     "matchInfo": "flashscore-match-info",
     "matchLineups": "flashscore-match-lineups",
+    "matchMissingPlayers": "flashscore-match-missing-players",
     "matchNews": "flashscore-match-news",
+    "matchOdds": "flashscore-match-odds",
+    "matchPredictedLineups": "flashscore-match-predicted-lineups",
     "matchStandings": "flashscore-match-standings",
     "matchStats": "flashscore-match-stats",
+    "matchTv": "flashscore-match-tv",
     "navigation": "flashscore-navigation",
     "news": "flashscore-news",
     "newsArticle": "flashscore-news-article",
     "newsCategories": "flashscore-news-categories",
+    "oddsGeos": "flashscore-odds-geos",
+    "player": "flashscore-player",
+    "playerInjuries": "flashscore-player-injuries",
+    "playerTransfers": "flashscore-player-transfers",
     "rankingCategories": "flashscore-ranking-categories",
     "rankings": "flashscore-rankings",
     "scores": "flashscore-scores",
     "search": "flashscore-search",
     "sports": "flashscore-sports",
+    "team": "flashscore-team",
+    "teamFixtures": "flashscore-team-fixtures",
+    "teamNews": "flashscore-team-news",
+    "teamResults": "flashscore-team-results",
+    "teamSquad": "flashscore-team-squad",
+    "teamTransfers": "flashscore-team-transfers",
     "topSearch": "flashscore-top-search",
     "tournamentEvents": "flashscore-tournament-events",
     "tournamentSeasons": "flashscore-tournament-seasons",
@@ -842,7 +1625,7 @@ export const groups = {
   }
 };
 
-export const operationCount = 24;
+export const operationCount = 38;
 
 export const OperationIds = Object.freeze({
   "FlashscoreCalendar": "flashscore-calendar",
@@ -852,18 +1635,32 @@ export const OperationIds = Object.freeze({
   "FlashscoreMatchHighlights": "flashscore-match-highlights",
   "FlashscoreMatchInfo": "flashscore-match-info",
   "FlashscoreMatchLineups": "flashscore-match-lineups",
+  "FlashscoreMatchMissingPlayers": "flashscore-match-missing-players",
   "FlashscoreMatchNews": "flashscore-match-news",
+  "FlashscoreMatchOdds": "flashscore-match-odds",
+  "FlashscoreMatchPredictedLineups": "flashscore-match-predicted-lineups",
   "FlashscoreMatchStandings": "flashscore-match-standings",
   "FlashscoreMatchStats": "flashscore-match-stats",
+  "FlashscoreMatchTv": "flashscore-match-tv",
   "FlashscoreNavigation": "flashscore-navigation",
   "FlashscoreNews": "flashscore-news",
   "FlashscoreNewsArticle": "flashscore-news-article",
   "FlashscoreNewsCategories": "flashscore-news-categories",
+  "FlashscoreOddsGeos": "flashscore-odds-geos",
+  "FlashscorePlayer": "flashscore-player",
+  "FlashscorePlayerInjuries": "flashscore-player-injuries",
+  "FlashscorePlayerTransfers": "flashscore-player-transfers",
   "FlashscoreRankingCategories": "flashscore-ranking-categories",
   "FlashscoreRankings": "flashscore-rankings",
   "FlashscoreScores": "flashscore-scores",
   "FlashscoreSearch": "flashscore-search",
   "FlashscoreSports": "flashscore-sports",
+  "FlashscoreTeam": "flashscore-team",
+  "FlashscoreTeamFixtures": "flashscore-team-fixtures",
+  "FlashscoreTeamNews": "flashscore-team-news",
+  "FlashscoreTeamResults": "flashscore-team-results",
+  "FlashscoreTeamSquad": "flashscore-team-squad",
+  "FlashscoreTeamTransfers": "flashscore-team-transfers",
   "FlashscoreTopSearch": "flashscore-top-search",
   "FlashscoreTournamentEvents": "flashscore-tournament-events",
   "FlashscoreTournamentSeasons": "flashscore-tournament-seasons",

@@ -22,7 +22,7 @@ import java.util.TreeSet;
 /** Client for the Flashscore endpoints hosted by Crawlora. */
 public final class Client implements AutoCloseable {
     public static final String DEFAULT_BASE_URL = "https://api.crawlora.net/api/v1";
-    public static final int OPERATION_COUNT = 24;
+    public static final int OPERATION_COUNT = 38;
     public static final List<String> OPERATION_IDS = List.of(
             "flashscore-calendar",
             "flashscore-calendar-categories",
@@ -31,18 +31,32 @@ public final class Client implements AutoCloseable {
             "flashscore-match-highlights",
             "flashscore-match-info",
             "flashscore-match-lineups",
+            "flashscore-match-missing-players",
             "flashscore-match-news",
+            "flashscore-match-odds",
+            "flashscore-match-predicted-lineups",
             "flashscore-match-standings",
             "flashscore-match-stats",
+            "flashscore-match-tv",
             "flashscore-navigation",
             "flashscore-news",
             "flashscore-news-article",
             "flashscore-news-categories",
+            "flashscore-odds-geos",
+            "flashscore-player",
+            "flashscore-player-injuries",
+            "flashscore-player-transfers",
             "flashscore-ranking-categories",
             "flashscore-rankings",
             "flashscore-scores",
             "flashscore-search",
             "flashscore-sports",
+            "flashscore-team",
+            "flashscore-team-fixtures",
+            "flashscore-team-news",
+            "flashscore-team-results",
+            "flashscore-team-squad",
+            "flashscore-team-transfers",
             "flashscore-top-search",
             "flashscore-tournament-events",
             "flashscore-tournament-seasons",
@@ -60,18 +74,32 @@ public final class Client implements AutoCloseable {
         operations.put("flashscore-match-highlights", new Operation("flashscore-match-highlights", "GET", "/flashscore/match-highlights", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-match-info", new Operation("flashscore-match-info", "GET", "/flashscore/match-info", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-match-lineups", new Operation("flashscore-match-lineups", "GET", "/flashscore/match-lineups", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("flashscore-match-missing-players", new Operation("flashscore-match-missing-players", "GET", "/flashscore/match-missing-players", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-match-news", new Operation("flashscore-match-news", "GET", "/flashscore/match-news", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("flashscore-match-odds", new Operation("flashscore-match-odds", "GET", "/flashscore/match-odds", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("geo", new Param("geo", "query", false, "string", List.of("AE", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BD", "BE", "BG", "BO", "BR", "BY", "CA", "CH", "CI", "CL", "CM", "CN", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "ET", "FI", "FR", "GB", "GE", "GH", "GR", "GT", "HK", "HN", "HR", "HU", "ID", "IE", "IL", "IN", "IQ", "IR", "IS", "IT", "JO", "JP", "KE", "KG", "KH", "KR", "KW", "KZ", "LA", "LB", "LK", "LT", "LU", "LV", "LY", "MA", "MD", "ME", "MK", "MM", "MN", "MT", "MX", "MY", "NG", "NI", "NL", "NO", "NP", "NZ", "PA", "PE", "PH", "PK", "PL", "PT", "PY", "QA", "RO", "RS", "RU", "SA", "SD", "SE", "SG", "SI", "SK", "SN", "SV", "TH", "TN", "TR", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VE", "VN", "XK", "ZA", "ZM", "ZW"), "csv")), Map.entry("subdivision", new Param("subdivision", "query", false, "string", List.of("AB", "AK", "AL", "AR", "AZ", "BC", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MB", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NB", "NC", "ND", "NE", "NH", "NJ", "NL", "NM", "NS", "NT", "NU", "NV", "NY", "OH", "OK", "ON", "OR", "PA", "PE", "QC", "RI", "SC", "SD", "SK", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY", "YT"), "csv")), Map.entry("betting_type", new Param("betting_type", "query", false, "string", List.of("HOME_DRAW_AWAY", "HOME_AWAY", "DRAW_NO_BET", "DOUBLE_CHANCE", "ASIAN_HANDICAP", "EUROPEAN_HANDICAP", "OVER_UNDER", "BOTH_TEAMS_TO_SCORE", "CORRECT_SCORE", "HALF_FULL_TIME", "ODD_OR_EVEN", "TO_QUALIFY", "NEXT_GOAL", "TOP_POSITION_MERGED", "TO_WIN_AND_TOP_POSITION", "WIN_EACH_WAY"), "csv")), Map.entry("scope", new Param("scope", "query", false, "string", List.of("FULL_TIME", "FULL_TIME_OVER_TIME", "FIRST_HALF", "SECOND_HALF", "FIRST_PERIOD", "FIRST_QUARTER", "FIRST_SET", "SECOND_SET"), "csv"))), List.of("application/json")));
+        operations.put("flashscore-match-predicted-lineups", new Operation("flashscore-match-predicted-lineups", "GET", "/flashscore/match-predicted-lineups", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-match-standings", new Operation("flashscore-match-standings", "GET", "/flashscore/match-standings", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("view", new Param("view", "query", false, "string", List.of("overall", "home", "away", "form_overall", "overunder_overall", "form_home", "form_away", "top_scorers", "htft_overall", "htft_home", "htft_away", "live_overall", "overunder_home", "overunder_away"), "csv"))), List.of("application/json")));
         operations.put("flashscore-match-stats", new Operation("flashscore-match-stats", "GET", "/flashscore/match-stats", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("flashscore-match-tv", new Operation("flashscore-match-tv", "GET", "/flashscore/match-tv", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("geo", new Param("geo", "query", false, "string", List.of("AE", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BD", "BE", "BG", "BO", "BR", "BY", "CA", "CH", "CI", "CL", "CM", "CN", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "ET", "FI", "FR", "GB", "GE", "GH", "GR", "GT", "HK", "HN", "HR", "HU", "ID", "IE", "IL", "IN", "IQ", "IR", "IS", "IT", "JO", "JP", "KE", "KG", "KH", "KR", "KW", "KZ", "LA", "LB", "LK", "LT", "LU", "LV", "LY", "MA", "MD", "ME", "MK", "MM", "MN", "MT", "MX", "MY", "NG", "NI", "NL", "NO", "NP", "NZ", "PA", "PE", "PH", "PK", "PL", "PT", "PY", "QA", "RO", "RS", "RU", "SA", "SD", "SE", "SG", "SI", "SK", "SN", "SV", "TH", "TN", "TR", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VE", "VN", "XK", "ZA", "ZM", "ZW"), "csv"))), List.of("application/json")));
         operations.put("flashscore-navigation", new Operation("flashscore-navigation", "GET", "/flashscore/navigation", Map.ofEntries(Map.entry("path", new Param("path", "query", false, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-news", new Operation("flashscore-news", "GET", "/flashscore/news", Map.ofEntries(Map.entry("category", new Param("category", "query", false, "string", List.of("all", "football", "uefa-nations-league", "tennis", "features", "premier-league", "nfl", "mlb", "nba", "nhl", "formula-1", "champions-league", "europa-league", "conference-league", "darts", "snooker", "golf", "road-cycling", "laliga", "bundesliga", "serie-a", "ligue-1", "badminton", "handball", "hockey", "basketball", "cricket", "rugby-union", "athletics", "baseball", "fifa", "rugby-league", "motorsport", "aussie-rules", "flashscore-ratings", "american-sports", "african-football", "combat-sports", "winter-sports", "transfer-news"), "csv")), Map.entry("page", new Param("page", "query", false, "integer", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-news-article", new Operation("flashscore-news-article", "GET", "/flashscore/news-article", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-news-categories", new Operation("flashscore-news-categories", "GET", "/flashscore/news-categories", Map.of(), List.of("application/json")));
+        operations.put("flashscore-odds-geos", new Operation("flashscore-odds-geos", "GET", "/flashscore/odds-geos", Map.of(), List.of("application/json")));
+        operations.put("flashscore-player", new Operation("flashscore-player", "GET", "/flashscore/player", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("slug", new Param("slug", "query", false, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("flashscore-player-injuries", new Operation("flashscore-player-injuries", "GET", "/flashscore/player-injuries", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("slug", new Param("slug", "query", false, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("flashscore-player-transfers", new Operation("flashscore-player-transfers", "GET", "/flashscore/player-transfers", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("slug", new Param("slug", "query", false, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-ranking-categories", new Operation("flashscore-ranking-categories", "GET", "/flashscore/ranking-categories", Map.of(), List.of("application/json")));
         operations.put("flashscore-rankings", new Operation("flashscore-rankings", "GET", "/flashscore/rankings", Map.ofEntries(Map.entry("category", new Param("category", "query", true, "string", List.of("fifa", "tennis-atp", "tennis-wta", "tennis-atp-race", "tennis-wta-race", "tennis-atp-doubles", "tennis-wta-doubles", "tennis-atp-doubles-race", "tennis-wta-doubles-race", "badminton-bwf-singles-men", "badminton-bwf-singles-women", "badminton-bwf-doubles-men", "badminton-bwf-doubles-women", "badminton-bwf-mixed-doubles", "golf-owgr", "golf-wwgr", "golf-pga-fedexcup", "golf-pga-money", "golf-dp-world-tour", "golf-lpga", "golf-asian-tour", "golf-japan-tour", "golf-sunshine-tour", "golf-korn-ferry", "golf-champions-tour", "darts-world-ranking", "snooker-world-ranking", "tennis-atp-live", "tennis-wta-live", "tennis-atp-race-live", "tennis-wta-race-live", "tennis-atp-doubles-live", "tennis-wta-doubles-live", "tennis-atp-doubles-race-live", "tennis-wta-doubles-race-live"), "csv"))), List.of("application/json")));
         operations.put("flashscore-scores", new Operation("flashscore-scores", "GET", "/flashscore/scores", Map.ofEntries(Map.entry("sport", new Param("sport", "query", true, "string", List.of("football", "tennis", "basketball", "hockey", "golf", "formula-1", "baseball", "snooker", "american-football", "aussie-rules", "badminton", "bandy", "beach-soccer", "beach-volleyball", "boxing", "cricket", "cycling", "darts", "esports", "field-hockey", "floorball", "futsal", "handball", "horse-racing", "kabaddi", "mma", "motorsport", "netball", "pesapallo", "rugby-league", "rugby-union", "table-tennis", "volleyball", "water-polo", "winter-sports"), "csv")), Map.entry("day_offset", new Param("day_offset", "query", false, "integer", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-search", new Operation("flashscore-search", "GET", "/flashscore/search", Map.ofEntries(Map.entry("q", new Param("q", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-sports", new Operation("flashscore-sports", "GET", "/flashscore/sports", Map.of(), List.of("application/json")));
+        operations.put("flashscore-team", new Operation("flashscore-team", "GET", "/flashscore/team", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("flashscore-team-fixtures", new Operation("flashscore-team-fixtures", "GET", "/flashscore/team-fixtures", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("page", new Param("page", "query", false, "integer", List.of(), "csv"))), List.of("application/json")));
+        operations.put("flashscore-team-news", new Operation("flashscore-team-news", "GET", "/flashscore/team-news", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("flashscore-team-results", new Operation("flashscore-team-results", "GET", "/flashscore/team-results", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("page", new Param("page", "query", false, "integer", List.of(), "csv"))), List.of("application/json")));
+        operations.put("flashscore-team-squad", new Operation("flashscore-team-squad", "GET", "/flashscore/team-squad", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("slug", new Param("slug", "query", false, "string", List.of(), "csv")), Map.entry("scope", new Param("scope", "query", false, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("flashscore-team-transfers", new Operation("flashscore-team-transfers", "GET", "/flashscore/team-transfers", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("type", new Param("type", "query", false, "string", List.of("all", "arrivals", "departures"), "csv")), Map.entry("page", new Param("page", "query", false, "integer", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-top-search", new Operation("flashscore-top-search", "GET", "/flashscore/top-search", Map.of(), List.of("application/json")));
         operations.put("flashscore-tournament-events", new Operation("flashscore-tournament-events", "GET", "/flashscore/tournament-events", Map.ofEntries(Map.entry("path", new Param("path", "query", true, "string", List.of(), "csv")), Map.entry("page", new Param("page", "query", false, "integer", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-tournament-seasons", new Operation("flashscore-tournament-seasons", "GET", "/flashscore/tournament-seasons", Map.ofEntries(Map.entry("path", new Param("path", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
@@ -174,18 +202,32 @@ public final class Client implements AutoCloseable {
     public Object matchHighlights(Map<String, ?> params) { return request("flashscore-match-highlights", params); }
     public Object matchInfo(Map<String, ?> params) { return request("flashscore-match-info", params); }
     public Object matchLineups(Map<String, ?> params) { return request("flashscore-match-lineups", params); }
+    public Object matchMissingPlayers(Map<String, ?> params) { return request("flashscore-match-missing-players", params); }
     public Object matchNews(Map<String, ?> params) { return request("flashscore-match-news", params); }
+    public Object matchOdds(Map<String, ?> params) { return request("flashscore-match-odds", params); }
+    public Object matchPredictedLineups(Map<String, ?> params) { return request("flashscore-match-predicted-lineups", params); }
     public Object matchStandings(Map<String, ?> params) { return request("flashscore-match-standings", params); }
     public Object matchStats(Map<String, ?> params) { return request("flashscore-match-stats", params); }
+    public Object matchTv(Map<String, ?> params) { return request("flashscore-match-tv", params); }
     public Object navigation(Map<String, ?> params) { return request("flashscore-navigation", params); }
     public Object news(Map<String, ?> params) { return request("flashscore-news", params); }
     public Object newsArticle(Map<String, ?> params) { return request("flashscore-news-article", params); }
     public Object newsCategories(Map<String, ?> params) { return request("flashscore-news-categories", params); }
+    public Object oddsGeos(Map<String, ?> params) { return request("flashscore-odds-geos", params); }
+    public Object player(Map<String, ?> params) { return request("flashscore-player", params); }
+    public Object playerInjuries(Map<String, ?> params) { return request("flashscore-player-injuries", params); }
+    public Object playerTransfers(Map<String, ?> params) { return request("flashscore-player-transfers", params); }
     public Object rankingCategories(Map<String, ?> params) { return request("flashscore-ranking-categories", params); }
     public Object rankings(Map<String, ?> params) { return request("flashscore-rankings", params); }
     public Object scores(Map<String, ?> params) { return request("flashscore-scores", params); }
     public Object search(Map<String, ?> params) { return request("flashscore-search", params); }
     public Object sports(Map<String, ?> params) { return request("flashscore-sports", params); }
+    public Object team(Map<String, ?> params) { return request("flashscore-team", params); }
+    public Object teamFixtures(Map<String, ?> params) { return request("flashscore-team-fixtures", params); }
+    public Object teamNews(Map<String, ?> params) { return request("flashscore-team-news", params); }
+    public Object teamResults(Map<String, ?> params) { return request("flashscore-team-results", params); }
+    public Object teamSquad(Map<String, ?> params) { return request("flashscore-team-squad", params); }
+    public Object teamTransfers(Map<String, ?> params) { return request("flashscore-team-transfers", params); }
     public Object topSearch(Map<String, ?> params) { return request("flashscore-top-search", params); }
     public Object tournamentEvents(Map<String, ?> params) { return request("flashscore-tournament-events", params); }
     public Object tournamentSeasons(Map<String, ?> params) { return request("flashscore-tournament-seasons", params); }
