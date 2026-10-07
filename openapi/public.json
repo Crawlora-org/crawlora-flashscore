@@ -1,0 +1,2588 @@
+{
+  "basePath": "/api/v1",
+  "definitions": {
+    "app.Response": {
+      "description": "The Response struct is used for wrapping the API response with a code, message, and data.",
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "description": "Data is the response data (can be any object or null)\n@example {\"id\": 1, \"name\": \"John Doe\"}"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.calendarCategoriesDataDoc": {
+      "properties": {
+        "categories": {
+          "items": {
+            "$ref": "#/definitions/flashscore.calendarCategoryDoc"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://www.flashscore.com/",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.calendarCategoriesResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.calendarCategoriesDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.calendarCategoryDoc": {
+      "properties": {
+        "key": {
+          "example": "tennis-atp",
+          "type": "string"
+        },
+        "name": {
+          "example": "ATP Tour Calendar",
+          "type": "string"
+        },
+        "path": {
+          "example": "/tennis/calendar/atp/",
+          "type": "string"
+        },
+        "sport": {
+          "example": "tennis",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.calendarDataDoc": {
+      "properties": {
+        "category": {
+          "$ref": "#/definitions/flashscore.calendarCategoryDoc"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/definitions/flashscore.calendarEventDoc"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://www.flashscore.com/tennis/calendar/atp/",
+          "type": "string"
+        },
+        "year": {
+          "example": 2026,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.calendarEventDoc": {
+      "properties": {
+        "date": {
+          "example": "12.01.",
+          "type": "string"
+        },
+        "month": {
+          "example": "January 2026",
+          "type": "string"
+        },
+        "name": {
+          "example": "Australian Open",
+          "type": "string"
+        },
+        "path": {
+          "example": "/tennis/australia/atp-australian-open/",
+          "type": "string"
+        },
+        "winner": {
+          "example": "Jannik Sinner",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.calendarResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.calendarDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.competitionDoc": {
+      "properties": {
+        "event_count": {
+          "example": 10,
+          "type": "integer"
+        },
+        "id": {
+          "example": "8bP2bXmH",
+          "type": "string"
+        },
+        "name": {
+          "example": "AFRICA: Africa Cup of Nations - Qualification",
+          "type": "string"
+        },
+        "path": {
+          "example": "/football/africa/africa-cup-of-nations/",
+          "type": "string"
+        },
+        "region": {
+          "example": "Africa",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.competitionsDataDoc": {
+      "properties": {
+        "competitions": {
+          "items": {
+            "$ref": "#/definitions/flashscore.competitionDoc"
+          },
+          "type": "array"
+        },
+        "day_offset": {
+          "example": 0,
+          "type": "integer"
+        },
+        "source_url": {
+          "example": "https://global.flashscore.ninja/2/x/feed/f_1_0_8_en_1",
+          "type": "string"
+        },
+        "sport": {
+          "example": "football",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.competitionsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.competitionsDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.matchNewsArticleRefDoc": {
+      "properties": {
+        "article": {
+          "$ref": "#/definitions/flashscore.matchNewsArticleSortKeyDoc"
+        },
+        "id": {
+          "example": "GYDHQ2yR",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.matchNewsArticleSortKeyDoc": {
+      "properties": {
+        "sort_key": {
+          "example": 1790163122,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.matchNewsDataDoc": {
+      "properties": {
+        "layout_id": {
+          "example": 80103,
+          "type": "integer"
+        },
+        "match_id": {
+          "example": "xtmHKGT0",
+          "type": "string"
+        },
+        "name": {
+          "example": "Default EVENT layout",
+          "type": "string"
+        },
+        "sections": {
+          "items": {
+            "$ref": "#/definitions/flashscore.matchNewsSectionDoc"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://2.ds.lsapp.eu/pq_graphql?_hash=fsned&entityId=xtmHKGT0&layoutTypeId=2&projectId=2",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.matchNewsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.matchNewsDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.matchNewsSectionDoc": {
+      "properties": {
+        "articles": {
+          "items": {
+            "$ref": "#/definitions/flashscore.matchNewsArticleRefDoc"
+          },
+          "type": "array"
+        },
+        "id": {
+          "example": 1,
+          "type": "integer"
+        },
+        "name": {
+          "example": "articlesOnParticipants",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.navigationDataDoc": {
+      "properties": {
+        "groups": {
+          "items": {
+            "$ref": "#/definitions/flashscore.navigationGroupDoc"
+          },
+          "type": "array"
+        },
+        "path": {
+          "example": "/basketball/usa/",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://www.flashscore.com/basketball/usa/",
+          "type": "string"
+        },
+        "title": {
+          "example": "Basketball USA - NBA, NCAA, live scores and livescore",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.navigationGroupDoc": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/flashscore.navigationItemDoc"
+          },
+          "type": "array"
+        },
+        "name": {
+          "example": "USA",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.navigationItemDoc": {
+      "properties": {
+        "id": {
+          "example": 1234,
+          "type": "integer"
+        },
+        "name": {
+          "example": "NBA",
+          "type": "string"
+        },
+        "path": {
+          "example": "/basketball/usa/nba/",
+          "type": "string"
+        },
+        "sport_id": {
+          "example": 3,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.navigationResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.navigationDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.newsArticleDataDoc": {
+      "properties": {
+        "article": {
+          "$ref": "#/definitions/flashscore.newsArticleDoc"
+        },
+        "source_url": {
+          "example": "https://2.ds.lsapp.eu/pq_graphql?_hash=nah&articleId=GYDHQ2yR",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.newsArticleDoc": {
+      "properties": {
+        "edited_at": {
+          "type": "integer"
+        },
+        "id": {
+          "example": "GYDHQ2yR",
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/flashscore.newsImageDoc"
+          },
+          "type": "array"
+        },
+        "published_at": {
+          "example": 1790163122,
+          "type": "integer"
+        },
+        "slug": {
+          "example": "premier-league-panel-admits-penalty-awarded-to-sunderland-vs-arsenal-was-wrong",
+          "type": "string"
+        },
+        "title": {
+          "example": "Premier League panel admits penalty awarded to Sunderland vs Arsenal was wrong",
+          "type": "string"
+        },
+        "type": {
+          "example": "STANDARD",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.newsArticleResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.newsArticleDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.newsCategoriesDataDoc": {
+      "properties": {
+        "categories": {
+          "items": {
+            "$ref": "#/definitions/flashscore.newsCategoryDoc"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://www.flashscore.com/news/",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.newsCategoriesResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.newsCategoriesDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.newsCategoryDoc": {
+      "properties": {
+        "key": {
+          "example": "football",
+          "type": "string"
+        },
+        "name": {
+          "example": "Football",
+          "type": "string"
+        },
+        "path": {
+          "example": "/news/football/",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.newsImageDoc": {
+      "properties": {
+        "alt_text": {
+          "example": "Arteta on the touchline",
+          "type": "string"
+        },
+        "credit": {
+          "example": "REUTERS / Scott Heppell",
+          "type": "string"
+        },
+        "url": {
+          "example": "https://livesport-ott-images.ssl.cdn.cra.cz/d9623cbc-957c-4955-bdc9-e82567576136",
+          "type": "string"
+        },
+        "variant_type_id": {
+          "example": 1,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.newsListDataDoc": {
+      "properties": {
+        "articles": {
+          "items": {
+            "$ref": "#/definitions/flashscore.newsPreviewDoc"
+          },
+          "type": "array"
+        },
+        "category": {
+          "$ref": "#/definitions/flashscore.newsCategoryDoc"
+        },
+        "has_more": {
+          "example": true,
+          "type": "boolean"
+        },
+        "page": {
+          "example": 1,
+          "type": "integer"
+        },
+        "source_url": {
+          "example": "https://www.flashscore.com/news/football/",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.newsListResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.newsListDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.newsPreviewDoc": {
+      "properties": {
+        "date": {
+          "example": "25.09.2026 18:20",
+          "type": "string"
+        },
+        "id": {
+          "example": "Y9WFYvHj",
+          "type": "string"
+        },
+        "image_alt": {
+          "example": "Erling Haaland celebrates",
+          "type": "string"
+        },
+        "image_url": {
+          "example": "https://livesport-ott-images.ssl.cdn.cra.cz/r900xfq60/example.jpeg",
+          "type": "string"
+        },
+        "path": {
+          "example": "/news/haaland-brace-helps-norway-to-first-win-over-scandinavian-rivals-denmark-in-28-years/Y9WFYvHj/",
+          "type": "string"
+        },
+        "title": {
+          "example": "Haaland brace helps Norway to first win over Scandinavian rivals Denmark",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.rankingCategoriesDataDoc": {
+      "properties": {
+        "categories": {
+          "items": {
+            "$ref": "#/definitions/flashscore.rankingCategoryDoc"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://www.flashscore.com/",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.rankingCategoriesResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.rankingCategoriesDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.rankingCategoryDoc": {
+      "properties": {
+        "key": {
+          "example": "tennis-atp",
+          "type": "string"
+        },
+        "live": {
+          "example": false,
+          "type": "boolean"
+        },
+        "name": {
+          "example": "ATP Singles",
+          "type": "string"
+        },
+        "path": {
+          "example": "/tennis/rankings/atp/",
+          "type": "string"
+        },
+        "sport": {
+          "example": "tennis",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.rankingDataDoc": {
+      "properties": {
+        "category": {
+          "$ref": "#/definitions/flashscore.rankingCategoryDoc"
+        },
+        "pages": {
+          "items": {
+            "$ref": "#/definitions/flashscore.rankingPageDoc"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://www.flashscore.com/tennis/rankings/atp/",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.rankingPageDoc": {
+      "properties": {
+        "data": {
+          "example": "TS÷ME¬TS÷TAB¬TE÷RW¬...",
+          "type": "string"
+        },
+        "feed_url": {
+          "example": "https://global.flashscore.ninja/2/x/feed/ran_dSJr14Y8_1",
+          "type": "string"
+        },
+        "page": {
+          "example": 1,
+          "type": "integer"
+        },
+        "rows": {
+          "example": 100,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.rankingResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.rankingDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.responseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.sourceDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.searchDataDoc": {
+      "properties": {
+        "query": {
+          "example": "Arsenal",
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/flashscore.searchResultDoc"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://s.livesport.services/api/v2/search/?q=Arsenal",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.searchImageDoc": {
+      "properties": {
+        "path": {
+          "example": "fwtiqyQt-vcNAdtF9.png",
+          "type": "string"
+        },
+        "usageId": {
+          "example": 2,
+          "type": "integer"
+        },
+        "variantTypeId": {
+          "example": 2,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.searchNamedIDDoc": {
+      "properties": {
+        "id": {
+          "example": 2,
+          "type": "integer"
+        },
+        "name": {
+          "example": "Team",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.searchResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.searchDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.searchResultDoc": {
+      "properties": {
+        "defaultCountry": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "defaultTournament": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "gender": {
+          "$ref": "#/definitions/flashscore.searchNamedIDDoc"
+        },
+        "id": {
+          "example": "hA1Zm19f",
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/flashscore.searchImageDoc"
+          },
+          "type": "array"
+        },
+        "name": {
+          "example": "Arsenal",
+          "type": "string"
+        },
+        "participantTypes": {
+          "items": {
+            "$ref": "#/definitions/flashscore.searchNamedIDDoc"
+          },
+          "type": "array"
+        },
+        "sport": {
+          "$ref": "#/definitions/flashscore.searchNamedIDDoc"
+        },
+        "superTemplate": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "teams": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "type": {
+          "$ref": "#/definitions/flashscore.searchNamedIDDoc"
+        },
+        "url": {
+          "example": "arsenal",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.sourceDataDoc": {
+      "properties": {
+        "data": {
+          "example": "SE÷Match¬~SF÷Top stats¬~SD÷432¬SG÷Expected goals (xG)¬SH÷0.00¬SI÷0.00¬~",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://global.flashscore.ninja/2/x/feed/df_st_2_xtmHKGT0",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.sportItemDoc": {
+      "properties": {
+        "event_count": {
+          "example": 159,
+          "type": "integer"
+        },
+        "id": {
+          "example": 1,
+          "type": "integer"
+        },
+        "key": {
+          "example": "football",
+          "type": "string"
+        },
+        "league_count": {
+          "example": 11,
+          "type": "integer"
+        },
+        "name": {
+          "example": "Football",
+          "type": "string"
+        },
+        "path": {
+          "example": "/",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.sportsDataDoc": {
+      "properties": {
+        "source_url": {
+          "example": "https://global.flashscore.ninja/2/x/feed/mc_8",
+          "type": "string"
+        },
+        "sports": {
+          "items": {
+            "$ref": "#/definitions/flashscore.sportItemDoc"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.sportsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.sportsDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.topSearchDataDoc": {
+      "properties": {
+        "results": {
+          "items": {
+            "$ref": "#/definitions/flashscore.searchResultDoc"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://s.livesport.services/api/v2/top-search/?lang-id=1&limit=10&project-id=2&project-type-id=1&type-ids=1%2C2%2C3%2C4",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.topSearchResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.topSearchDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.tournamentEventsDataDoc": {
+      "properties": {
+        "data": {
+          "example": "SA÷1¬~ZA÷ENGLAND: Premier League¬ZEE÷dYlOSQOD¬ZB÷198¬~AA÷byL7b0nn¬AD÷1797692400¬",
+          "type": "string"
+        },
+        "event_count": {
+          "example": 83,
+          "type": "integer"
+        },
+        "page": {
+          "example": 2,
+          "type": "integer"
+        },
+        "path": {
+          "example": "/football/england/premier-league-2026-2027/fixtures/",
+          "type": "string"
+        },
+        "section": {
+          "example": "fixtures",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://global.flashscore.ninja/2/x/feed/tf_1_198_dYlOSQOD_190_1_8_en_1",
+          "type": "string"
+        },
+        "total_events": {
+          "example": 330,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.tournamentEventsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.tournamentEventsDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.tournamentSeasonDoc": {
+      "properties": {
+        "fixtures_path": {
+          "example": "/football/europe/champions-league-2025-2026/fixtures/",
+          "type": "string"
+        },
+        "name": {
+          "example": "Champions League 2025/2026",
+          "type": "string"
+        },
+        "path": {
+          "example": "/football/europe/champions-league-2025-2026/",
+          "type": "string"
+        },
+        "results_path": {
+          "example": "/football/europe/champions-league-2025-2026/results/",
+          "type": "string"
+        },
+        "season": {
+          "example": "2025/2026",
+          "type": "string"
+        },
+        "winner": {
+          "example": "PSG",
+          "type": "string"
+        },
+        "winner_path": {
+          "example": "/team/psg/CjhkPw0k/",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.tournamentSeasonsDataDoc": {
+      "properties": {
+        "path": {
+          "example": "/football/europe/champions-league/archive/",
+          "type": "string"
+        },
+        "seasons": {
+          "items": {
+            "$ref": "#/definitions/flashscore.tournamentSeasonDoc"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://www.flashscore.com/football/europe/champions-league/archive/",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.tournamentSeasonsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.tournamentSeasonsDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.tournamentStandingsResponseDoc": {
+      "properties": {
+        "data": {
+          "example": "TZ÷Standings¬TN÷Premier League¬~",
+          "type": "string"
+        },
+        "path": {
+          "example": "/football/england/premier-league/",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://global.flashscore.ninja/2/x/feed/to_SY30SsKF_CfoA8Dmm_1",
+          "type": "string"
+        },
+        "view": {
+          "example": "overall",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.tournamentStandingsViewsResponseDoc": {
+      "properties": {
+        "path": {
+          "example": "/football/england/premier-league/",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://www.flashscore.com/football/england/premier-league/standings/",
+          "type": "string"
+        },
+        "views": {
+          "example": [
+            "overall",
+            "home",
+            "away",
+            "form_overall",
+            "overunder_overall",
+            "htft_overall",
+            "top_scorers"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "api.crawlora.net",
+  "info": {
+    "contact": {
+      "email": "support@crawlora.net",
+      "name": "API Support",
+      "url": "https://crawlora.net"
+    },
+    "description": "Crawlora is a hosted web-data and SERP API: call documented REST endpoints and get normalized JSON instead of HTML to parse — across search/SERP, maps and local, e-commerce, app stores, social, media and finance. One API key; Crawlora runs the proxy rotation, headless browsers and parsing behind the scenes. Billed pay-on-success: charged only on a successful 2xx response, 1-10 credits per call, with a free tier of 2,000 credits per month and no card. A hosted MCP server (mcp.crawlora.net/mcp) exposes the same catalog as agent tools. Search endpoints accept `q` as a universal alias for whichever search-term parameter they document (`query`, `term`, `keyword`, or Amazon's `k`), so one parameter name works across the whole catalog; an explicitly supplied documented name always wins.",
+    "license": {
+      "name": "Crawlora Terms of Service",
+      "url": "https://crawlora.net/terms"
+    },
+    "termsOfService": "https://crawlora.net/terms",
+    "title": "Crawlora API",
+    "version": "1.2",
+    "x-logo": {
+      "altText": "Crawlora",
+      "backgroundColor": "#FFFFFF",
+      "url": "https://raw.githubusercontent.com/Crawlora-org/crawlora-mcp/main/assets/logo-400x400.png"
+    }
+  },
+  "paths": {
+    "/flashscore/calendar": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns public tournament calendar entries, dates, winners when available, and competition paths for the current season.",
+        "operationId": "flashscore-calendar",
+        "parameters": [
+          {
+            "description": "Calendar category from flashscore-calendar-categories",
+            "enum": [
+              "tennis-atp",
+              "tennis-wta",
+              "golf-pga",
+              "golf-dp-world",
+              "badminton-bwf",
+              "motorsport-f1"
+            ],
+            "in": "query",
+            "name": "category",
+            "required": true,
+            "type": "string",
+            "x-example": "tennis-atp"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.calendarResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore season calendar",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/calendar-categories": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Lists the current ATP, WTA, golf, badminton, and Formula 1 calendar pages.",
+        "operationId": "flashscore-calendar-categories",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.calendarCategoriesResponseDoc"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore season calendar categories",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/competitions": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Discovers competitions present in a selected sport's score feed, including the provider competition id, label, region, canonical path, and event count. This is the active feed-date inventory, not an archive of inactive or historical seasons.",
+        "operationId": "flashscore-competitions",
+        "parameters": [
+          {
+            "description": "Sport key",
+            "enum": [
+              "football",
+              "tennis",
+              "basketball",
+              "hockey",
+              "golf",
+              "formula-1",
+              "baseball",
+              "snooker",
+              "american-football",
+              "aussie-rules",
+              "badminton",
+              "bandy",
+              "beach-soccer",
+              "beach-volleyball",
+              "boxing",
+              "cricket",
+              "cycling",
+              "darts",
+              "esports",
+              "field-hockey",
+              "floorball",
+              "futsal",
+              "handball",
+              "horse-racing",
+              "kabaddi",
+              "mma",
+              "motorsport",
+              "netball",
+              "pesapallo",
+              "rugby-league",
+              "rugby-union",
+              "table-tennis",
+              "volleyball",
+              "water-polo",
+              "winter-sports"
+            ],
+            "in": "query",
+            "name": "sport",
+            "required": true,
+            "type": "string",
+            "x-example": "football"
+          },
+          {
+            "description": "Days from today; -7 to 7; defaults to 0",
+            "in": "query",
+            "maximum": 7,
+            "minimum": -7,
+            "name": "day_offset",
+            "type": "integer",
+            "x-example": 0
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.competitionsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore competitions by sport and date",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/match-h2h": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns Flashscore's public head-to-head and recent-results feed for a match id copied from a Flashscore match URL. The raw upstream feed is preserved as text because its format is not JSON.",
+        "operationId": "flashscore-match-h2h",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore match id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "xtmHKGT0"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.responseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore match head-to-head and recent results",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/match-highlights": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns public highlight identifiers, metadata, and video links as the provider's raw delimited text. Video content is not fetched or included. Matches without available highlights return not found.",
+        "operationId": "flashscore-match-highlights",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore match id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "j52jHsN8"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.responseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore match highlights",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/match-info": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the public match information feed, including available venue, city, capacity, and broadcast listings, as the provider's raw delimited text.",
+        "operationId": "flashscore-match-info",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore match id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "xtmHKGT0"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.responseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore match venue and broadcast information",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/match-lineups": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the public starting-lineup and formation feed as the provider's raw delimited text. Matches without published lineups return not found.",
+        "operationId": "flashscore-match-lineups",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore match id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "j52jHsN8"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.responseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore match lineups and formations",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/match-news": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns article references from the public news layout associated with a match. Article content is not included; use the article id with flashscore-news-article for public metadata.",
+        "operationId": "flashscore-match-news",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore match id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "xtmHKGT0"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.matchNewsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore match news references",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/match-standings": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the match-linked table feed. Select overall, home/away, form, over/under, half-time/full-time, live table, or top scorers; the raw provider format is preserved. Defaults to overall.",
+        "operationId": "flashscore-match-standings",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore match id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "xtmHKGT0"
+          },
+          {
+            "description": "Standings/table view; defaults to overall",
+            "enum": [
+              "overall",
+              "home",
+              "away",
+              "form_overall",
+              "overunder_overall",
+              "form_home",
+              "form_away",
+              "top_scorers",
+              "htft_overall",
+              "htft_home",
+              "htft_away",
+              "live_overall",
+              "overunder_home",
+              "overunder_away"
+            ],
+            "in": "query",
+            "name": "view",
+            "type": "string",
+            "x-example": "overall"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.responseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore match league standings",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/match-stats": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns Flashscore's public delimited statistics feed for a match id copied from a Flashscore match URL. The raw upstream feed is preserved as text because its format is not JSON.",
+        "operationId": "flashscore-match-stats",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore match id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "xtmHKGT0"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.responseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore match statistics",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/navigation": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the first-party category hierarchy and competition links for a public Flashscore sport or category page. Start with / or a sport path from flashscore-sports, then follow returned paths to enumerate region, country, category, and competition pages. Country/category lists reflect the current upstream navigation.",
+        "operationId": "flashscore-navigation",
+        "parameters": [
+          {
+            "description": "Relative Flashscore navigation path; defaults to /. Use a path returned by flashscore-sports or flashscore-navigation.",
+            "in": "query",
+            "name": "path",
+            "type": "string",
+            "x-example": "/basketball/usa/"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.navigationResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore sport, category, country, and competition navigation",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/news": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns article previews from a public Flashscore News section. Use flashscore-news-categories to discover valid category keys. Page numbers follow the site's Show more pagination; article body text is not included.",
+        "operationId": "flashscore-news",
+        "parameters": [
+          {
+            "description": "News section key; defaults to all",
+            "enum": [
+              "all",
+              "football",
+              "uefa-nations-league",
+              "tennis",
+              "features",
+              "premier-league",
+              "nfl",
+              "mlb",
+              "nba",
+              "nhl",
+              "formula-1",
+              "champions-league",
+              "europa-league",
+              "conference-league",
+              "darts",
+              "snooker",
+              "golf",
+              "road-cycling",
+              "laliga",
+              "bundesliga",
+              "serie-a",
+              "ligue-1",
+              "badminton",
+              "handball",
+              "hockey",
+              "basketball",
+              "cricket",
+              "rugby-union",
+              "athletics",
+              "baseball",
+              "fifa",
+              "rugby-league",
+              "motorsport",
+              "aussie-rules",
+              "flashscore-ratings",
+              "american-sports",
+              "african-football",
+              "combat-sports",
+              "winter-sports",
+              "transfer-news"
+            ],
+            "in": "query",
+            "name": "category",
+            "type": "string",
+            "x-example": "football"
+          },
+          {
+            "description": "1-based page, 1 to 100; defaults to 1",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "page",
+            "type": "integer",
+            "x-example": 1
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.newsListResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore News listings by section",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/news-article": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns public article metadata and image credits for an article id from a Flashscore match news listing. Article body text is not included.",
+        "operationId": "flashscore-news-article",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore article id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "GYDHQ2yR"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.newsArticleResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore news article metadata",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/news-categories": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the exact currently usable public News section keys, names, and source paths from the live navigation inventory. Olympic Games is excluded because its linked page currently returns 404.",
+        "operationId": "flashscore-news-categories",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.newsCategoriesResponseDoc"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore News categories",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/ranking-categories": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Lists the live-verified public ranking categories, including tennis live rankings.",
+        "operationId": "flashscore-ranking-categories",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.rankingCategoriesResponseDoc"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore ranking categories",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/rankings": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the first-party ranking feed pages for a supported ranking category. When page one is full, page two is included to cover the remaining rows.",
+        "operationId": "flashscore-rankings",
+        "parameters": [
+          {
+            "description": "Ranking category from flashscore-ranking-categories",
+            "enum": [
+              "fifa",
+              "tennis-atp",
+              "tennis-wta",
+              "tennis-atp-race",
+              "tennis-wta-race",
+              "tennis-atp-doubles",
+              "tennis-wta-doubles",
+              "tennis-atp-doubles-race",
+              "tennis-wta-doubles-race",
+              "badminton-bwf-singles-men",
+              "badminton-bwf-singles-women",
+              "badminton-bwf-doubles-men",
+              "badminton-bwf-doubles-women",
+              "badminton-bwf-mixed-doubles",
+              "golf-owgr",
+              "golf-wwgr",
+              "golf-pga-fedexcup",
+              "golf-pga-money",
+              "golf-dp-world-tour",
+              "golf-lpga",
+              "golf-asian-tour",
+              "golf-japan-tour",
+              "golf-sunshine-tour",
+              "golf-korn-ferry",
+              "golf-champions-tour",
+              "darts-world-ranking",
+              "snooker-world-ranking",
+              "tennis-atp-live",
+              "tennis-wta-live",
+              "tennis-atp-race-live",
+              "tennis-wta-race-live",
+              "tennis-atp-doubles-live",
+              "tennis-wta-doubles-live",
+              "tennis-atp-doubles-race-live",
+              "tennis-wta-doubles-race-live"
+            ],
+            "in": "query",
+            "name": "category",
+            "required": true,
+            "type": "string",
+            "x-example": "tennis-atp"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.rankingResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore rankings",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/scores": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the public score feed for one sport and date-picker day offset. The upstream field-delimited text is preserved because field semantics vary by sport. Use flashscore-sports to discover sport keys, flashscore-navigation for the current category/country/competition directory, and flashscore-competitions for competitions on the selected date.",
+        "operationId": "flashscore-scores",
+        "parameters": [
+          {
+            "description": "Sport key",
+            "enum": [
+              "football",
+              "tennis",
+              "basketball",
+              "hockey",
+              "golf",
+              "formula-1",
+              "baseball",
+              "snooker",
+              "american-football",
+              "aussie-rules",
+              "badminton",
+              "bandy",
+              "beach-soccer",
+              "beach-volleyball",
+              "boxing",
+              "cricket",
+              "cycling",
+              "darts",
+              "esports",
+              "field-hockey",
+              "floorball",
+              "futsal",
+              "handball",
+              "horse-racing",
+              "kabaddi",
+              "mma",
+              "motorsport",
+              "netball",
+              "pesapallo",
+              "rugby-league",
+              "rugby-union",
+              "table-tennis",
+              "volleyball",
+              "water-polo",
+              "winter-sports"
+            ],
+            "in": "query",
+            "name": "sport",
+            "required": true,
+            "type": "string",
+            "x-example": "football"
+          },
+          {
+            "description": "Days from today; -7 to 7; defaults to 0",
+            "in": "query",
+            "maximum": 7,
+            "minimum": -7,
+            "name": "day_offset",
+            "type": "integer",
+            "x-example": 0
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.responseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore scores and fixtures by sport",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/search": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Searches the same public entity index used by Flashscore's search box. Results can include teams, players, and tournament templates across supported sports.",
+        "operationId": "flashscore-search",
+        "parameters": [
+          {
+            "description": "Search phrase (2 to 80 characters)",
+            "in": "query",
+            "maxLength": 80,
+            "minLength": 2,
+            "name": "q",
+            "required": true,
+            "type": "string",
+            "x-example": "Champions League"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.searchResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore search",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/sports": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns every sport category visible in Flashscore's score navigation, with sport id, caller key, page path, and current event/competition counts. Counts are a live snapshot and may be zero when the sport has no fixtures in the current feed window.",
+        "operationId": "flashscore-sports",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.sportsResponseDoc"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore sports and live category counts",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/top-search": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the ten-or-fewer public team, player, and tournament results shown in Flashscore's search overlay. This is a changing curated list, not a complete entity directory.",
+        "operationId": "flashscore-top-search",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.topSearchResponseDoc"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore top search entities",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/tournament-events": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns a page of the public results or fixtures feed for any supported sport and competition path. Page 1 is embedded in the public tournament page; later pages follow its Show more feed sequence. Sum event_count from successive pages until total_events is reached.",
+        "operationId": "flashscore-tournament-events",
+        "parameters": [
+          {
+            "description": "Relative Flashscore competition season results or fixtures path",
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "type": "string",
+            "x-example": "/football/england/premier-league-2026-2027/fixtures/"
+          },
+          {
+            "description": "1-based page; defaults to 1",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "page",
+            "type": "integer",
+            "x-example": 1
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.tournamentEventsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore tournament season results or fixtures",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/tournament-seasons": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Lists the seasons and winners from a public competition archive page. Discover archive paths through flashscore-navigation or flashscore-competitions. Each returned results_path and fixtures_path can be passed to flashscore-tournament-events to retrieve season event feeds.",
+        "operationId": "flashscore-tournament-seasons",
+        "parameters": [
+          {
+            "description": "Relative Flashscore competition archive path ending in /archive/",
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "type": "string",
+            "x-example": "/football/europe/champions-league/archive/"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.tournamentSeasonsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore tournament archive seasons",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/tournament-standings": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns a competition-level table feed independent of a match id. Discover the stage-specific view values with flashscore-tournament-standings-views. Data remains in Flashscore's raw delimited format.",
+        "operationId": "flashscore-tournament-standings",
+        "parameters": [
+          {
+            "description": "Relative Flashscore competition path from flashscore-navigation or flashscore-competitions; omit /standings/",
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "type": "string",
+            "x-example": "/football/england/premier-league/"
+          },
+          {
+            "description": "View returned by flashscore-tournament-standings-views; defaults to overall",
+            "enum": [
+              "overall",
+              "home",
+              "away",
+              "form_overall",
+              "form_home",
+              "form_away",
+              "overunder_overall",
+              "overunder_home",
+              "overunder_away",
+              "htft_overall",
+              "htft_home",
+              "htft_away",
+              "top_scorers"
+            ],
+            "in": "query",
+            "name": "view",
+            "type": "string",
+            "x-example": "overall"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.tournamentStandingsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore competition standings table",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/tournament-standings-views": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the table views currently exposed on a public Flashscore competition standings page. The view set varies by competition and stage; use a returned value with flashscore-tournament-standings.",
+        "operationId": "flashscore-tournament-standings-views",
+        "parameters": [
+          {
+            "description": "Relative Flashscore competition path from flashscore-navigation or flashscore-competitions; omit /standings/",
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "type": "string",
+            "x-example": "/football/england/premier-league/"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/flashscore.tournamentStandingsViewsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore competition standings view discovery",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "in": "header",
+      "name": "x-api-key",
+      "type": "apiKey"
+    }
+  },
+  "swagger": "2.0",
+  "tags": [
+    {
+      "name": "flashscore"
+    }
+  ]
+}

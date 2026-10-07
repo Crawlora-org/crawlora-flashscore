@@ -1,0 +1,14 @@
+{
+  "async_class_name": "AsyncFlashscoreClient",
+  "class_name": "FlashscoreClient",
+  "contract_revision": "sha256:380bb303ffcb6ff808a1db512dcc3bd90c9b7d20d62e64d1b368f37c9a6771bd",
+  "display_name": "Flashscore",
+  "group_name": "flashscore",
+  "module_name": "crawlora_flashscore",
+  "npm_name": "@crawlora-org/flashscore",
+  "platform": "flashscore",
+  "python_name": "crawlora-flashscore",
+  "repository": "https://github.com/Crawlora-org/crawlora-flashscore",
+  "source_contract_sha256": "f8ff81231fc46cd7d6ef5f5bb99707dfa301c595ce731a533a67b49d055aa44b",
+  "version": "0.1.0"
+}
