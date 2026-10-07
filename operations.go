@@ -5,8 +5,6 @@ package flashscore
 import (
 	"context"
 	"sort"
-
-	crawlora "github.com/Crawlora-org/crawlora-go-sdk"
 )
 
 type parameterDefinition struct {
@@ -68,121 +66,121 @@ func OperationIDs() []string {
 }
 
 // Calendar calls the flashscore-calendar operation.
-func (c *Client) Calendar(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) Calendar(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-calendar", params)
 }
 
 // CalendarCategories calls the flashscore-calendar-categories operation.
-func (c *Client) CalendarCategories(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) CalendarCategories(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-calendar-categories", params)
 }
 
 // Competitions calls the flashscore-competitions operation.
-func (c *Client) Competitions(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) Competitions(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-competitions", params)
 }
 
 // MatchH2h calls the flashscore-match-h2h operation.
-func (c *Client) MatchH2h(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) MatchH2h(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-match-h2h", params)
 }
 
 // MatchHighlights calls the flashscore-match-highlights operation.
-func (c *Client) MatchHighlights(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) MatchHighlights(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-match-highlights", params)
 }
 
 // MatchInfo calls the flashscore-match-info operation.
-func (c *Client) MatchInfo(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) MatchInfo(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-match-info", params)
 }
 
 // MatchLineups calls the flashscore-match-lineups operation.
-func (c *Client) MatchLineups(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) MatchLineups(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-match-lineups", params)
 }
 
 // MatchNews calls the flashscore-match-news operation.
-func (c *Client) MatchNews(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) MatchNews(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-match-news", params)
 }
 
 // MatchStandings calls the flashscore-match-standings operation.
-func (c *Client) MatchStandings(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) MatchStandings(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-match-standings", params)
 }
 
 // MatchStats calls the flashscore-match-stats operation.
-func (c *Client) MatchStats(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) MatchStats(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-match-stats", params)
 }
 
 // Navigation calls the flashscore-navigation operation.
-func (c *Client) Navigation(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) Navigation(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-navigation", params)
 }
 
 // News calls the flashscore-news operation.
-func (c *Client) News(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) News(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-news", params)
 }
 
 // NewsArticle calls the flashscore-news-article operation.
-func (c *Client) NewsArticle(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) NewsArticle(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-news-article", params)
 }
 
 // NewsCategories calls the flashscore-news-categories operation.
-func (c *Client) NewsCategories(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) NewsCategories(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-news-categories", params)
 }
 
 // RankingCategories calls the flashscore-ranking-categories operation.
-func (c *Client) RankingCategories(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) RankingCategories(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-ranking-categories", params)
 }
 
 // Rankings calls the flashscore-rankings operation.
-func (c *Client) Rankings(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) Rankings(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-rankings", params)
 }
 
 // Scores calls the flashscore-scores operation.
-func (c *Client) Scores(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) Scores(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-scores", params)
 }
 
 // Search calls the flashscore-search operation.
-func (c *Client) Search(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) Search(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-search", params)
 }
 
 // Sports calls the flashscore-sports operation.
-func (c *Client) Sports(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) Sports(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-sports", params)
 }
 
 // TopSearch calls the flashscore-top-search operation.
-func (c *Client) TopSearch(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) TopSearch(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-top-search", params)
 }
 
 // TournamentEvents calls the flashscore-tournament-events operation.
-func (c *Client) TournamentEvents(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) TournamentEvents(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-tournament-events", params)
 }
 
 // TournamentSeasons calls the flashscore-tournament-seasons operation.
-func (c *Client) TournamentSeasons(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) TournamentSeasons(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-tournament-seasons", params)
 }
 
 // TournamentStandings calls the flashscore-tournament-standings operation.
-func (c *Client) TournamentStandings(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) TournamentStandings(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-tournament-standings", params)
 }
 
 // TournamentStandingsViews calls the flashscore-tournament-standings-views operation.
-func (c *Client) TournamentStandingsViews(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) TournamentStandingsViews(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-tournament-standings-views", params)
 }
