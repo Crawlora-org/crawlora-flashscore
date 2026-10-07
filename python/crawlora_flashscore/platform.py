@@ -7,7 +7,7 @@ from .async_client import AsyncCrawloraClient
 class FlashscoreClient(CrawloraClient):
     """Synchronous Flashscore API client."""
     def __init__(self, *args: Any, **kwargs: Any) -> None:
-        kwargs.setdefault('user_agent', 'crawlora-flashscore-python/0.1.3')
+        kwargs.setdefault('user_agent', 'crawlora-flashscore-python/0.1.4')
         super().__init__(*args, **kwargs)
 
     def calendar(self, **params: Any) -> Any:
@@ -157,7 +157,7 @@ class FlashscoreClient(CrawloraClient):
 class AsyncFlashscoreClient(AsyncCrawloraClient):
     """Asynchronous Flashscore API client."""
     def __init__(self, *args: Any, **kwargs: Any) -> None:
-        kwargs.setdefault('user_agent', 'crawlora-flashscore-python/0.1.3')
+        kwargs.setdefault('user_agent', 'crawlora-flashscore-python/0.1.4')
         super().__init__(*args, **kwargs)
 
     async def calendar(self, **params: Any) -> Any:
