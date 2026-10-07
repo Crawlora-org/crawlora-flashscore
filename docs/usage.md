@@ -2,7 +2,7 @@
 
 The `@crawlora-org/flashscore` and `crawlora-flashscore` packages call Crawlora's hosted API. Set `CRAWLORA_API_KEY` to a key for your Crawlora account before making requests. Service usage is billed under that account. These clients do not run a browser or scrape Flashscore locally; Crawlora is independent from and not endorsed by Flashscore or its owners.
 
-The package tracks the public API contract revision `sha256:380bb303ffcb6ff808a1db512dcc3bd90c9b7d20d62e64d1b368f37c9a6771bd` bundled with release `0.1.3`. Maintainers can preview daily contract updates with the repository's `Sync live API contract` workflow; unchanged contracts do not produce package releases.
+The package tracks the public API contract revision `sha256:380bb303ffcb6ff808a1db512dcc3bd90c9b7d20d62e64d1b368f37c9a6771bd` bundled with release `0.1.4`. Maintainers can preview daily contract updates with the repository's `Sync live API contract` workflow; unchanged contracts do not produce package releases.
 
 Both packages expose all 24 operations in the bundled API contract. JavaScript uses camelCase methods and Python uses snake_case methods. Methods also remain available through the `flashscore` group and the generated `Client` alias.
 
