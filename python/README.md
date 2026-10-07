@@ -1,9 +1,9 @@
 # crawlora-flashscore
 
 Python client for Crawlora's hosted Flashscore API. It calls Crawlora's
-service; it does not run a browser or scrape Flashscore locally. A Crawlora
-account and `CRAWLORA_API_KEY` are required, and API use is billed under your
-Crawlora account. Crawlora is independent from and not endorsed by
+service at [Crawlora](https://crawlora.net); it does not run a browser or scrape
+Flashscore locally. A Crawlora account and `CRAWLORA_API_KEY` are required,
+and API use is billed under your Crawlora account. Crawlora is independent from and not endorsed by
 Flashscore or its owners.
 
 ## Install
@@ -12,22 +12,59 @@ Flashscore or its owners.
 python -m pip install crawlora-flashscore
 ```
 
+## Get an API key
+
+Create an account at [crawlora.net](https://crawlora.net/signup), then open the [Crawlora console](https://crawlora.net/app) for API-key setup. Set your key in the shell before running the client:
+
+```sh
+export CRAWLORA_API_KEY="your-crawlora-api-key"
+```
+
 ## Use
+
+Save this example as `example.py`, then run `python example.py` after installing the package and setting your API key.
 
 ```python
 import os
 
 from crawlora_flashscore import FlashscoreClient
 
-with FlashscoreClient(api_key=os.environ["CRAWLORA_API_KEY"]) as client:
-    result = client.sports()
-    print(result)
+api_key = os.environ.get("CRAWLORA_API_KEY")
+if not api_key:
+    raise RuntimeError("Set CRAWLORA_API_KEY before running this example.")
+
+with FlashscoreClient(api_key=api_key) as client:
+    result_1 = client.sports()
+    print(result_1)
+    result_2 = client.scores(sport='football', day_offset=0)
+    print(result_2)
 ```
 
 The package also exports `Client` as an alias for `FlashscoreClient`. Operation
 methods are available directly in snake_case and through the `flashscore`
 group. The async package client is `AsyncFlashscoreClient`; see the [online
 endpoint and parameter reference](https://github.com/Crawlora-org/crawlora-flashscore/blob/main/docs/usage.md) and [runnable example](https://github.com/Crawlora-org/crawlora-flashscore/blob/main/examples/python.py).
+
+### Async usage
+
+The package also exports `AsyncClient` for asynchronous requests:
+
+```python
+import asyncio
+import os
+
+from crawlora_flashscore import AsyncClient
+
+async def main():
+    api_key = os.environ.get("CRAWLORA_API_KEY")
+    if not api_key:
+        raise RuntimeError("Set CRAWLORA_API_KEY before running this example.")
+    async with AsyncClient(api_key=api_key) as client:
+        result_1 = await client.sports()
+        print(result_1)
+
+asyncio.run(main())
+```
 
 The import snippet above is for a project where this PyPI package is installed. To run the checked-in example from a source checkout, install `./python` from the repository root and run `python examples/python.py`; see the [source-checkout instructions](https://github.com/Crawlora-org/crawlora-flashscore#run-examples-from-a-source-checkout).
 
