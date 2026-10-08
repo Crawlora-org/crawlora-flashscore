@@ -7,7 +7,7 @@ from .async_client import AsyncCrawloraClient
 class FlashscoreClient(CrawloraClient):
     """Synchronous Flashscore API client."""
     def __init__(self, *args: Any, **kwargs: Any) -> None:
-        kwargs.setdefault('user_agent', 'crawlora-flashscore-python/0.2.0')
+        kwargs.setdefault('user_agent', 'crawlora-flashscore-python/0.3.0')
         super().__init__(*args, **kwargs)
 
     def calendar(self, **params: Any) -> Any:
@@ -27,6 +27,24 @@ class FlashscoreClient(CrawloraClient):
         timeout = params.pop('_timeout', None)
         headers = params.pop('_headers', None)
         return self.request('flashscore-competitions', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    def entity_news(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return self.request('flashscore-entity-news', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    def match_box_score(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return self.request('flashscore-match-box-score', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    def match_darts(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return self.request('flashscore-match-darts', params, response_type=response_type, timeout=timeout, headers=headers)
 
     def match_h2h(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
@@ -58,6 +76,12 @@ class FlashscoreClient(CrawloraClient):
         headers = params.pop('_headers', None)
         return self.request('flashscore-match-missing-players', params, response_type=response_type, timeout=timeout, headers=headers)
 
+    def match_momentum(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return self.request('flashscore-match-momentum', params, response_type=response_type, timeout=timeout, headers=headers)
+
     def match_news(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
         timeout = params.pop('_timeout', None)
@@ -70,11 +94,29 @@ class FlashscoreClient(CrawloraClient):
         headers = params.pop('_headers', None)
         return self.request('flashscore-match-odds', params, response_type=response_type, timeout=timeout, headers=headers)
 
+    def match_player_stats(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return self.request('flashscore-match-player-stats', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    def match_point_by_point(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return self.request('flashscore-match-point-by-point', params, response_type=response_type, timeout=timeout, headers=headers)
+
     def match_predicted_lineups(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
         timeout = params.pop('_timeout', None)
         headers = params.pop('_headers', None)
         return self.request('flashscore-match-predicted-lineups', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    def match_report(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return self.request('flashscore-match-report', params, response_type=response_type, timeout=timeout, headers=headers)
 
     def match_standings(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
@@ -112,11 +154,23 @@ class FlashscoreClient(CrawloraClient):
         headers = params.pop('_headers', None)
         return self.request('flashscore-news-article', params, response_type=response_type, timeout=timeout, headers=headers)
 
+    def news_article_body(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return self.request('flashscore-news-article-body', params, response_type=response_type, timeout=timeout, headers=headers)
+
     def news_categories(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
         timeout = params.pop('_timeout', None)
         headers = params.pop('_headers', None)
         return self.request('flashscore-news-categories', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    def news_most_read(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return self.request('flashscore-news-most-read', params, response_type=response_type, timeout=timeout, headers=headers)
 
     def odds_geos(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
@@ -130,11 +184,35 @@ class FlashscoreClient(CrawloraClient):
         headers = params.pop('_headers', None)
         return self.request('flashscore-player', params, response_type=response_type, timeout=timeout, headers=headers)
 
+    def player_fixtures(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return self.request('flashscore-player-fixtures', params, response_type=response_type, timeout=timeout, headers=headers)
+
     def player_injuries(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
         timeout = params.pop('_timeout', None)
         headers = params.pop('_headers', None)
         return self.request('flashscore-player-injuries', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    def player_match_log(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return self.request('flashscore-player-match-log', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    def player_news(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return self.request('flashscore-player-news', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    def player_results(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return self.request('flashscore-player-results', params, response_type=response_type, timeout=timeout, headers=headers)
 
     def player_transfers(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
@@ -190,6 +268,12 @@ class FlashscoreClient(CrawloraClient):
         headers = params.pop('_headers', None)
         return self.request('flashscore-team-news', params, response_type=response_type, timeout=timeout, headers=headers)
 
+    def team_outright_odds(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return self.request('flashscore-team-outright-odds', params, response_type=response_type, timeout=timeout, headers=headers)
+
     def team_results(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
         timeout = params.pop('_timeout', None)
@@ -214,11 +298,23 @@ class FlashscoreClient(CrawloraClient):
         headers = params.pop('_headers', None)
         return self.request('flashscore-top-search', params, response_type=response_type, timeout=timeout, headers=headers)
 
+    def tournament_archive_seasons(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return self.request('flashscore-tournament-archive-seasons', params, response_type=response_type, timeout=timeout, headers=headers)
+
     def tournament_events(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
         timeout = params.pop('_timeout', None)
         headers = params.pop('_headers', None)
         return self.request('flashscore-tournament-events', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    def tournament_outright_odds(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return self.request('flashscore-tournament-outright-odds', params, response_type=response_type, timeout=timeout, headers=headers)
 
     def tournament_seasons(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
@@ -241,7 +337,7 @@ class FlashscoreClient(CrawloraClient):
 class AsyncFlashscoreClient(AsyncCrawloraClient):
     """Asynchronous Flashscore API client."""
     def __init__(self, *args: Any, **kwargs: Any) -> None:
-        kwargs.setdefault('user_agent', 'crawlora-flashscore-python/0.2.0')
+        kwargs.setdefault('user_agent', 'crawlora-flashscore-python/0.3.0')
         super().__init__(*args, **kwargs)
 
     async def calendar(self, **params: Any) -> Any:
@@ -261,6 +357,24 @@ class AsyncFlashscoreClient(AsyncCrawloraClient):
         timeout = params.pop('_timeout', None)
         headers = params.pop('_headers', None)
         return await self.request('flashscore-competitions', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    async def entity_news(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return await self.request('flashscore-entity-news', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    async def match_box_score(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return await self.request('flashscore-match-box-score', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    async def match_darts(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return await self.request('flashscore-match-darts', params, response_type=response_type, timeout=timeout, headers=headers)
 
     async def match_h2h(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
@@ -292,6 +406,12 @@ class AsyncFlashscoreClient(AsyncCrawloraClient):
         headers = params.pop('_headers', None)
         return await self.request('flashscore-match-missing-players', params, response_type=response_type, timeout=timeout, headers=headers)
 
+    async def match_momentum(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return await self.request('flashscore-match-momentum', params, response_type=response_type, timeout=timeout, headers=headers)
+
     async def match_news(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
         timeout = params.pop('_timeout', None)
@@ -304,11 +424,29 @@ class AsyncFlashscoreClient(AsyncCrawloraClient):
         headers = params.pop('_headers', None)
         return await self.request('flashscore-match-odds', params, response_type=response_type, timeout=timeout, headers=headers)
 
+    async def match_player_stats(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return await self.request('flashscore-match-player-stats', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    async def match_point_by_point(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return await self.request('flashscore-match-point-by-point', params, response_type=response_type, timeout=timeout, headers=headers)
+
     async def match_predicted_lineups(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
         timeout = params.pop('_timeout', None)
         headers = params.pop('_headers', None)
         return await self.request('flashscore-match-predicted-lineups', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    async def match_report(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return await self.request('flashscore-match-report', params, response_type=response_type, timeout=timeout, headers=headers)
 
     async def match_standings(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
@@ -346,11 +484,23 @@ class AsyncFlashscoreClient(AsyncCrawloraClient):
         headers = params.pop('_headers', None)
         return await self.request('flashscore-news-article', params, response_type=response_type, timeout=timeout, headers=headers)
 
+    async def news_article_body(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return await self.request('flashscore-news-article-body', params, response_type=response_type, timeout=timeout, headers=headers)
+
     async def news_categories(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
         timeout = params.pop('_timeout', None)
         headers = params.pop('_headers', None)
         return await self.request('flashscore-news-categories', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    async def news_most_read(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return await self.request('flashscore-news-most-read', params, response_type=response_type, timeout=timeout, headers=headers)
 
     async def odds_geos(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
@@ -364,11 +514,35 @@ class AsyncFlashscoreClient(AsyncCrawloraClient):
         headers = params.pop('_headers', None)
         return await self.request('flashscore-player', params, response_type=response_type, timeout=timeout, headers=headers)
 
+    async def player_fixtures(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return await self.request('flashscore-player-fixtures', params, response_type=response_type, timeout=timeout, headers=headers)
+
     async def player_injuries(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
         timeout = params.pop('_timeout', None)
         headers = params.pop('_headers', None)
         return await self.request('flashscore-player-injuries', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    async def player_match_log(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return await self.request('flashscore-player-match-log', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    async def player_news(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return await self.request('flashscore-player-news', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    async def player_results(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return await self.request('flashscore-player-results', params, response_type=response_type, timeout=timeout, headers=headers)
 
     async def player_transfers(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
@@ -424,6 +598,12 @@ class AsyncFlashscoreClient(AsyncCrawloraClient):
         headers = params.pop('_headers', None)
         return await self.request('flashscore-team-news', params, response_type=response_type, timeout=timeout, headers=headers)
 
+    async def team_outright_odds(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return await self.request('flashscore-team-outright-odds', params, response_type=response_type, timeout=timeout, headers=headers)
+
     async def team_results(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
         timeout = params.pop('_timeout', None)
@@ -448,11 +628,23 @@ class AsyncFlashscoreClient(AsyncCrawloraClient):
         headers = params.pop('_headers', None)
         return await self.request('flashscore-top-search', params, response_type=response_type, timeout=timeout, headers=headers)
 
+    async def tournament_archive_seasons(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return await self.request('flashscore-tournament-archive-seasons', params, response_type=response_type, timeout=timeout, headers=headers)
+
     async def tournament_events(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
         timeout = params.pop('_timeout', None)
         headers = params.pop('_headers', None)
         return await self.request('flashscore-tournament-events', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    async def tournament_outright_odds(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return await self.request('flashscore-tournament-outright-odds', params, response_type=response_type, timeout=timeout, headers=headers)
 
     async def tournament_seasons(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')

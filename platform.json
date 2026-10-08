@@ -1,11 +1,11 @@
 {
   "async_class_name": "AsyncFlashscoreClient",
   "class_name": "FlashscoreClient",
-  "contract_revision": "sha256:fcaf7e58d82dcbe73e54cddcffc79511b5d01e2c25d511531656862dfe91fb3e",
+  "contract_revision": "sha256:1ade3db4148f310594a6b4f738e69dea677015e4a98ee2945cdb6ee380fa9630",
   "display_name": "Flashscore",
   "general_sdk_version": "1.46.0-sdk.1",
   "golang_module_name": "github.com/Crawlora-org/crawlora-flashscore",
-  "golang_version": "0.2.0",
+  "golang_version": "0.3.0",
   "group_name": "flashscore",
   "maven_artifact_id": "crawlora-flashscore",
   "maven_group_id": "net.crawlora",
@@ -15,6 +15,14 @@
   "platform": "flashscore",
   "python_name": "crawlora-flashscore",
   "releases": [
+    {
+      "changes": [
+        "Added operations: flashscore-entity-news, flashscore-match-box-score, flashscore-match-darts, flashscore-match-momentum, flashscore-match-player-stats, flashscore-match-point-by-point, flashscore-match-report, flashscore-news-article-body, flashscore-news-most-read, flashscore-player-fixtures, flashscore-player-match-log, flashscore-player-news, flashscore-player-results, flashscore-team-outright-odds, flashscore-tournament-archive-seasons, flashscore-tournament-outright-odds.",
+        "Updated operation contracts: flashscore-calendar, flashscore-competitions, flashscore-news, flashscore-news-categories, flashscore-scores, flashscore-team-fixtures, flashscore-team-results, flashscore-tournament-seasons."
+      ],
+      "date": "2026-10-08",
+      "version": "0.3.0"
+    },
     {
       "changes": [
         "Added operations: flashscore-match-missing-players, flashscore-match-odds, flashscore-match-predicted-lineups, flashscore-match-tv, flashscore-odds-geos, flashscore-player, flashscore-player-injuries, flashscore-player-transfers, flashscore-team, flashscore-team-fixtures, flashscore-team-news, flashscore-team-results, flashscore-team-squad, flashscore-team-transfers."
@@ -64,6 +72,6 @@
   ],
   "repository": "https://github.com/Crawlora-org/crawlora-flashscore",
   "ruby_gem_name": "crawlora-flashscore",
-  "source_contract_sha256": "f6e89437c3aad21325cd5fc956c336c8efbb8615a20a15be9b933c2664c2b097",
-  "version": "0.2.0"
+  "source_contract_sha256": "3827d3a93489515b45354477d4e75fb05f173af262cf358e80878442d7d258f2",
+  "version": "0.3.0"
 }

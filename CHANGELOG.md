@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0 — 2026-10-08
+
+- Added operations: flashscore-entity-news, flashscore-match-box-score, flashscore-match-darts, flashscore-match-momentum, flashscore-match-player-stats, flashscore-match-point-by-point, flashscore-match-report, flashscore-news-article-body, flashscore-news-most-read, flashscore-player-fixtures, flashscore-player-match-log, flashscore-player-news, flashscore-player-results, flashscore-team-outright-odds, flashscore-tournament-archive-seasons, flashscore-tournament-outright-odds.
+- Updated operation contracts: flashscore-calendar, flashscore-competitions, flashscore-news, flashscore-news-categories, flashscore-scores, flashscore-team-fixtures, flashscore-team-results, flashscore-tournament-seasons.
+
 ## 0.2.0 — 2026-10-07
 
 - Added operations: flashscore-match-missing-players, flashscore-match-odds, flashscore-match-predicted-lineups, flashscore-match-tv, flashscore-odds-geos, flashscore-player, flashscore-player-injuries, flashscore-player-transfers, flashscore-team, flashscore-team-fixtures, flashscore-team-news, flashscore-team-results, flashscore-team-squad, flashscore-team-transfers.

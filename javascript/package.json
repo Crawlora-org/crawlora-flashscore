@@ -1,6 +1,6 @@
 {
   "name": "@crawlora-org/flashscore",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Typed JavaScript client for the Crawlora Flashscore API",
   "homepage": "https://github.com/Crawlora-org/crawlora-flashscore#readme",
   "bugs": { "url": "https://github.com/Crawlora-org/crawlora-flashscore/issues" },

@@ -42,13 +42,13 @@ class ClientTest {
     @AfterEach void stopServer() { if (server != null) server.stop(0); }
 
     @Test void platformCatalogIsAnExactAllowlistAndExposesDirectMethod() throws Exception {
-        assertEquals(38, Client.OPERATION_IDS.size());
-        assertEquals(List.of("flashscore-calendar", "flashscore-calendar-categories", "flashscore-competitions", "flashscore-match-h2h", "flashscore-match-highlights", "flashscore-match-info", "flashscore-match-lineups", "flashscore-match-missing-players", "flashscore-match-news", "flashscore-match-odds", "flashscore-match-predicted-lineups", "flashscore-match-standings", "flashscore-match-stats", "flashscore-match-tv", "flashscore-navigation", "flashscore-news", "flashscore-news-article", "flashscore-news-categories", "flashscore-odds-geos", "flashscore-player", "flashscore-player-injuries", "flashscore-player-transfers", "flashscore-ranking-categories", "flashscore-rankings", "flashscore-scores", "flashscore-search", "flashscore-sports", "flashscore-team", "flashscore-team-fixtures", "flashscore-team-news", "flashscore-team-results", "flashscore-team-squad", "flashscore-team-transfers", "flashscore-top-search", "flashscore-tournament-events", "flashscore-tournament-seasons", "flashscore-tournament-standings", "flashscore-tournament-standings-views"), Client.OPERATION_IDS);
+        assertEquals(54, Client.OPERATION_IDS.size());
+        assertEquals(List.of("flashscore-calendar", "flashscore-calendar-categories", "flashscore-competitions", "flashscore-entity-news", "flashscore-match-box-score", "flashscore-match-darts", "flashscore-match-h2h", "flashscore-match-highlights", "flashscore-match-info", "flashscore-match-lineups", "flashscore-match-missing-players", "flashscore-match-momentum", "flashscore-match-news", "flashscore-match-odds", "flashscore-match-player-stats", "flashscore-match-point-by-point", "flashscore-match-predicted-lineups", "flashscore-match-report", "flashscore-match-standings", "flashscore-match-stats", "flashscore-match-tv", "flashscore-navigation", "flashscore-news", "flashscore-news-article", "flashscore-news-article-body", "flashscore-news-categories", "flashscore-news-most-read", "flashscore-odds-geos", "flashscore-player", "flashscore-player-fixtures", "flashscore-player-injuries", "flashscore-player-match-log", "flashscore-player-news", "flashscore-player-results", "flashscore-player-transfers", "flashscore-ranking-categories", "flashscore-rankings", "flashscore-scores", "flashscore-search", "flashscore-sports", "flashscore-team", "flashscore-team-fixtures", "flashscore-team-news", "flashscore-team-outright-odds", "flashscore-team-results", "flashscore-team-squad", "flashscore-team-transfers", "flashscore-top-search", "flashscore-tournament-archive-seasons", "flashscore-tournament-events", "flashscore-tournament-outright-odds", "flashscore-tournament-seasons", "flashscore-tournament-standings", "flashscore-tournament-standings-views"), Client.OPERATION_IDS);
         assertEquals(new java.util.TreeSet<>(Client.OPERATION_IDS), new java.util.TreeSet<>(Client.operations().keySet()));
         assertEquals(Client.OPERATION_IDS.size(), new Client("key").getOperationCount());
         try (Client client = new Client("test-key", baseUrl, Duration.ofSeconds(2))) {
             assertThrows(IllegalArgumentException.class, () -> client.request("instagram-search", Map.of()));
-            Object result = client.request("flashscore-match-h2h", Map.ofEntries(Map.entry("id", "value &/one")));
+            Object result = client.request("flashscore-entity-news", Map.ofEntries(Map.entry("type", "team"), Map.entry("id", "value &/one")));
             assertInstanceOf(Map.class, result);
             assertEquals("test-key", seenKey.get());
             assertTrue(seenUri.get().startsWith("/api/v1/"));
@@ -59,7 +59,7 @@ class ClientTest {
 
     @Test void directMethodUsesTheSameOperationDispatch() throws Exception {
         try (Client client = new Client("test-key", baseUrl, Duration.ofSeconds(2))) {
-            Object result = Client.class.getMethod("matchH2h", Map.class).invoke(client, Map.ofEntries(Map.entry("id", "value &/one")));
+            Object result = Client.class.getMethod("entityNews", Map.class).invoke(client, Map.ofEntries(Map.entry("type", "team"), Map.entry("id", "value &/one")));
             assertInstanceOf(Map.class, result);
         }
     }
@@ -77,14 +77,14 @@ class ClientTest {
         body = "{\"code\":422,\"msg\":\"bad input\"}";
         try (Client client = new Client("test-key", baseUrl, Duration.ofSeconds(2))) {
             CrawloraException error = assertThrows(CrawloraException.class,
-                    () -> client.request("flashscore-match-h2h", Map.ofEntries(Map.entry("id", "value &/one"))));
+                    () -> client.request("flashscore-entity-news", Map.ofEntries(Map.entry("type", "team"), Map.entry("id", "value &/one"))));
             assertEquals(422, error.statusCode());
             assertTrue(error.getMessage().contains("bad input"));
         }
         status = 200;
         delayMillis = 250;
         try (Client client = new Client("test-key", baseUrl, Duration.ofMillis(20))) {
-            assertThrows(CrawloraException.class, () -> client.request("flashscore-match-h2h", Map.ofEntries(Map.entry("id", "value &/one"))));
+            assertThrows(CrawloraException.class, () -> client.request("flashscore-entity-news", Map.ofEntries(Map.entry("type", "team"), Map.entry("id", "value &/one"))));
         }
     }
 
@@ -92,6 +92,6 @@ class ClientTest {
         assertThrows(IllegalArgumentException.class, () -> new Client("key", baseUrl, Duration.ofSeconds(1)).request("flashscore-calendar", Map.ofEntries(Map.entry("category", "__invalid_java_test_enum__"))));
         Client client = new Client("key", baseUrl, Duration.ofSeconds(1));
         client.close();
-        assertThrows(IllegalStateException.class, () -> client.request("flashscore-match-h2h", Map.ofEntries(Map.entry("id", "value &/one"))));
+        assertThrows(IllegalStateException.class, () -> client.request("flashscore-entity-news", Map.ofEntries(Map.entry("type", "team"), Map.entry("id", "value &/one"))));
     }
 }
