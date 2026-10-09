@@ -14,7 +14,7 @@ The packages do not run a browser or scrape Flashscore locally. Crawlora is an i
 - Runnable samples: [examples/](examples/)
 - Source repository: [https://github.com/Crawlora-org/crawlora-flashscore](https://github.com/Crawlora-org/crawlora-flashscore)
 
-Create an account at [crawlora.net](https://crawlora.net/signup), open the [Crawlora console](https://crawlora.net/app) to get an API key, or read the [API documentation](https://crawlora.net/docs).
+Create an account at [crawlora.net](https://crawlora.net/signup?utm_source=github&utm_medium=referral&utm_campaign=platform-clients&utm_content=flashscore-repository-signup), open the [Crawlora console](https://crawlora.net/app?utm_source=github&utm_medium=referral&utm_campaign=platform-clients&utm_content=flashscore-repository-console) to get an API key, or read the [API documentation](https://crawlora.net/docs?utm_source=github&utm_medium=referral&utm_campaign=platform-clients&utm_content=flashscore-repository-api-docs).
 
 ## Install
 
