@@ -26,7 +26,7 @@ test("serializes required query/path values, adds API key and platform User-Agen
   await client.request("flashscore-calendar", {"category": "tennis-atp"});
   assert.match(seen.url, /\/flashscore\/calendar/);
   assert.equal(seen.headers["x-api-key"], "secret");
-  assert.equal(seen.headers["user-agent"], "crawlora-flashscore-js/0.3.1");
+  assert.equal(seen.headers["user-agent"], "crawlora-flashscore-js/0.3.2");
 });
 
 test("allows caller User-Agent override and response text mode", async () => {
