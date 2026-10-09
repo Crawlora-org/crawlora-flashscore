@@ -1,7 +1,7 @@
 # crawlora-flashscore
 
 Python client for Crawlora's hosted Flashscore API. It calls Crawlora's
-service at [Crawlora](https://crawlora.net?utm_source=pypi&utm_medium=referral&utm_campaign=platform-clients&utm_content=flashscore-python-homepage); it does not run a browser or scrape
+service at [Crawlora](https://crawlora.net/?utm_source=pypi&utm_medium=referral&utm_campaign=platform-clients&utm_content=flashscore-python-homepage); it does not run a browser or scrape
 Flashscore locally. A Crawlora account and `CRAWLORA_API_KEY` are required,
 and API use is billed under your Crawlora account. Crawlora is independent from and not endorsed by
 Flashscore or its owners.
@@ -66,8 +66,10 @@ async def main():
 asyncio.run(main())
 ```
 
+See the [runnable example](https://github.com/Crawlora-org/crawlora-flashscore/blob/main/examples/python.py) for a complete usage example.
+
 ## Configuration
 
 Pass your key through `api_key` or read `CRAWLORA_API_KEY` from the environment.
 Keep credentials out of source control and logs. Requests go to Crawlora's
-hosted API, and response data and availability follow its current contract.
+hosted API.
