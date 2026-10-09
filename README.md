@@ -8,7 +8,7 @@ The packages do not run a browser or scrape Flashscore locally. Crawlora is an i
 - Python: [`crawlora-flashscore`](python/README.md)
 - Go: [`github.com/Crawlora-org/crawlora-flashscore`](go.mod)
 - Ruby: [`crawlora-flashscore`](ruby/README.md)
-- Java: [`net.crawlora:crawlora-flashscore:0.3.0`](java/README.md)
+- Java: [`net.crawlora:crawlora-flashscore:0.3.1`](java/README.md)
 - PHP: [`crawlora/flashscore`](php/README.md)
 - Full endpoint and parameter reference: [docs/usage.md](docs/usage.md)
 - Runnable samples: [examples/](examples/)
@@ -26,7 +26,7 @@ gem install crawlora-flashscore
 composer require crawlora/flashscore
 ```
 
-For Java, add `net.crawlora:crawlora-flashscore:0.3.0` to your Maven dependencies; see [java/README.md](java/README.md).
+For Java, add `net.crawlora:crawlora-flashscore:0.3.1` to your Maven dependencies; see [java/README.md](java/README.md).
 
 Set your Crawlora key in the environment before running a client:
 
