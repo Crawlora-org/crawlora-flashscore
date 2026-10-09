@@ -9,7 +9,7 @@ import {
 
 export class FlashscoreClient extends CrawloraClient {
   constructor(options = {}) {
-    super({ ...options, userAgent: options.userAgent ?? "crawlora-flashscore-js/0.3.1" });
+    super({ ...options, userAgent: options.userAgent ?? "crawlora-flashscore-js/0.3.2" });
     this["calendar"] = (...args) => this.request("flashscore-calendar", ...args);
     this["calendarCategories"] = (...args) => this.request("flashscore-calendar-categories", ...args);
     this["competitions"] = (...args) => this.request("flashscore-competitions", ...args);
@@ -76,5 +76,5 @@ export {
   CrawloraServerError
 };
 export { groups, operations, operationCount, OperationIds } from "./operations.js";
-export const VERSION = "0.3.1";
+export const VERSION = "0.3.2";
 export default FlashscoreClient;
