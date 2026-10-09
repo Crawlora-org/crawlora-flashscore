@@ -5,7 +5,7 @@
   "display_name": "Flashscore",
   "general_sdk_version": "1.46.0-sdk.1",
   "golang_module_name": "github.com/Crawlora-org/crawlora-flashscore",
-  "golang_version": "0.3.2",
+  "golang_version": "0.3.3",
   "group_name": "flashscore",
   "maven_artifact_id": "crawlora-flashscore",
   "java_description": "Java client for Crawlora's hosted Flashscore API, with methods for scores, match details, competitions, teams, players, odds, and news. Requires a Crawlora API key.",
@@ -16,6 +16,14 @@
   "platform": "flashscore",
   "python_name": "crawlora-flashscore",
   "releases": [
+    {
+      "version": "0.3.3",
+      "date": "2026-10-09",
+      "changes": [
+        "Publish the PHP Composer package from a PHP-only source repository so Packagist displays only PHP installation and usage.",
+        "Link RubyGems and Maven Central directly to their Ruby and Java guides, and add a tested Go package documentation example."
+      ]
+    },
     {
       "changes": [
         "Enrich the Maven Central description with platform-specific Java client capabilities and API-key requirements."
@@ -88,5 +96,6 @@
   "repository": "https://github.com/Crawlora-org/crawlora-flashscore",
   "ruby_gem_name": "crawlora-flashscore",
   "source_contract_sha256": "3827d3a93489515b45354477d4e75fb05f173af262cf358e80878442d7d258f2",
-  "version": "0.3.2"
+  "version": "0.3.3",
+  "php_repository": "https://github.com/Crawlora-org/crawlora-flashscore-php"
 }
