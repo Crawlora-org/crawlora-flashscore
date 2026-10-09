@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1 — 2026-10-09
+
+- Add registry-specific UTM-tagged Crawlora homepage and API documentation links to package metadata.
+
 ## 0.3.0 — 2026-10-08
 
 - Added operations: flashscore-entity-news, flashscore-match-box-score, flashscore-match-darts, flashscore-match-momentum, flashscore-match-player-stats, flashscore-match-point-by-point, flashscore-match-report, flashscore-news-article-body, flashscore-news-most-read, flashscore-player-fixtures, flashscore-player-match-log, flashscore-player-news, flashscore-player-results, flashscore-team-outright-odds, flashscore-tournament-archive-seasons, flashscore-tournament-outright-odds.
