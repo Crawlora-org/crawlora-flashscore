@@ -135,6 +135,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Calendar category from flashscore-calendar-categories",
@@ -166,6 +168,8 @@
       "path": "/flashscore/calendar-categories",
       "pathParams": [],
       "queryParams": [],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [],
       "produces": [
         "application/json"
@@ -234,6 +238,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Sport key",
@@ -327,6 +333,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Entity type",
@@ -371,6 +379,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore match id",
@@ -401,6 +411,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore match id",
@@ -431,6 +443,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore match id",
@@ -461,6 +475,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore match id",
@@ -491,6 +507,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore match id",
@@ -521,6 +539,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore match id",
@@ -551,6 +571,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore match id",
@@ -581,6 +603,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore football match id",
@@ -611,6 +635,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore match id",
@@ -875,6 +901,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore match id",
@@ -1166,6 +1194,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore football match id",
@@ -1219,6 +1249,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore match id",
@@ -1249,6 +1281,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore match id",
@@ -1279,6 +1313,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore match id",
@@ -1330,6 +1366,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore match id",
@@ -1383,6 +1421,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore match id",
@@ -1538,6 +1578,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore match id",
@@ -1694,6 +1736,8 @@
           "type": "string"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Relative Flashscore navigation path; defaults to /. Use a path returned by flashscore-sports or flashscore-navigation.",
@@ -1769,6 +1813,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "News section key; defaults to all",
@@ -1849,6 +1895,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore article id",
@@ -1879,6 +1927,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore news article id from a news listing, flashscore-entity-news or flashscore-news-most-read",
@@ -1902,6 +1952,8 @@
       "path": "/flashscore/news-categories",
       "pathParams": [],
       "queryParams": [],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [],
       "produces": [
         "application/json"
@@ -1916,6 +1968,8 @@
       "path": "/flashscore/news-most-read",
       "pathParams": [],
       "queryParams": [],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [],
       "produces": [
         "application/json"
@@ -1930,6 +1984,8 @@
       "path": "/flashscore/odds-geos",
       "pathParams": [],
       "queryParams": [],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [],
       "produces": [
         "application/json"
@@ -1956,6 +2012,8 @@
           "type": "string"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore player id",
@@ -1998,6 +2056,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore player id",
@@ -2042,6 +2102,8 @@
           "type": "string"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore player id",
@@ -2084,6 +2146,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore player id",
@@ -2123,6 +2187,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore player id",
@@ -2158,6 +2224,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore player id",
@@ -2202,6 +2270,8 @@
           "type": "string"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore player id",
@@ -2232,6 +2302,8 @@
       "path": "/flashscore/ranking-categories",
       "pathParams": [],
       "queryParams": [],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [],
       "produces": [
         "application/json"
@@ -2290,6 +2362,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Ranking category from flashscore-ranking-categories",
@@ -2404,6 +2478,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Sport key",
@@ -2485,6 +2561,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Search phrase (2 to 80 characters)",
@@ -2510,6 +2588,8 @@
       "path": "/flashscore/sports",
       "pathParams": [],
       "queryParams": [],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [],
       "produces": [
         "application/json"
@@ -2531,6 +2611,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore team id",
@@ -2566,6 +2648,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore team id",
@@ -2605,6 +2689,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore team id",
@@ -2831,6 +2917,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore team id",
@@ -3066,6 +3154,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore team id",
@@ -3115,6 +3205,8 @@
           "type": "string"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore team id",
@@ -3174,6 +3266,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character Flashscore team id",
@@ -3218,6 +3312,8 @@
       "path": "/flashscore/top-search",
       "pathParams": [],
       "queryParams": [],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [],
       "produces": [
         "application/json"
@@ -3239,6 +3335,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character tournament stage id (tournament_stage_id of an event competition block)",
@@ -3274,6 +3372,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Relative Flashscore competition season results or fixtures path",
@@ -3509,6 +3609,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Eight-character season-level tournament id (tournament_id of an event competition block or of a season)",
@@ -3739,6 +3841,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Relative Flashscore competition archive path ending in /archive/",
@@ -3789,6 +3893,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Relative Flashscore competition path from flashscore-navigation or flashscore-competitions; omit /standings/",
@@ -3841,6 +3947,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Relative Flashscore competition path from flashscore-navigation or flashscore-competitions; omit /standings/",

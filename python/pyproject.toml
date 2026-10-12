@@ -4,9 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "crawlora-flashscore"
-version = "0.3.4"
-description = "Typed Flashscore client for the Crawlora hosted API"
+version = "0.3.5"
+description = "Crawlora Flashscore API client with 54 endpoints for scores, match details, competitions, teams, players, odds, and news"
 readme = "README.md"
+keywords = ["crawlora", "api-client", "sdk", "web-scraping", "scraping-api", "flashscore", "flashscore-api", "flashscore-scraper", "flashscore-data", "flashscore-scores", "flashscore-match-details", "flashscore-competitions", "flashscore-teams", "flashscore-players", "flashscore-odds", "flashscore-news"]
 requires-python = ">=3.10"
 license = "MIT"
 license-files = ["LICENSE"]

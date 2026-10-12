@@ -1,6 +1,24 @@
 {
   "name": "crawlora/flashscore",
-  "description": "Flashscore client for the Crawlora hosted API",
+  "description": "Crawlora Flashscore API client with 54 endpoints for scores, match details, competitions, teams, players, odds, and news",
+  "keywords": [
+    "crawlora",
+    "api-client",
+    "sdk",
+    "web-scraping",
+    "scraping-api",
+    "flashscore",
+    "flashscore-api",
+    "flashscore-scraper",
+    "flashscore-data",
+    "flashscore-scores",
+    "flashscore-match-details",
+    "flashscore-competitions",
+    "flashscore-teams",
+    "flashscore-players",
+    "flashscore-odds",
+    "flashscore-news"
+  ],
   "type": "library",
   "license": "MIT",
   "require": {
