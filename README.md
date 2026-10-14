@@ -8,7 +8,7 @@ Official Crawlora client packages for the hosted Flashscore API. Access 54 API e
 - Python: [`crawlora-flashscore`](python/README.md)
 - Go: [`github.com/Crawlora-org/crawlora-flashscore`](go.mod)
 - Ruby: [`crawlora-flashscore`](ruby/README.md)
-- Java: [`net.crawlora:crawlora-flashscore:0.3.5`](java/README.md)
+- Java: [`net.crawlora:crawlora-flashscore:0.3.6`](java/README.md)
 - PHP: [`crawlora/flashscore`](php/README.md)
 
 For installation and runnable examples, use the README for your language. See the [API endpoint and parameter reference](docs/usage.md) for shared operation details.

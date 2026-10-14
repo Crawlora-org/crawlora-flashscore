@@ -6,10 +6,10 @@ from .operations import OPERATION_COUNT, OPERATION_IDS, PLATFORM
 
 Client = FlashscoreClient
 AsyncClient = AsyncFlashscoreClient
-__version__ = '0.3.5'
+__version__ = '0.3.6'
 DISPLAY_NAME = 'Flashscore'
 PLATFORM = 'flashscore'
-CONTRACT_REVISION = 'sha256:1ade3db4148f310594a6b4f738e69dea677015e4a98ee2945cdb6ee380fa9630'
+CONTRACT_REVISION = 'sha256:fd1c70a1b050d86c9e738a62dd14cde04b8a3ce00eb3e281b1d248c1ccdb2e92'
 
 __all__ = [
     "FlashscoreClient", "AsyncFlashscoreClient", "Client", "AsyncClient",

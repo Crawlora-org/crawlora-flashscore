@@ -1,43 +1,51 @@
 {
   "async_class_name": "AsyncFlashscoreClient",
   "class_name": "FlashscoreClient",
-  "contract_revision": "sha256:1ade3db4148f310594a6b4f738e69dea677015e4a98ee2945cdb6ee380fa9630",
+  "contract_revision": "sha256:fd1c70a1b050d86c9e738a62dd14cde04b8a3ce00eb3e281b1d248c1ccdb2e92",
   "display_name": "Flashscore",
   "general_sdk_version": "1.46.0-sdk.1",
   "golang_module_name": "github.com/Crawlora-org/crawlora-flashscore",
-  "golang_version": "0.3.5",
+  "golang_version": "0.3.6",
   "group_name": "flashscore",
-  "maven_artifact_id": "crawlora-flashscore",
   "java_description": "Java client for Crawlora's hosted Flashscore API, with methods for scores, match details, competitions, teams, players, odds, and news. Requires a Crawlora API key.",
+  "maven_artifact_id": "crawlora-flashscore",
   "maven_group_id": "net.crawlora",
   "module_name": "crawlora_flashscore",
   "npm_name": "@crawlora-org/flashscore",
   "php_package_name": "crawlora/flashscore",
+  "php_repository": "https://github.com/Crawlora-org/crawlora-flashscore",
   "platform": "flashscore",
   "python_name": "crawlora-flashscore",
   "releases": [
     {
-      "version": "0.3.5",
-      "date": "2026-10-12",
+      "changes": [
+        "Updated operation contracts: flashscore-calendar-categories, flashscore-match-odds, flashscore-ranking-categories."
+      ],
+      "date": "2026-10-14",
+      "version": "0.3.6"
+    },
+    {
       "changes": [
         "List every supported endpoint in the repository and package READMEs.",
         "Add platform-specific search keywords to the npm, PyPI, and Composer package metadata."
-      ]
+      ],
+      "date": "2026-10-12",
+      "version": "0.3.5"
     },
     {
-      "version": "0.3.4",
-      "date": "2026-10-09",
       "changes": [
         "Keep the platform README as a language-package index without cross-language installation commands or code examples; pkg.go.dev now shows only its Go example."
-      ]
+      ],
+      "date": "2026-10-09",
+      "version": "0.3.4"
     },
     {
-      "version": "0.3.3",
-      "date": "2026-10-09",
       "changes": [
         "Publish the PHP Composer package from a PHP-only source repository so Packagist displays only PHP installation and usage.",
         "Link RubyGems and Maven Central directly to their Ruby and Java guides, and add a tested Go package documentation example."
-      ]
+      ],
+      "date": "2026-10-09",
+      "version": "0.3.3"
     },
     {
       "changes": [
@@ -110,7 +118,6 @@
   ],
   "repository": "https://github.com/Crawlora-org/crawlora-flashscore",
   "ruby_gem_name": "crawlora-flashscore",
-  "source_contract_sha256": "3827d3a93489515b45354477d4e75fb05f173af262cf358e80878442d7d258f2",
-  "version": "0.3.5",
-  "php_repository": "https://github.com/Crawlora-org/crawlora-flashscore"
+  "source_contract_sha256": "58a42b604ca03b9d6cf27355e0e56f34719985b905a61df2f9f2a8c55f651f74",
+  "version": "0.3.6"
 }

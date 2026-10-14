@@ -4630,7 +4630,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Lists the current ATP, WTA, golf, badminton, and Formula 1 calendar pages.",
+        "description": "Lists the Flashscore season calendar sections currently available, covering ATP, WTA, golf, badminton and Formula 1. Each category has its `key`, name, sport and canonical path. Use a `key` with the Flashscore calendar endpoint. It takes no parameters.",
         "operationId": "flashscore-calendar-categories",
         "produces": [
           "application/json"
@@ -5357,7 +5357,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns bookmaker odds for a match in one viewer market, grouped by betting type and scope with every bookmaker's priced outcomes, opening odds, handicap or total lines, and a normalized selection label. Bookmakers and prices depend on the market, so pick geo (and subdivision for US or CA) from flashscore-odds-geos. A market with no licensed bookmakers returns empty lists. Promotional bonus text is not included.",
+        "description": "Returns bookmaker odds for a match in one viewer market, grouped by betting type and scope with every bookmaker's priced outcomes, opening odds, handicap or total lines, and a selection label. Bookmakers and prices depend on the market, so pick geo (and subdivision for US or CA) from flashscore-odds-geos. A market with no licensed bookmakers returns empty lists. Promotional bonus text is not included.",
         "operationId": "flashscore-match-odds",
         "parameters": [
           {
@@ -7153,7 +7153,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Lists the live-verified public ranking categories, including tennis live rankings.",
+        "description": "Lists the Flashscore ranking categories currently available, including the tennis live-rankings pages. Each category has its `key`, name, sport, page path and a `live` flag. Use a `key` with the Flashscore rankings endpoint. It takes no parameters.",
         "operationId": "flashscore-ranking-categories",
         "produces": [
           "application/json"

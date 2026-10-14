@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.6 — 2026-10-14
+
+- Updated operation contracts: flashscore-calendar-categories, flashscore-match-odds, flashscore-ranking-categories.
+
 ## 0.3.5 — 2026-10-12
 
 - List every supported endpoint in the repository and package READMEs.
