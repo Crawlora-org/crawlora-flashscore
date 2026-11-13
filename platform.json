@@ -1,11 +1,12 @@
 {
+  "api_path_prefix": "/flashscore/",
   "async_class_name": "AsyncFlashscoreClient",
   "class_name": "FlashscoreClient",
-  "contract_revision": "sha256:fd1c70a1b050d86c9e738a62dd14cde04b8a3ce00eb3e281b1d248c1ccdb2e92",
+  "contract_revision": "sha256:5b6ce781b90a431c7e295bd02964a902982e33385cf7e458c77ef01a338facbb",
   "display_name": "Flashscore",
   "general_sdk_version": "1.46.0-sdk.1",
   "golang_module_name": "github.com/Crawlora-org/crawlora-flashscore",
-  "golang_version": "0.3.6",
+  "golang_version": "0.4.0",
   "group_name": "flashscore",
   "java_description": "Java client for Crawlora's hosted Flashscore API, with methods for scores, match details, competitions, teams, players, odds, and news. Requires a Crawlora API key.",
   "maven_artifact_id": "crawlora-flashscore",
@@ -17,6 +18,14 @@
   "platform": "flashscore",
   "python_name": "crawlora-flashscore",
   "releases": [
+    {
+      "changes": [
+        "Added operations: flashscore-match-commentary, flashscore-match-incidents, flashscore-match-prematch-scorers, flashscore-tournament-draw.",
+        "Updated operation contracts: flashscore-match-darts, flashscore-match-lineups."
+      ],
+      "date": "2026-11-13",
+      "version": "0.4.0"
+    },
     {
       "changes": [
         "Updated operation contracts: flashscore-calendar-categories, flashscore-match-odds, flashscore-ranking-categories."
@@ -120,6 +129,6 @@
   "ruby_gem_name": "crawlora-flashscore",
   "rust_crate_name": "crawlora-flashscore",
   "rust_module_name": "crawlora_flashscore",
-  "source_contract_sha256": "58a42b604ca03b9d6cf27355e0e56f34719985b905a61df2f9f2a8c55f651f74",
-  "version": "0.3.6"
+  "source_contract_sha256": "123c5406ee3b92b07d2ef3dbe21a6ded54b79b25d26c13cbb905a34e3ecc7118",
+  "version": "0.4.0"
 }

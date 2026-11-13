@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0 — 2026-11-13
+
+- Added operations: flashscore-match-commentary, flashscore-match-incidents, flashscore-match-prematch-scorers, flashscore-tournament-draw.
+- Updated operation contracts: flashscore-match-darts, flashscore-match-lineups.
+
 ## 0.3.6 — 2026-10-14
 
 - Updated operation contracts: flashscore-calendar-categories, flashscore-match-odds, flashscore-ranking-categories.

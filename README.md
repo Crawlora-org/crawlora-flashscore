@@ -1,6 +1,6 @@
 # Flashscore clients for Crawlora
 
-Official Crawlora client packages for the hosted Flashscore API. Access 54 API endpoints covering scores, match details, competitions, teams, players, odds, and news from JavaScript/TypeScript, Python, Go, Ruby, Java, PHP, and Rust. These clients call Crawlora's hosted API; they do not scrape Flashscore locally. Requests use your Crawlora account and `CRAWLORA_API_KEY`; service usage follows your account billing plan. Crawlora is independent from and not affiliated with or endorsed by Flashscore or its owners.
+Official Crawlora client packages for the hosted Flashscore API. Access 58 API endpoints covering scores, match details, competitions, teams, players, odds, and news from JavaScript/TypeScript, Python, Go, Ruby, Java, PHP, and Rust. These clients call Crawlora's hosted API; they do not scrape Flashscore locally. Requests use your Crawlora account and `CRAWLORA_API_KEY`; service usage follows your account billing plan. Crawlora is independent from and not affiliated with or endorsed by Flashscore or its owners.
 
 ## Language packages
 
@@ -8,7 +8,7 @@ Official Crawlora client packages for the hosted Flashscore API. Access 54 API e
 - Python: [`crawlora-flashscore`](python/README.md)
 - Go: [`github.com/Crawlora-org/crawlora-flashscore`](go.mod)
 - Ruby: [`crawlora-flashscore`](ruby/README.md)
-- Java: [`net.crawlora:crawlora-flashscore:0.3.6`](java/README.md)
+- Java: [`net.crawlora:crawlora-flashscore:0.4.0`](java/README.md)
 - PHP: [`crawlora/flashscore`](php/README.md)
 - Rust: [`crawlora-flashscore`](rust/README.md)
 
@@ -18,7 +18,7 @@ Create an account at [crawlora.net](https://crawlora.net/signup?utm_source=githu
 
 ## API coverage and supported endpoints
 
-The seven language clients provide access to all 54 selected public Flashscore API operations. Search or browse by endpoint path and operation ID below; the [complete API reference](docs/usage.md) adds parameters, enums, and response details.
+The seven language clients provide access to all 58 selected public Flashscore API operations. Search or browse by endpoint path and operation ID below; the [complete API reference](docs/usage.md) adds parameters, enums, and response details.
 
 | Method | Endpoint | API operation | Description |
 | --- | --- | --- | --- |
@@ -27,9 +27,11 @@ The seven language clients provide access to all 54 selected public Flashscore A
 | `GET` | `/flashscore/competitions` | `flashscore-competitions` | Flashscore competitions by sport and date |
 | `GET` | `/flashscore/entity-news` | `flashscore-entity-news` | Flashscore news for a team, player, tournament or sport |
 | `GET` | `/flashscore/match-box-score` | `flashscore-match-box-score` | Flashscore basketball, hockey and baseball box score |
+| `GET` | `/flashscore/match-commentary` | `flashscore-match-commentary` | Flashscore match text commentary |
 | `GET` | `/flashscore/match-darts` | `flashscore-match-darts` | Flashscore darts throw-by-throw and statistics |
 | `GET` | `/flashscore/match-h2h` | `flashscore-match-h2h` | Flashscore match head-to-head and recent results |
 | `GET` | `/flashscore/match-highlights` | `flashscore-match-highlights` | Flashscore match highlights |
+| `GET` | `/flashscore/match-incidents` | `flashscore-match-incidents` | Flashscore structured match incidents |
 | `GET` | `/flashscore/match-info` | `flashscore-match-info` | Flashscore match venue and broadcast information |
 | `GET` | `/flashscore/match-lineups` | `flashscore-match-lineups` | Flashscore match lineups and formations |
 | `GET` | `/flashscore/match-missing-players` | `flashscore-match-missing-players` | Flashscore missing and doubtful players |
@@ -39,6 +41,7 @@ The seven language clients provide access to all 54 selected public Flashscore A
 | `GET` | `/flashscore/match-player-stats` | `flashscore-match-player-stats` | Flashscore football player match statistics and ratings |
 | `GET` | `/flashscore/match-point-by-point` | `flashscore-match-point-by-point` | Flashscore point-by-point scoring history |
 | `GET` | `/flashscore/match-predicted-lineups` | `flashscore-match-predicted-lineups` | Flashscore predicted lineups |
+| `GET` | `/flashscore/match-prematch-scorers` | `flashscore-match-prematch-scorers` | Flashscore pre-match top scorers |
 | `GET` | `/flashscore/match-report` | `flashscore-match-report` | Flashscore editorial match report |
 | `GET` | `/flashscore/match-standings` | `flashscore-match-standings` | Flashscore match league standings |
 | `GET` | `/flashscore/match-stats` | `flashscore-match-stats` | Flashscore match statistics |
@@ -71,6 +74,7 @@ The seven language clients provide access to all 54 selected public Flashscore A
 | `GET` | `/flashscore/team-transfers` | `flashscore-team-transfers` | Flashscore team transfers |
 | `GET` | `/flashscore/top-search` | `flashscore-top-search` | Flashscore top search entities |
 | `GET` | `/flashscore/tournament-archive-seasons` | `flashscore-tournament-archive-seasons` | Flashscore competition seasons by stage id |
+| `GET` | `/flashscore/tournament-draw` | `flashscore-tournament-draw` | Flashscore tournament draw by season and stage |
 | `GET` | `/flashscore/tournament-events` | `flashscore-tournament-events` | Flashscore tournament season results or fixtures |
 | `GET` | `/flashscore/tournament-outright-odds` | `flashscore-tournament-outright-odds` | Flashscore competition winner odds |
 | `GET` | `/flashscore/tournament-seasons` | `flashscore-tournament-seasons` | Flashscore tournament archive seasons |

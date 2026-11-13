@@ -34,9 +34,11 @@ var operations = map[string]operationDefinition{
 	"flashscore-competitions":               operationDefinition{Method: "GET", Path: "/flashscore/competitions", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "sport", In: "query", Type: "string", Required: true, Enum: []string{"football", "tennis", "basketball", "hockey", "golf", "formula-1", "baseball", "snooker", "american-football", "aussie-rules", "badminton", "bandy", "beach-soccer", "beach-volleyball", "boxing", "cricket", "cycling", "darts", "esports", "field-hockey", "floorball", "futsal", "handball", "horse-racing", "kabaddi", "mma", "motorsport", "netball", "pesapallo", "rugby-league", "rugby-union", "table-tennis", "volleyball", "water-polo", "winter-sports", "moto-racing", "ski-jumping", "alpine-skiing", "cross-country-skiing", "biathlon"}}, parameterDefinition{Name: "day_offset", In: "query", Type: "integer"}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
 	"flashscore-entity-news":                operationDefinition{Method: "GET", Path: "/flashscore/entity-news", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "type", In: "query", Type: "string", Required: true, Enum: []string{"team", "player", "tournament", "sport"}}, parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
 	"flashscore-match-box-score":            operationDefinition{Method: "GET", Path: "/flashscore/match-box-score", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"flashscore-match-commentary":           operationDefinition{Method: "GET", Path: "/flashscore/match-commentary", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
 	"flashscore-match-darts":                operationDefinition{Method: "GET", Path: "/flashscore/match-darts", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
 	"flashscore-match-h2h":                  operationDefinition{Method: "GET", Path: "/flashscore/match-h2h", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
 	"flashscore-match-highlights":           operationDefinition{Method: "GET", Path: "/flashscore/match-highlights", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"flashscore-match-incidents":            operationDefinition{Method: "GET", Path: "/flashscore/match-incidents", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
 	"flashscore-match-info":                 operationDefinition{Method: "GET", Path: "/flashscore/match-info", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
 	"flashscore-match-lineups":              operationDefinition{Method: "GET", Path: "/flashscore/match-lineups", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
 	"flashscore-match-missing-players":      operationDefinition{Method: "GET", Path: "/flashscore/match-missing-players", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
@@ -46,6 +48,7 @@ var operations = map[string]operationDefinition{
 	"flashscore-match-player-stats":         operationDefinition{Method: "GET", Path: "/flashscore/match-player-stats", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "player_id", In: "query", Type: "string"}, parameterDefinition{Name: "group", In: "query", Type: "string", Enum: []string{"top_stats", "shots", "attack", "passes", "defense", "goalkeeping", "general"}}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
 	"flashscore-match-point-by-point":       operationDefinition{Method: "GET", Path: "/flashscore/match-point-by-point", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
 	"flashscore-match-predicted-lineups":    operationDefinition{Method: "GET", Path: "/flashscore/match-predicted-lineups", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"flashscore-match-prematch-scorers":     operationDefinition{Method: "GET", Path: "/flashscore/match-prematch-scorers", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
 	"flashscore-match-report":               operationDefinition{Method: "GET", Path: "/flashscore/match-report", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
 	"flashscore-match-standings":            operationDefinition{Method: "GET", Path: "/flashscore/match-standings", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "view", In: "query", Type: "string", Enum: []string{"overall", "home", "away", "form_overall", "overunder_overall", "form_home", "form_away", "top_scorers", "htft_overall", "htft_home", "htft_away", "live_overall", "overunder_home", "overunder_away"}}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
 	"flashscore-match-stats":                operationDefinition{Method: "GET", Path: "/flashscore/match-stats", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
@@ -78,6 +81,7 @@ var operations = map[string]operationDefinition{
 	"flashscore-team-transfers":             operationDefinition{Method: "GET", Path: "/flashscore/team-transfers", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "type", In: "query", Type: "string", Enum: []string{"all", "arrivals", "departures"}}, parameterDefinition{Name: "page", In: "query", Type: "integer"}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
 	"flashscore-top-search":                 operationDefinition{Method: "GET", Path: "/flashscore/top-search", PathParams: nil, QueryParams: nil, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
 	"flashscore-tournament-archive-seasons": operationDefinition{Method: "GET", Path: "/flashscore/tournament-archive-seasons", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "stage_id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"flashscore-tournament-draw":            operationDefinition{Method: "GET", Path: "/flashscore/tournament-draw", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "tournament_id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "stage_id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
 	"flashscore-tournament-events":          operationDefinition{Method: "GET", Path: "/flashscore/tournament-events", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "path", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "page", In: "query", Type: "integer"}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
 	"flashscore-tournament-outright-odds":   operationDefinition{Method: "GET", Path: "/flashscore/tournament-outright-odds", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "tournament_id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "geo", In: "query", Type: "string", Enum: []string{"AE", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BD", "BE", "BG", "BO", "BR", "BY", "CA", "CH", "CI", "CL", "CM", "CN", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "ET", "FI", "FR", "GB", "GE", "GH", "GR", "GT", "HK", "HN", "HR", "HU", "ID", "IE", "IL", "IN", "IQ", "IR", "IS", "IT", "JO", "JP", "KE", "KG", "KH", "KR", "KW", "KZ", "LA", "LB", "LK", "LT", "LU", "LV", "LY", "MA", "MD", "ME", "MK", "MM", "MN", "MT", "MX", "MY", "NG", "NI", "NL", "NO", "NP", "NZ", "PA", "PE", "PH", "PK", "PL", "PT", "PY", "QA", "RO", "RS", "RU", "SA", "SD", "SE", "SG", "SI", "SK", "SN", "SV", "TH", "TN", "TR", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VE", "VN", "XK", "ZA", "ZM", "ZW"}}, parameterDefinition{Name: "subdivision", In: "query", Type: "string", Enum: []string{"AB", "AK", "AL", "AR", "AZ", "BC", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MB", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NB", "NC", "ND", "NE", "NH", "NJ", "NL", "NM", "NS", "NT", "NU", "NV", "NY", "OH", "OK", "ON", "OR", "PA", "PE", "QC", "RI", "SC", "SD", "SK", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY", "YT"}}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
 	"flashscore-tournament-seasons":         operationDefinition{Method: "GET", Path: "/flashscore/tournament-seasons", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "path", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
@@ -86,7 +90,7 @@ var operations = map[string]operationDefinition{
 }
 
 // OperationCount reports how many selected-platform operations this module exposes.
-const OperationCount = 54
+const OperationCount = 58
 
 // OperationIDs returns the selected operation IDs in stable sorted order.
 func OperationIDs() []string {
@@ -123,6 +127,11 @@ func (c *Client) MatchBoxScore(ctx context.Context, params Params) (any, error) 
 	return c.Call(ctx, "flashscore-match-box-score", params)
 }
 
+// MatchCommentary calls the flashscore-match-commentary operation.
+func (c *Client) MatchCommentary(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "flashscore-match-commentary", params)
+}
+
 // MatchDarts calls the flashscore-match-darts operation.
 func (c *Client) MatchDarts(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-match-darts", params)
@@ -136,6 +145,11 @@ func (c *Client) MatchH2h(ctx context.Context, params Params) (any, error) {
 // MatchHighlights calls the flashscore-match-highlights operation.
 func (c *Client) MatchHighlights(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-match-highlights", params)
+}
+
+// MatchIncidents calls the flashscore-match-incidents operation.
+func (c *Client) MatchIncidents(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "flashscore-match-incidents", params)
 }
 
 // MatchInfo calls the flashscore-match-info operation.
@@ -181,6 +195,11 @@ func (c *Client) MatchPointByPoint(ctx context.Context, params Params) (any, err
 // MatchPredictedLineups calls the flashscore-match-predicted-lineups operation.
 func (c *Client) MatchPredictedLineups(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-match-predicted-lineups", params)
+}
+
+// MatchPrematchScorers calls the flashscore-match-prematch-scorers operation.
+func (c *Client) MatchPrematchScorers(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "flashscore-match-prematch-scorers", params)
 }
 
 // MatchReport calls the flashscore-match-report operation.
@@ -341,6 +360,11 @@ func (c *Client) TopSearch(ctx context.Context, params Params) (any, error) {
 // TournamentArchiveSeasons calls the flashscore-tournament-archive-seasons operation.
 func (c *Client) TournamentArchiveSeasons(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "flashscore-tournament-archive-seasons", params)
+}
+
+// TournamentDraw calls the flashscore-tournament-draw operation.
+func (c *Client) TournamentDraw(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "flashscore-tournament-draw", params)
 }
 
 // TournamentEvents calls the flashscore-tournament-events operation.

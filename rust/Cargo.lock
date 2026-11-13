@@ -82,7 +82,7 @@ dependencies = [
 
 [[package]]
 name = "crawlora-flashscore"
-version = "0.3.6"
+version = "0.4.0"
 dependencies = [
  "percent-encoding",
  "reqwest",

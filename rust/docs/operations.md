@@ -2,7 +2,7 @@
 
 Generated from `openapi/public.json`. Deprecated, admin, and internal operations are excluded from this SDK contract.
 
-Total operations: `54`
+Total operations: `58`
 
 | Group | SDK method | Operation ID | HTTP | Params | Auth | Response | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -11,9 +11,11 @@ Total operations: `54`
 | flashscore | `flashscore.competitions` | `flashscore-competitions` | `GET /flashscore/competitions` | `sport` (query String enum{football, tennis, basketball, hockey, golf, formula-1, baseball, snooker, american-football, aussie-rules, badminton, bandy, beach-soccer, beach-volleyball, boxing, cricket, cycling, darts, esports, field-hockey, floorball, futsal, handball, horse-racing, kabaddi, mma, motorsport, netball, pesapallo, rugby-league, rugby-union, table-tennis, volleyball, water-polo, winter-sports, moto-racing, ski-jumping, alpine-skiing, cross-country-skiing, biathlon} required)<br>`day_offset` (query i64) | `ApiKeyAuth` | `FlashscoreCompetitionsResponse` |  |
 | flashscore | `flashscore.entity_news` | `flashscore-entity-news` | `GET /flashscore/entity-news` | `type` (query String enum{team, player, tournament, sport} required)<br>`id` (query String required) | `ApiKeyAuth` | `FlashscoreEntityNewsResponse` |  |
 | flashscore | `flashscore.match_box_score` | `flashscore-match-box-score` | `GET /flashscore/match-box-score` | `id` (query String required) | `ApiKeyAuth` | `FlashscoreMatchBoxScoreResponse` |  |
+| flashscore | `flashscore.match_commentary` | `flashscore-match-commentary` | `GET /flashscore/match-commentary` | `id` (query String required) | `ApiKeyAuth` | `FlashscoreMatchCommentaryResponse` |  |
 | flashscore | `flashscore.match_darts` | `flashscore-match-darts` | `GET /flashscore/match-darts` | `id` (query String required) | `ApiKeyAuth` | `FlashscoreMatchDartsResponse` |  |
 | flashscore | `flashscore.match_h2h` | `flashscore-match-h2h` | `GET /flashscore/match-h2h` | `id` (query String required) | `ApiKeyAuth` | `FlashscoreMatchH2hResponse` |  |
 | flashscore | `flashscore.match_highlights` | `flashscore-match-highlights` | `GET /flashscore/match-highlights` | `id` (query String required) | `ApiKeyAuth` | `FlashscoreMatchHighlightsResponse` |  |
+| flashscore | `flashscore.match_incidents` | `flashscore-match-incidents` | `GET /flashscore/match-incidents` | `id` (query String required) | `ApiKeyAuth` | `FlashscoreMatchIncidentsResponse` |  |
 | flashscore | `flashscore.match_info` | `flashscore-match-info` | `GET /flashscore/match-info` | `id` (query String required) | `ApiKeyAuth` | `FlashscoreMatchInfoResponse` |  |
 | flashscore | `flashscore.match_lineups` | `flashscore-match-lineups` | `GET /flashscore/match-lineups` | `id` (query String required) | `ApiKeyAuth` | `FlashscoreMatchLineupsResponse` |  |
 | flashscore | `flashscore.match_missing_players` | `flashscore-match-missing-players` | `GET /flashscore/match-missing-players` | `id` (query String required) | `ApiKeyAuth` | `FlashscoreMatchMissingPlayersResponse` |  |
@@ -23,6 +25,7 @@ Total operations: `54`
 | flashscore | `flashscore.match_player_stats` | `flashscore-match-player-stats` | `GET /flashscore/match-player-stats` | `id` (query String required)<br>`player_id` (query String)<br>`group` (query String enum{top_stats, shots, attack, passes, defense, goalkeeping, general}) | `ApiKeyAuth` | `FlashscoreMatchPlayerStatsResponse` |  |
 | flashscore | `flashscore.match_point_by_point` | `flashscore-match-point-by-point` | `GET /flashscore/match-point-by-point` | `id` (query String required) | `ApiKeyAuth` | `FlashscoreMatchPointByPointResponse` |  |
 | flashscore | `flashscore.match_predicted_lineups` | `flashscore-match-predicted-lineups` | `GET /flashscore/match-predicted-lineups` | `id` (query String required) | `ApiKeyAuth` | `FlashscoreMatchPredictedLineupsResponse` |  |
+| flashscore | `flashscore.match_prematch_scorers` | `flashscore-match-prematch-scorers` | `GET /flashscore/match-prematch-scorers` | `id` (query String required) | `ApiKeyAuth` | `FlashscoreMatchPrematchScorersResponse` |  |
 | flashscore | `flashscore.match_report` | `flashscore-match-report` | `GET /flashscore/match-report` | `id` (query String required) | `ApiKeyAuth` | `FlashscoreMatchReportResponse` |  |
 | flashscore | `flashscore.match_standings` | `flashscore-match-standings` | `GET /flashscore/match-standings` | `id` (query String required)<br>`view` (query String enum{overall, home, away, form_overall, overunder_overall, form_home, form_away, top_scorers, htft_overall, htft_home, htft_away, live_overall, overunder_home, overunder_away}) | `ApiKeyAuth` | `FlashscoreMatchStandingsResponse` |  |
 | flashscore | `flashscore.match_stats` | `flashscore-match-stats` | `GET /flashscore/match-stats` | `id` (query String required) | `ApiKeyAuth` | `FlashscoreMatchStatsResponse` |  |
@@ -55,6 +58,7 @@ Total operations: `54`
 | flashscore | `flashscore.team_transfers` | `flashscore-team-transfers` | `GET /flashscore/team-transfers` | `id` (query String required)<br>`type` (query String enum{all, arrivals, departures})<br>`page` (query i64) | `ApiKeyAuth` | `FlashscoreTeamTransfersResponse` |  |
 | flashscore | `flashscore.top_search` | `flashscore-top-search` | `GET /flashscore/top-search` | none | `ApiKeyAuth` | `FlashscoreTopSearchResponse` |  |
 | flashscore | `flashscore.tournament_archive_seasons` | `flashscore-tournament-archive-seasons` | `GET /flashscore/tournament-archive-seasons` | `stage_id` (query String required) | `ApiKeyAuth` | `FlashscoreTournamentArchiveSeasonsResponse` |  |
+| flashscore | `flashscore.tournament_draw` | `flashscore-tournament-draw` | `GET /flashscore/tournament-draw` | `tournament_id` (query String required)<br>`stage_id` (query String required) | `ApiKeyAuth` | `FlashscoreTournamentDrawResponse` |  |
 | flashscore | `flashscore.tournament_events` | `flashscore-tournament-events` | `GET /flashscore/tournament-events` | `path` (query String required)<br>`page` (query i64) | `ApiKeyAuth` | `FlashscoreTournamentEventsResponse` |  |
 | flashscore | `flashscore.tournament_outright_odds` | `flashscore-tournament-outright-odds` | `GET /flashscore/tournament-outright-odds` | `tournament_id` (query String required)<br>`geo` (query String enum{AE, AL, AM, AO, AR, AT, AU, AZ, BA, BD, BE, BG, BO, BR, BY, CA, CH, CI, CL, CM, CN, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, ET, FI, FR, GB, GE, GH, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IQ, IR, IS, IT, JO, JP, KE, KG, KH, KR, KW, KZ, LA, LB, LK, LT, LU, LV, LY, MA, MD, ME, MK, MM, MN, MT, MX, MY, NG, NI, NL, NO, NP, NZ, PA, PE, PH, PK, PL, PT, PY, QA, RO, RS, RU, SA, SD, SE, SG, SI, SK, SN, SV, TH, TN, TR, TW, TZ, UA, UG, US, UY, UZ, VE, VN, XK, ZA, ZM, ZW})<br>`subdivision` (query String enum{AB, AK, AL, AR, AZ, BC, CA, CO, CT, DC, DE, FL, GA, HI, IA, ID, IL, IN, KS, KY, LA, MA, MB, MD, ME, MI, MN, MO, MS, MT, NB, NC, ND, NE, NH, NJ, NL, NM, NS, NT, NU, NV, NY, OH, OK, ON, OR, PA, PE, QC, RI, SC, SD, SK, TN, TX, UT, VA, VT, WA, WI, WV, WY, YT}) | `ApiKeyAuth` | `FlashscoreTournamentOutrightOddsResponse` |  |
 | flashscore | `flashscore.tournament_seasons` | `flashscore-tournament-seasons` | `GET /flashscore/tournament-seasons` | `path` (query String required) | `ApiKeyAuth` | `FlashscoreTournamentSeasonsResponse` |  |

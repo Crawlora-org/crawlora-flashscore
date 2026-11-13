@@ -1,6 +1,6 @@
 {
   "name": "crawlora/flashscore",
-  "description": "Crawlora Flashscore API client with 54 endpoints for scores, match details, competitions, teams, players, odds, and news",
+  "description": "Crawlora Flashscore API client with 58 endpoints for scores, match details, competitions, teams, players, odds, and news",
   "keywords": [
     "crawlora",
     "api-client",

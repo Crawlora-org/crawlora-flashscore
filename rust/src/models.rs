@@ -184,6 +184,20 @@ pub struct ModelFlashscoreCareerTeam {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscoreCommentaryLine {
+    #[serde(rename = "clock", default, skip_serializing_if = "Option::is_none")]
+    pub clock: Option<String>,
+    #[serde(rename = "minute", default, skip_serializing_if = "Option::is_none")]
+    pub minute: Option<String>,
+    #[serde(rename = "text", default, skip_serializing_if = "Option::is_none")]
+    pub text: Option<String>,
+    #[serde(rename = "type", default, skip_serializing_if = "Option::is_none")]
+    pub type_: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct ModelFlashscoreEntityNewsResponse {
     #[serde(
         rename = "article_count",
@@ -301,6 +315,88 @@ pub struct ModelFlashscoreEventSide {
     pub short_name: Option<String>,
     #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
     pub slug: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscoreIncidentAction {
+    #[serde(
+        rename = "away_score",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub away_score: Option<i64>,
+    #[serde(
+        rename = "home_score",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub home_score: Option<i64>,
+    #[serde(rename = "label", default, skip_serializing_if = "Option::is_none")]
+    pub label: Option<String>,
+    #[serde(rename = "player", default, skip_serializing_if = "Option::is_none")]
+    pub player: Option<String>,
+    #[serde(rename = "player_id", default, skip_serializing_if = "Option::is_none")]
+    pub player_id: Option<String>,
+    #[serde(
+        rename = "player_path",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub player_path: Option<String>,
+    #[serde(rename = "reason", default, skip_serializing_if = "Option::is_none")]
+    pub reason: Option<String>,
+    #[serde(rename = "type_code", default, skip_serializing_if = "Option::is_none")]
+    pub type_code: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscoreMatchCommentaryResponse {
+    #[serde(rename = "comments", default, skip_serializing_if = "Option::is_none")]
+    pub comments: Option<Vec<ModelFlashscoreCommentaryLine>>,
+    #[serde(rename = "match_id", default, skip_serializing_if = "Option::is_none")]
+    pub match_id: Option<String>,
+    #[serde(
+        rename = "source_url",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub source_url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscoreMatchIncident {
+    #[serde(rename = "actions", default, skip_serializing_if = "Option::is_none")]
+    pub actions: Option<Vec<ModelFlashscoreIncidentAction>>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "period", default, skip_serializing_if = "Option::is_none")]
+    pub period: Option<String>,
+    #[serde(rename = "side", default, skip_serializing_if = "Option::is_none")]
+    pub side: Option<String>,
+    #[serde(rename = "time", default, skip_serializing_if = "Option::is_none")]
+    pub time: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscoreMatchIncidentsResponse {
+    #[serde(rename = "incidents", default, skip_serializing_if = "Option::is_none")]
+    pub incidents: Option<Vec<ModelFlashscoreMatchIncident>>,
+    #[serde(rename = "match_id", default, skip_serializing_if = "Option::is_none")]
+    pub match_id: Option<String>,
+    #[serde(
+        rename = "source_url",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub source_url: Option<String>,
     #[serde(flatten)]
     pub additional: BTreeMap<String, Value>,
 }
@@ -966,6 +1062,126 @@ pub struct ModelFlashscorePlayerTransfersResponse {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscorePrematchScorer {
+    #[serde(rename = "goals", default, skip_serializing_if = "Option::is_none")]
+    pub goals: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "player_id", default, skip_serializing_if = "Option::is_none")]
+    pub player_id: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscorePrematchScorerGoal {
+    #[serde(rename = "goals", default, skip_serializing_if = "Option::is_none")]
+    pub goals: Option<i64>,
+    #[serde(rename = "player_id", default, skip_serializing_if = "Option::is_none")]
+    pub player_id: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscorePrematchScorerMatch {
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(
+        rename = "player_goals",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub player_goals: Option<Vec<ModelFlashscorePrematchScorerGoal>>,
+    #[serde(
+        rename = "start_time",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub start_time: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscorePrematchScorerStat {
+    #[serde(rename = "raw_value", default, skip_serializing_if = "Option::is_none")]
+    pub raw_value: Option<String>,
+    #[serde(rename = "type_id", default, skip_serializing_if = "Option::is_none")]
+    pub type_id: Option<String>,
+    #[serde(rename = "value", default, skip_serializing_if = "Option::is_none")]
+    pub value: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscorePrematchScorerTeam {
+    #[serde(
+        rename = "competition_stats",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub competition_stats: Option<Vec<ModelFlashscorePrematchScorerStat>>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(
+        rename = "recent_matches",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub recent_matches: Option<Vec<ModelFlashscorePrematchScorerMatch>>,
+    #[serde(
+        rename = "recent_stats",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub recent_stats: Option<Vec<ModelFlashscorePrematchScorerStat>>,
+    #[serde(rename = "side", default, skip_serializing_if = "Option::is_none")]
+    pub side: Option<String>,
+    #[serde(
+        rename = "top_scorers",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub top_scorers: Option<Vec<ModelFlashscorePrematchScorer>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscorePrematchScorersResponse {
+    #[serde(rename = "match_id", default, skip_serializing_if = "Option::is_none")]
+    pub match_id: Option<String>,
+    #[serde(
+        rename = "source_url",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub source_url: Option<String>,
+    #[serde(
+        rename = "stat_types",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub stat_types: Option<Vec<ModelFlashscoreScorerStatType>>,
+    #[serde(rename = "teams", default, skip_serializing_if = "Option::is_none")]
+    pub teams: Option<Vec<ModelFlashscorePrematchScorerTeam>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscoreScorerStatType {
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "label", default, skip_serializing_if = "Option::is_none")]
+    pub label: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct ModelFlashscoreSquadColumn {
     #[serde(rename = "key", default, skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
@@ -1388,6 +1604,156 @@ pub struct ModelFlashscoreTournamentArchiveSeasonsResponse {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscoreTournamentDrawMatch {
+    #[serde(
+        rename = "away_extra_time_score",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub away_extra_time_score: Option<i64>,
+    #[serde(
+        rename = "away_index",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub away_index: Option<i64>,
+    #[serde(
+        rename = "away_penalty_score",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub away_penalty_score: Option<i64>,
+    #[serde(
+        rename = "away_regular_score",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub away_regular_score: Option<i64>,
+    #[serde(rename = "event_id", default, skip_serializing_if = "Option::is_none")]
+    pub event_id: Option<String>,
+    #[serde(
+        rename = "home_extra_time_score",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub home_extra_time_score: Option<i64>,
+    #[serde(
+        rename = "home_index",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub home_index: Option<i64>,
+    #[serde(
+        rename = "home_penalty_score",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub home_penalty_score: Option<i64>,
+    #[serde(
+        rename = "home_regular_score",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub home_regular_score: Option<i64>,
+    #[serde(rename = "score", default, skip_serializing_if = "Option::is_none")]
+    pub score: Option<String>,
+    #[serde(
+        rename = "start_time",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub start_time: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscoreTournamentDrawParticipant {
+    #[serde(rename = "index", default, skip_serializing_if = "Option::is_none")]
+    pub index: Option<i64>,
+    #[serde(
+        rename = "member_ids",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub member_ids: Option<Vec<String>>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscoreTournamentDrawResponse {
+    #[serde(
+        rename = "participants",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub participants: Option<Vec<ModelFlashscoreTournamentDrawParticipant>>,
+    #[serde(rename = "rounds", default, skip_serializing_if = "Option::is_none")]
+    pub rounds: Option<Vec<ModelFlashscoreTournamentDrawRound>>,
+    #[serde(
+        rename = "source_url",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub source_url: Option<String>,
+    #[serde(rename = "stage_id", default, skip_serializing_if = "Option::is_none")]
+    pub stage_id: Option<String>,
+    #[serde(
+        rename = "tournament_id",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub tournament_id: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscoreTournamentDrawRound {
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "slots", default, skip_serializing_if = "Option::is_none")]
+    pub slots: Option<Vec<ModelFlashscoreTournamentDrawSlot>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscoreTournamentDrawSlot {
+    #[serde(
+        rename = "away_index",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub away_index: Option<i64>,
+    #[serde(rename = "away_seed", default, skip_serializing_if = "Option::is_none")]
+    pub away_seed: Option<String>,
+    #[serde(
+        rename = "home_index",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub home_index: Option<i64>,
+    #[serde(rename = "home_seed", default, skip_serializing_if = "Option::is_none")]
+    pub home_seed: Option<String>,
+    #[serde(rename = "matches", default, skip_serializing_if = "Option::is_none")]
+    pub matches: Option<Vec<ModelFlashscoreTournamentDrawMatch>>,
+    #[serde(
+        rename = "winner_side",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub winner_side: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct ModelFlashscoreTournamentOutrightOddsResponse {
     #[serde(
         rename = "bookmakers",
@@ -1645,8 +2011,16 @@ pub struct ModelFlashscoreDartsLegDoc {
     pub checkout: Option<i64>,
     #[serde(rename = "home_legs", default, skip_serializing_if = "Option::is_none")]
     pub home_legs: Option<i64>,
+    #[serde(
+        rename = "in_progress",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub in_progress: Option<bool>,
     #[serde(rename = "number", default, skip_serializing_if = "Option::is_none")]
     pub number: Option<i64>,
+    #[serde(rename = "set", default, skip_serializing_if = "Option::is_none")]
+    pub set: Option<i64>,
     #[serde(
         rename = "start_score",
         default,
@@ -1659,6 +2033,20 @@ pub struct ModelFlashscoreDartsLegDoc {
     pub visits: Option<Vec<ModelFlashscoreDartsVisitDoc>>,
     #[serde(rename = "winner", default, skip_serializing_if = "Option::is_none")]
     pub winner: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscoreDartsSetStatisticsDoc {
+    #[serde(rename = "set", default, skip_serializing_if = "Option::is_none")]
+    pub set: Option<i64>,
+    #[serde(
+        rename = "statistics",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub statistics: Option<Vec<ModelFlashscoreDartsStatisticDoc>>,
     #[serde(flatten)]
     pub additional: BTreeMap<String, Value>,
 }
@@ -1766,6 +2154,26 @@ pub struct ModelFlashscoreLineupGroupDoc {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscoreLineupIncidentDoc {
+    #[serde(rename = "hidden", default, skip_serializing_if = "Option::is_none")]
+    pub hidden: Option<bool>,
+    #[serde(rename = "minute", default, skip_serializing_if = "Option::is_none")]
+    pub minute: Option<String>,
+    #[serde(
+        rename = "player_in_id",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub player_in_id: Option<String>,
+    #[serde(rename = "reasons", default, skip_serializing_if = "Option::is_none")]
+    pub reasons: Option<Vec<String>>,
+    #[serde(rename = "type", default, skip_serializing_if = "Option::is_none")]
+    pub type_: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct ModelFlashscoreLineupPlayerDoc {
     #[serde(rename = "age", default, skip_serializing_if = "Option::is_none")]
     pub age: Option<f64>,
@@ -1802,11 +2210,43 @@ pub struct ModelFlashscoreLineupPlayerDoc {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscoreLineupRatingDoc {
+    #[serde(rename = "is_best", default, skip_serializing_if = "Option::is_none")]
+    pub is_best: Option<bool>,
+    #[serde(rename = "value", default, skip_serializing_if = "Option::is_none")]
+    pub value: Option<f64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct ModelFlashscoreLineupRoleDoc {
     #[serde(rename = "suffix", default, skip_serializing_if = "Option::is_none")]
     pub suffix: Option<String>,
     #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
     pub title: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscoreLineupSubstitutionDoc {
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "minute", default, skip_serializing_if = "Option::is_none")]
+    pub minute: Option<String>,
+    #[serde(
+        rename = "player_in_id",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub player_in_id: Option<String>,
+    #[serde(
+        rename = "player_out_id",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub player_out_id: Option<String>,
     #[serde(flatten)]
     pub additional: BTreeMap<String, Value>,
 }
@@ -1906,6 +2346,12 @@ pub struct ModelFlashscoreMatchDartsDataDoc {
     #[serde(rename = "match_id", default, skip_serializing_if = "Option::is_none")]
     pub match_id: Option<String>,
     #[serde(
+        rename = "set_statistics",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub set_statistics: Option<Vec<ModelFlashscoreDartsSetStatisticsDoc>>,
+    #[serde(
         rename = "source_url",
         default,
         skip_serializing_if = "Option::is_none"
@@ -1933,6 +2379,116 @@ pub struct ModelFlashscoreMatchDartsResponseDoc {
     pub code: Option<i64>,
     #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
     pub data: Option<ModelFlashscoreMatchDartsDataDoc>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscoreMatchLineupPlayerDoc {
+    #[serde(rename = "age", default, skip_serializing_if = "Option::is_none")]
+    pub age: Option<f64>,
+    #[serde(
+        rename = "average_rating",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub average_rating: Option<f64>,
+    #[serde(rename = "country", default, skip_serializing_if = "Option::is_none")]
+    pub country: Option<String>,
+    #[serde(rename = "height_cm", default, skip_serializing_if = "Option::is_none")]
+    pub height_cm: Option<f64>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "incidents", default, skip_serializing_if = "Option::is_none")]
+    pub incidents: Option<Vec<ModelFlashscoreLineupIncidentDoc>>,
+    #[serde(rename = "list_name", default, skip_serializing_if = "Option::is_none")]
+    pub list_name: Option<String>,
+    #[serde(
+        rename = "market_value",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub market_value: Option<f64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "number", default, skip_serializing_if = "Option::is_none")]
+    pub number: Option<String>,
+    #[serde(rename = "rating", default, skip_serializing_if = "Option::is_none")]
+    pub rating: Option<ModelFlashscoreLineupRatingDoc>,
+    #[serde(rename = "roles", default, skip_serializing_if = "Option::is_none")]
+    pub roles: Option<Vec<ModelFlashscoreLineupRoleDoc>>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscoreMatchLineupTeamDoc {
+    #[serde(
+        rename = "aggregated_stats",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub aggregated_stats: Option<ModelFlashscoreLineupAggregatedStatsDoc>,
+    #[serde(
+        rename = "average_rating",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub average_rating: Option<f64>,
+    #[serde(rename = "coaches", default, skip_serializing_if = "Option::is_none")]
+    pub coaches: Option<Vec<ModelFlashscoreLineupPlayerDoc>>,
+    #[serde(rename = "formation", default, skip_serializing_if = "Option::is_none")]
+    pub formation: Option<ModelFlashscorePredictedFormationDoc>,
+    #[serde(rename = "groups", default, skip_serializing_if = "Option::is_none")]
+    pub groups: Option<Vec<ModelFlashscoreLineupGroupDoc>>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(
+        rename = "participant_id",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub participant_id: Option<String>,
+    #[serde(rename = "players", default, skip_serializing_if = "Option::is_none")]
+    pub players: Option<Vec<ModelFlashscoreMatchLineupPlayerDoc>>,
+    #[serde(rename = "side", default, skip_serializing_if = "Option::is_none")]
+    pub side: Option<String>,
+    #[serde(
+        rename = "substitutions",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub substitutions: Option<Vec<ModelFlashscoreLineupSubstitutionDoc>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscoreMatchLineupsDataDoc {
+    #[serde(rename = "match_id", default, skip_serializing_if = "Option::is_none")]
+    pub match_id: Option<String>,
+    #[serde(
+        rename = "source_url",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub source_url: Option<String>,
+    #[serde(rename = "teams", default, skip_serializing_if = "Option::is_none")]
+    pub teams: Option<Vec<ModelFlashscoreMatchLineupTeamDoc>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelFlashscoreMatchLineupsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelFlashscoreMatchLineupsDataDoc>,
     #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
     pub msg: Option<String>,
     #[serde(flatten)]
