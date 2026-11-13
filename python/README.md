@@ -1,6 +1,6 @@
 # crawlora-flashscore — Flashscore API client for Python
 
-Python client for Crawlora's hosted Flashscore API. It exposes 54 API endpoints covering scores, match details, competitions, teams, players, odds, and news. Requests go to [Crawlora](https://crawlora.net/?utm_source=pypi&utm_medium=referral&utm_campaign=platform-clients&utm_content=flashscore-python-homepage); the package does not run a browser or scrape
+Python client for Crawlora's hosted Flashscore API. It exposes 58 API endpoints covering scores, match details, competitions, teams, players, odds, and news. Requests go to [Crawlora](https://crawlora.net/?utm_source=pypi&utm_medium=referral&utm_campaign=platform-clients&utm_content=flashscore-python-homepage); the package does not run a browser or scrape
 Flashscore locally. A Crawlora account and `CRAWLORA_API_KEY` are required,
 and API use is billed under your Crawlora account. Crawlora is independent from and not endorsed by
 Flashscore or its owners.
@@ -78,9 +78,11 @@ This package exposes every route below through direct snake_case methods and the
 | `GET` | `/flashscore/competitions` | `flashscore-competitions` | Flashscore competitions by sport and date |
 | `GET` | `/flashscore/entity-news` | `flashscore-entity-news` | Flashscore news for a team, player, tournament or sport |
 | `GET` | `/flashscore/match-box-score` | `flashscore-match-box-score` | Flashscore basketball, hockey and baseball box score |
+| `GET` | `/flashscore/match-commentary` | `flashscore-match-commentary` | Flashscore match text commentary |
 | `GET` | `/flashscore/match-darts` | `flashscore-match-darts` | Flashscore darts throw-by-throw and statistics |
 | `GET` | `/flashscore/match-h2h` | `flashscore-match-h2h` | Flashscore match head-to-head and recent results |
 | `GET` | `/flashscore/match-highlights` | `flashscore-match-highlights` | Flashscore match highlights |
+| `GET` | `/flashscore/match-incidents` | `flashscore-match-incidents` | Flashscore structured match incidents |
 | `GET` | `/flashscore/match-info` | `flashscore-match-info` | Flashscore match venue and broadcast information |
 | `GET` | `/flashscore/match-lineups` | `flashscore-match-lineups` | Flashscore match lineups and formations |
 | `GET` | `/flashscore/match-missing-players` | `flashscore-match-missing-players` | Flashscore missing and doubtful players |
@@ -90,6 +92,7 @@ This package exposes every route below through direct snake_case methods and the
 | `GET` | `/flashscore/match-player-stats` | `flashscore-match-player-stats` | Flashscore football player match statistics and ratings |
 | `GET` | `/flashscore/match-point-by-point` | `flashscore-match-point-by-point` | Flashscore point-by-point scoring history |
 | `GET` | `/flashscore/match-predicted-lineups` | `flashscore-match-predicted-lineups` | Flashscore predicted lineups |
+| `GET` | `/flashscore/match-prematch-scorers` | `flashscore-match-prematch-scorers` | Flashscore pre-match top scorers |
 | `GET` | `/flashscore/match-report` | `flashscore-match-report` | Flashscore editorial match report |
 | `GET` | `/flashscore/match-standings` | `flashscore-match-standings` | Flashscore match league standings |
 | `GET` | `/flashscore/match-stats` | `flashscore-match-stats` | Flashscore match statistics |
@@ -122,6 +125,7 @@ This package exposes every route below through direct snake_case methods and the
 | `GET` | `/flashscore/team-transfers` | `flashscore-team-transfers` | Flashscore team transfers |
 | `GET` | `/flashscore/top-search` | `flashscore-top-search` | Flashscore top search entities |
 | `GET` | `/flashscore/tournament-archive-seasons` | `flashscore-tournament-archive-seasons` | Flashscore competition seasons by stage id |
+| `GET` | `/flashscore/tournament-draw` | `flashscore-tournament-draw` | Flashscore tournament draw by season and stage |
 | `GET` | `/flashscore/tournament-events` | `flashscore-tournament-events` | Flashscore tournament season results or fixtures |
 | `GET` | `/flashscore/tournament-outright-odds` | `flashscore-tournament-outright-odds` | Flashscore competition winner odds |
 | `GET` | `/flashscore/tournament-seasons` | `flashscore-tournament-seasons` | Flashscore tournament archive seasons |

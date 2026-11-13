@@ -1,4 +1,4 @@
-// Package flashscore is Crawlora's Flashscore API client for 54 endpoints, covering scores, match details, competitions, teams, players, odds, and news.
+// Package flashscore is Crawlora's Flashscore API client for 58 endpoints, covering scores, match details, competitions, teams, players, odds, and news.
 // API documentation: https://crawlora.net/docs?utm_source=pkg.go.dev&utm_medium=referral&utm_campaign=platform-clients&utm_content=flashscore-go-api-docs
 package flashscore
 
@@ -18,7 +18,7 @@ import (
 
 const (
 	DefaultBaseURL = "https://api.crawlora.net/api/v1"
-	Version        = "0.3.6"
+	Version        = "0.4.0"
 )
 
 // Params maps the exact OpenAPI parameter names expected by this platform client.
@@ -104,7 +104,7 @@ func (c *Client) Call(ctx context.Context, operationID string, params Params) (a
 	if payload != nil {
 		request.Header.Set("Content-Type", "application/json")
 	}
-	request.Header.Set("User-Agent", "crawlora-flashscore-go/0.3.6")
+	request.Header.Set("User-Agent", "crawlora-flashscore-go/0.4.0")
 	for _, security := range operation.Security {
 		if security == "ApiKeyAuth" && c.APIKey != "" {
 			request.Header.Set("x-api-key", c.APIKey)

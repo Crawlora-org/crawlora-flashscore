@@ -90,9 +90,11 @@ export class FlashscoreClient extends CrawloraClient {
   competitions(params: OperationParamsMap["flashscore-competitions"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   entityNews(params: OperationParamsMap["flashscore-entity-news"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   matchBoxScore(params: OperationParamsMap["flashscore-match-box-score"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
+  matchCommentary(params: OperationParamsMap["flashscore-match-commentary"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   matchDarts(params: OperationParamsMap["flashscore-match-darts"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   matchH2h(params: OperationParamsMap["flashscore-match-h2h"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   matchHighlights(params: OperationParamsMap["flashscore-match-highlights"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
+  matchIncidents(params: OperationParamsMap["flashscore-match-incidents"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   matchInfo(params: OperationParamsMap["flashscore-match-info"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   matchLineups(params: OperationParamsMap["flashscore-match-lineups"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   matchMissingPlayers(params: OperationParamsMap["flashscore-match-missing-players"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
@@ -102,6 +104,7 @@ export class FlashscoreClient extends CrawloraClient {
   matchPlayerStats(params: OperationParamsMap["flashscore-match-player-stats"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   matchPointByPoint(params: OperationParamsMap["flashscore-match-point-by-point"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   matchPredictedLineups(params: OperationParamsMap["flashscore-match-predicted-lineups"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
+  matchPrematchScorers(params: OperationParamsMap["flashscore-match-prematch-scorers"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   matchReport(params: OperationParamsMap["flashscore-match-report"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   matchStandings(params: OperationParamsMap["flashscore-match-standings"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   matchStats(params: OperationParamsMap["flashscore-match-stats"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
@@ -134,6 +137,7 @@ export class FlashscoreClient extends CrawloraClient {
   teamTransfers(params: OperationParamsMap["flashscore-team-transfers"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   topSearch(params?: OperationParamsMap["flashscore-top-search"], options?: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   tournamentArchiveSeasons(params: OperationParamsMap["flashscore-tournament-archive-seasons"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
+  tournamentDraw(params: OperationParamsMap["flashscore-tournament-draw"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   tournamentEvents(params: OperationParamsMap["flashscore-tournament-events"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   tournamentOutrightOdds(params: OperationParamsMap["flashscore-tournament-outright-odds"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   tournamentSeasons(params: OperationParamsMap["flashscore-tournament-seasons"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
@@ -146,9 +150,11 @@ export class FlashscoreClient extends CrawloraClient {
   competitions(params: OperationParamsMap["flashscore-competitions"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   entityNews(params: OperationParamsMap["flashscore-entity-news"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   matchBoxScore(params: OperationParamsMap["flashscore-match-box-score"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
+  matchCommentary(params: OperationParamsMap["flashscore-match-commentary"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   matchDarts(params: OperationParamsMap["flashscore-match-darts"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   matchH2h(params: OperationParamsMap["flashscore-match-h2h"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   matchHighlights(params: OperationParamsMap["flashscore-match-highlights"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
+  matchIncidents(params: OperationParamsMap["flashscore-match-incidents"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   matchInfo(params: OperationParamsMap["flashscore-match-info"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   matchLineups(params: OperationParamsMap["flashscore-match-lineups"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   matchMissingPlayers(params: OperationParamsMap["flashscore-match-missing-players"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
@@ -158,6 +164,7 @@ export class FlashscoreClient extends CrawloraClient {
   matchPlayerStats(params: OperationParamsMap["flashscore-match-player-stats"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   matchPointByPoint(params: OperationParamsMap["flashscore-match-point-by-point"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   matchPredictedLineups(params: OperationParamsMap["flashscore-match-predicted-lineups"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
+  matchPrematchScorers(params: OperationParamsMap["flashscore-match-prematch-scorers"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   matchReport(params: OperationParamsMap["flashscore-match-report"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   matchStandings(params: OperationParamsMap["flashscore-match-standings"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   matchStats(params: OperationParamsMap["flashscore-match-stats"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
@@ -190,6 +197,7 @@ export class FlashscoreClient extends CrawloraClient {
   teamTransfers(params: OperationParamsMap["flashscore-team-transfers"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   topSearch(params?: OperationParamsMap["flashscore-top-search"], options?: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   tournamentArchiveSeasons(params: OperationParamsMap["flashscore-tournament-archive-seasons"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
+  tournamentDraw(params: OperationParamsMap["flashscore-tournament-draw"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   tournamentEvents(params: OperationParamsMap["flashscore-tournament-events"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   tournamentOutrightOdds(params: OperationParamsMap["flashscore-tournament-outright-odds"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   tournamentSeasons(params: OperationParamsMap["flashscore-tournament-seasons"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
@@ -205,9 +213,11 @@ export class FlashscoreClient extends CrawloraClient {
   competitions(...args: OperationRequestArgs<"flashscore-competitions">): Promise<OperationResponseMap["flashscore-competitions"]>;
   entityNews(...args: OperationRequestArgs<"flashscore-entity-news">): Promise<OperationResponseMap["flashscore-entity-news"]>;
   matchBoxScore(...args: OperationRequestArgs<"flashscore-match-box-score">): Promise<OperationResponseMap["flashscore-match-box-score"]>;
+  matchCommentary(...args: OperationRequestArgs<"flashscore-match-commentary">): Promise<OperationResponseMap["flashscore-match-commentary"]>;
   matchDarts(...args: OperationRequestArgs<"flashscore-match-darts">): Promise<OperationResponseMap["flashscore-match-darts"]>;
   matchH2h(...args: OperationRequestArgs<"flashscore-match-h2h">): Promise<OperationResponseMap["flashscore-match-h2h"]>;
   matchHighlights(...args: OperationRequestArgs<"flashscore-match-highlights">): Promise<OperationResponseMap["flashscore-match-highlights"]>;
+  matchIncidents(...args: OperationRequestArgs<"flashscore-match-incidents">): Promise<OperationResponseMap["flashscore-match-incidents"]>;
   matchInfo(...args: OperationRequestArgs<"flashscore-match-info">): Promise<OperationResponseMap["flashscore-match-info"]>;
   matchLineups(...args: OperationRequestArgs<"flashscore-match-lineups">): Promise<OperationResponseMap["flashscore-match-lineups"]>;
   matchMissingPlayers(...args: OperationRequestArgs<"flashscore-match-missing-players">): Promise<OperationResponseMap["flashscore-match-missing-players"]>;
@@ -217,6 +227,7 @@ export class FlashscoreClient extends CrawloraClient {
   matchPlayerStats(...args: OperationRequestArgs<"flashscore-match-player-stats">): Promise<OperationResponseMap["flashscore-match-player-stats"]>;
   matchPointByPoint(...args: OperationRequestArgs<"flashscore-match-point-by-point">): Promise<OperationResponseMap["flashscore-match-point-by-point"]>;
   matchPredictedLineups(...args: OperationRequestArgs<"flashscore-match-predicted-lineups">): Promise<OperationResponseMap["flashscore-match-predicted-lineups"]>;
+  matchPrematchScorers(...args: OperationRequestArgs<"flashscore-match-prematch-scorers">): Promise<OperationResponseMap["flashscore-match-prematch-scorers"]>;
   matchReport(...args: OperationRequestArgs<"flashscore-match-report">): Promise<OperationResponseMap["flashscore-match-report"]>;
   matchStandings(...args: OperationRequestArgs<"flashscore-match-standings">): Promise<OperationResponseMap["flashscore-match-standings"]>;
   matchStats(...args: OperationRequestArgs<"flashscore-match-stats">): Promise<OperationResponseMap["flashscore-match-stats"]>;
@@ -249,6 +260,7 @@ export class FlashscoreClient extends CrawloraClient {
   teamTransfers(...args: OperationRequestArgs<"flashscore-team-transfers">): Promise<OperationResponseMap["flashscore-team-transfers"]>;
   topSearch(...args: OperationRequestArgs<"flashscore-top-search">): Promise<OperationResponseMap["flashscore-top-search"]>;
   tournamentArchiveSeasons(...args: OperationRequestArgs<"flashscore-tournament-archive-seasons">): Promise<OperationResponseMap["flashscore-tournament-archive-seasons"]>;
+  tournamentDraw(...args: OperationRequestArgs<"flashscore-tournament-draw">): Promise<OperationResponseMap["flashscore-tournament-draw"]>;
   tournamentEvents(...args: OperationRequestArgs<"flashscore-tournament-events">): Promise<OperationResponseMap["flashscore-tournament-events"]>;
   tournamentOutrightOdds(...args: OperationRequestArgs<"flashscore-tournament-outright-odds">): Promise<OperationResponseMap["flashscore-tournament-outright-odds"]>;
   tournamentSeasons(...args: OperationRequestArgs<"flashscore-tournament-seasons">): Promise<OperationResponseMap["flashscore-tournament-seasons"]>;

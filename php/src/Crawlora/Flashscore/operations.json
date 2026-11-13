@@ -1,15 +1,17 @@
 {
   "platform": "flashscore",
-  "operationCount": 54,
+  "operationCount": 58,
   "operationIds": [
     "flashscore-calendar",
     "flashscore-calendar-categories",
     "flashscore-competitions",
     "flashscore-entity-news",
     "flashscore-match-box-score",
+    "flashscore-match-commentary",
     "flashscore-match-darts",
     "flashscore-match-h2h",
     "flashscore-match-highlights",
+    "flashscore-match-incidents",
     "flashscore-match-info",
     "flashscore-match-lineups",
     "flashscore-match-missing-players",
@@ -19,6 +21,7 @@
     "flashscore-match-player-stats",
     "flashscore-match-point-by-point",
     "flashscore-match-predicted-lineups",
+    "flashscore-match-prematch-scorers",
     "flashscore-match-report",
     "flashscore-match-standings",
     "flashscore-match-stats",
@@ -51,6 +54,7 @@
     "flashscore-team-transfers",
     "flashscore-top-search",
     "flashscore-tournament-archive-seasons",
+    "flashscore-tournament-draw",
     "flashscore-tournament-events",
     "flashscore-tournament-outright-odds",
     "flashscore-tournament-seasons",
@@ -63,9 +67,11 @@
     "competitions": "flashscore-competitions",
     "entity_news": "flashscore-entity-news",
     "match_box_score": "flashscore-match-box-score",
+    "match_commentary": "flashscore-match-commentary",
     "match_darts": "flashscore-match-darts",
     "match_h2h": "flashscore-match-h2h",
     "match_highlights": "flashscore-match-highlights",
+    "match_incidents": "flashscore-match-incidents",
     "match_info": "flashscore-match-info",
     "match_lineups": "flashscore-match-lineups",
     "match_missing_players": "flashscore-match-missing-players",
@@ -75,6 +81,7 @@
     "match_player_stats": "flashscore-match-player-stats",
     "match_point_by_point": "flashscore-match-point-by-point",
     "match_predicted_lineups": "flashscore-match-predicted-lineups",
+    "match_prematch_scorers": "flashscore-match-prematch-scorers",
     "match_report": "flashscore-match-report",
     "match_standings": "flashscore-match-standings",
     "match_stats": "flashscore-match-stats",
@@ -107,6 +114,7 @@
     "team_transfers": "flashscore-team-transfers",
     "top_search": "flashscore-top-search",
     "tournament_archive_seasons": "flashscore-tournament-archive-seasons",
+    "tournament_draw": "flashscore-tournament-draw",
     "tournament_events": "flashscore-tournament-events",
     "tournament_outright_odds": "flashscore-tournament-outright-odds",
     "tournament_seasons": "flashscore-tournament-seasons",
@@ -398,6 +406,38 @@
         "ApiKeyAuth"
       ]
     },
+    "flashscore-match-commentary": {
+      "id": "flashscore-match-commentary",
+      "method": "GET",
+      "path": "/flashscore/match-commentary",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Eight-character Flashscore match id",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "Qq7RGRDF"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
     "flashscore-match-darts": {
       "id": "flashscore-match-darts",
       "method": "GET",
@@ -485,6 +525,38 @@
           "required": true,
           "type": "string",
           "x-example": "j52jHsN8"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "flashscore-match-incidents": {
+      "id": "flashscore-match-incidents",
+      "method": "GET",
+      "path": "/flashscore/match-incidents",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Eight-character Flashscore match ID",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "MF2Xj8on"
         }
       ],
       "produces": [
@@ -1291,6 +1363,38 @@
           "required": true,
           "type": "string",
           "x-example": "f75igXFG"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "flashscore-match-prematch-scorers": {
+      "id": "flashscore-match-prematch-scorers",
+      "method": "GET",
+      "path": "/flashscore/match-prematch-scorers",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Eight-character Flashscore match ID",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "j52jHsN8"
         }
       ],
       "produces": [
@@ -3345,6 +3449,52 @@
           "required": true,
           "type": "string",
           "x-example": "CfoA8Dmm"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "flashscore-tournament-draw": {
+      "id": "flashscore-tournament-draw",
+      "method": "GET",
+      "path": "/flashscore/tournament-draw",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "tournament_id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "stage_id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Eight-character Flashscore season tournament id",
+          "in": "query",
+          "name": "tournament_id",
+          "required": true,
+          "type": "string",
+          "x-example": "YaSyJqEs"
+        },
+        {
+          "description": "Eight-character Flashscore draw stage id",
+          "in": "query",
+          "name": "stage_id",
+          "required": true,
+          "type": "string",
+          "x-example": "xY6rfy4l"
         }
       ],
       "produces": [

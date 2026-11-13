@@ -55,6 +55,12 @@ pub struct FlashscoreMatchBoxScoreParams {
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct FlashscoreMatchCommentaryParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct FlashscoreMatchDartsParams {
     #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
@@ -68,6 +74,12 @@ pub struct FlashscoreMatchH2hParams {
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct FlashscoreMatchHighlightsParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct FlashscoreMatchIncidentsParams {
     #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
 }
@@ -134,6 +146,12 @@ pub struct FlashscoreMatchPointByPointParams {
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct FlashscoreMatchPredictedLineupsParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct FlashscoreMatchPrematchScorersParams {
     #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
 }
@@ -367,6 +385,14 @@ pub struct FlashscoreTournamentArchiveSeasonsParams {
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct FlashscoreTournamentDrawParams {
+    #[serde(rename = "tournament_id", skip_serializing_if = "Option::is_none")]
+    pub tournament_id: Option<String>,
+    #[serde(rename = "stage_id", skip_serializing_if = "Option::is_none")]
+    pub stage_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct FlashscoreTournamentEventsParams {
     #[serde(rename = "path", skip_serializing_if = "Option::is_none")]
     pub path: Option<String>,
@@ -464,6 +490,19 @@ impl FlashscoreApi {
             .await
     }
 
+    pub async fn match_commentary(
+        &self,
+        params: FlashscoreMatchCommentaryParams,
+    ) -> Result<ApiResponse, Error> {
+        self.inner
+            .call(
+                "flashscore-match-commentary",
+                &params,
+                RequestOptions::default(),
+            )
+            .await
+    }
+
     pub async fn match_darts(
         &self,
         params: FlashscoreMatchDartsParams,
@@ -486,6 +525,19 @@ impl FlashscoreApi {
         self.inner
             .call(
                 "flashscore-match-highlights",
+                &params,
+                RequestOptions::default(),
+            )
+            .await
+    }
+
+    pub async fn match_incidents(
+        &self,
+        params: FlashscoreMatchIncidentsParams,
+    ) -> Result<ApiResponse, Error> {
+        self.inner
+            .call(
+                "flashscore-match-incidents",
                 &params,
                 RequestOptions::default(),
             )
@@ -591,6 +643,19 @@ impl FlashscoreApi {
         self.inner
             .call(
                 "flashscore-match-predicted-lineups",
+                &params,
+                RequestOptions::default(),
+            )
+            .await
+    }
+
+    pub async fn match_prematch_scorers(
+        &self,
+        params: FlashscoreMatchPrematchScorersParams,
+    ) -> Result<ApiResponse, Error> {
+        self.inner
+            .call(
+                "flashscore-match-prematch-scorers",
                 &params,
                 RequestOptions::default(),
             )
@@ -917,6 +982,19 @@ impl FlashscoreApi {
         self.inner
             .call(
                 "flashscore-tournament-archive-seasons",
+                &params,
+                RequestOptions::default(),
+            )
+            .await
+    }
+
+    pub async fn tournament_draw(
+        &self,
+        params: FlashscoreTournamentDrawParams,
+    ) -> Result<ApiResponse, Error> {
+        self.inner
+            .call(
+                "flashscore-tournament-draw",
                 &params,
                 RequestOptions::default(),
             )

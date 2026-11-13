@@ -1,6 +1,6 @@
 [package]
 name = "crawlora-flashscore"
-version = "0.3.6"
+version = "0.4.0"
 edition = "2021"
 rust-version = "1.88"
 description = "Typed Rust client for Crawlora's hosted Flashscore API. Requires a Crawlora API key."

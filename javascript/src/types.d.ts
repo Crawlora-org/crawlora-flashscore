@@ -95,6 +95,49 @@ export interface ModelFlashscoreTournamentEventsDataDoc {
   "total_events"?: number;
 }
 
+export interface ModelFlashscoreTournamentDrawResponse {
+  "participants"?: Array<ModelFlashscoreTournamentDrawParticipant>;
+  "rounds"?: Array<ModelFlashscoreTournamentDrawRound>;
+  "source_url"?: string;
+  "stage_id"?: string;
+  "tournament_id"?: string;
+}
+
+export interface ModelFlashscoreTournamentDrawRound {
+  "id"?: number;
+  "name"?: string;
+  "slots"?: Array<ModelFlashscoreTournamentDrawSlot>;
+}
+
+export interface ModelFlashscoreTournamentDrawSlot {
+  "away_index"?: number;
+  "away_seed"?: string;
+  "home_index"?: number;
+  "home_seed"?: string;
+  "matches"?: Array<ModelFlashscoreTournamentDrawMatch>;
+  "winner_side"?: "home" | "away";
+}
+
+export interface ModelFlashscoreTournamentDrawMatch {
+  "away_extra_time_score"?: number;
+  "away_index"?: number;
+  "away_penalty_score"?: number;
+  "away_regular_score"?: number;
+  "event_id"?: string;
+  "home_extra_time_score"?: number;
+  "home_index"?: number;
+  "home_penalty_score"?: number;
+  "home_regular_score"?: number;
+  "score"?: string;
+  "start_time"?: number;
+}
+
+export interface ModelFlashscoreTournamentDrawParticipant {
+  "index"?: number;
+  "member_ids"?: Array<string>;
+  "name"?: string;
+}
+
 export interface ModelFlashscoreTournamentArchiveSeasonsResponse {
   "league_key"?: string;
   "season_count"?: number;
@@ -899,6 +942,50 @@ export interface ModelFlashscoreReportLinkDoc {
   "url"?: string;
 }
 
+export interface ModelFlashscorePrematchScorersResponse {
+  "match_id"?: string;
+  "source_url"?: string;
+  "stat_types"?: Array<ModelFlashscoreScorerStatType>;
+  "teams"?: Array<ModelFlashscorePrematchScorerTeam>;
+}
+
+export interface ModelFlashscorePrematchScorerTeam {
+  "competition_stats"?: Array<ModelFlashscorePrematchScorerStat>;
+  "name"?: string;
+  "recent_matches"?: Array<ModelFlashscorePrematchScorerMatch>;
+  "recent_stats"?: Array<ModelFlashscorePrematchScorerStat>;
+  "side"?: "home" | "away";
+  "top_scorers"?: Array<ModelFlashscorePrematchScorer>;
+}
+
+export interface ModelFlashscorePrematchScorer {
+  "goals"?: number;
+  "name"?: string;
+  "player_id"?: string;
+}
+
+export interface ModelFlashscorePrematchScorerStat {
+  "raw_value"?: string;
+  "type_id"?: string;
+  "value"?: string;
+}
+
+export interface ModelFlashscorePrematchScorerMatch {
+  "id"?: string;
+  "player_goals"?: Array<ModelFlashscorePrematchScorerGoal>;
+  "start_time"?: number;
+}
+
+export interface ModelFlashscorePrematchScorerGoal {
+  "goals"?: number;
+  "player_id"?: string;
+}
+
+export interface ModelFlashscoreScorerStatType {
+  "id"?: string;
+  "label"?: string;
+}
+
 export interface ModelFlashscoreMatchPredictedLineupsResponseDoc {
   "code"?: number;
   "data"?: ModelFlashscoreMatchPredictedLineupsDataDoc;
@@ -1248,6 +1335,92 @@ export interface ModelFlashscoreMissingPlayerDoc {
   "slug"?: string;
 }
 
+export interface ModelFlashscoreMatchLineupsResponseDoc {
+  "code"?: number;
+  "data"?: ModelFlashscoreMatchLineupsDataDoc;
+  "msg"?: string;
+}
+
+export interface ModelFlashscoreMatchLineupsDataDoc {
+  "match_id"?: string;
+  "source_url"?: string;
+  "teams"?: Array<ModelFlashscoreMatchLineupTeamDoc>;
+}
+
+export interface ModelFlashscoreMatchLineupTeamDoc {
+  "aggregated_stats"?: ModelFlashscoreLineupAggregatedStatsDoc;
+  "average_rating"?: number;
+  "coaches"?: Array<ModelFlashscoreLineupPlayerDoc>;
+  "formation"?: ModelFlashscorePredictedFormationDoc;
+  "groups"?: Array<ModelFlashscoreLineupGroupDoc>;
+  "name"?: string;
+  "participant_id"?: string;
+  "players"?: Array<ModelFlashscoreMatchLineupPlayerDoc>;
+  "side"?: "home" | "away";
+  "substitutions"?: Array<ModelFlashscoreLineupSubstitutionDoc>;
+}
+
+export interface ModelFlashscoreLineupSubstitutionDoc {
+  "id"?: string;
+  "minute"?: string;
+  "player_in_id"?: string;
+  "player_out_id"?: string;
+}
+
+export interface ModelFlashscoreMatchLineupPlayerDoc {
+  "age"?: number;
+  "average_rating"?: number;
+  "country"?: string;
+  "height_cm"?: number;
+  "id"?: string;
+  "incidents"?: Array<ModelFlashscoreLineupIncidentDoc>;
+  "list_name"?: string;
+  "market_value"?: number;
+  "name"?: string;
+  "number"?: string;
+  "rating"?: ModelFlashscoreLineupRatingDoc;
+  "roles"?: Array<ModelFlashscoreLineupRoleDoc>;
+  "slug"?: string;
+}
+
+export interface ModelFlashscoreLineupRatingDoc {
+  "is_best"?: boolean;
+  "value"?: number;
+}
+
+export interface ModelFlashscoreLineupIncidentDoc {
+  "hidden"?: boolean;
+  "minute"?: string;
+  "player_in_id"?: string;
+  "reasons"?: Array<string>;
+  "type"?: string;
+}
+
+export interface ModelFlashscoreMatchIncidentsResponse {
+  "incidents"?: Array<ModelFlashscoreMatchIncident>;
+  "match_id"?: string;
+  "source_url"?: string;
+}
+
+export interface ModelFlashscoreMatchIncident {
+  "actions"?: Array<ModelFlashscoreIncidentAction>;
+  "id"?: string;
+  "period"?: string;
+  "side"?: "home" | "away";
+  "time"?: string;
+}
+
+export interface ModelFlashscoreIncidentAction {
+  "away_score"?: number;
+  "home_score"?: number;
+  "label"?: string;
+  "player"?: string;
+  "player_id"?: string;
+  "player_path"?: string;
+  "reason"?: string;
+  "type_code"?: number;
+}
+
 export interface ModelFlashscoreMatchDartsResponseDoc {
   "code"?: number;
   "data"?: ModelFlashscoreMatchDartsDataDoc;
@@ -1257,6 +1430,7 @@ export interface ModelFlashscoreMatchDartsResponseDoc {
 export interface ModelFlashscoreMatchDartsDataDoc {
   "legs"?: Array<ModelFlashscoreDartsLegDoc>;
   "match_id"?: string;
+  "set_statistics"?: Array<ModelFlashscoreDartsSetStatisticsDoc>;
   "source_url"?: string;
   "statistics"?: Array<ModelFlashscoreDartsStatisticDoc>;
   "statistics_url"?: string;
@@ -1266,15 +1440,22 @@ export interface ModelFlashscoreDartsStatisticDoc {
   "away"?: string;
   "home"?: string;
   "id"?: string;
-  "key"?: "average_3_darts" | "180_thrown" | "140_plus_thrown" | "100_plus_thrown" | "checkouts" | "checkouts_100_plus" | "highest_checkout";
+  "key"?: "average_3_darts" | "180_thrown" | "140_plus_thrown" | "100_plus_thrown" | "checkouts" | "checkouts_100_plus" | "highest_checkout" | "legs_won";
   "name"?: string;
+}
+
+export interface ModelFlashscoreDartsSetStatisticsDoc {
+  "set"?: number;
+  "statistics"?: Array<ModelFlashscoreDartsStatisticDoc>;
 }
 
 export interface ModelFlashscoreDartsLegDoc {
   "away_legs"?: number;
   "checkout"?: number;
   "home_legs"?: number;
+  "in_progress"?: boolean;
   "number"?: number;
+  "set"?: number;
   "start_score"?: number;
   "starter"?: "home" | "away";
   "visits"?: Array<ModelFlashscoreDartsVisitDoc>;
@@ -1287,6 +1468,19 @@ export interface ModelFlashscoreDartsVisitDoc {
   "remaining"?: number;
   "scored"?: number;
   "side"?: "home" | "away";
+}
+
+export interface ModelFlashscoreMatchCommentaryResponse {
+  "comments"?: Array<ModelFlashscoreCommentaryLine>;
+  "match_id"?: string;
+  "source_url"?: string;
+}
+
+export interface ModelFlashscoreCommentaryLine {
+  "clock"?: string;
+  "minute"?: string;
+  "text"?: string;
+  "type"?: string;
 }
 
 export interface ModelFlashscoreMatchBoxScoreResponseDoc {
@@ -1443,6 +1637,11 @@ export interface FlashscoreMatchBoxScoreParams {
   "id": string;
 }
 
+export type FlashscoreMatchCommentaryResponse = CrawloraResponse<ModelAppResponse & { "data"?: ModelFlashscoreMatchCommentaryResponse }>;
+export interface FlashscoreMatchCommentaryParams {
+  "id": string;
+}
+
 export type FlashscoreMatchDartsResponse = CrawloraResponse<ModelFlashscoreMatchDartsResponseDoc>;
 export interface FlashscoreMatchDartsParams {
   "id": string;
@@ -1458,12 +1657,17 @@ export interface FlashscoreMatchHighlightsParams {
   "id": string;
 }
 
+export type FlashscoreMatchIncidentsResponse = CrawloraResponse<ModelAppResponse & { "data"?: ModelFlashscoreMatchIncidentsResponse }>;
+export interface FlashscoreMatchIncidentsParams {
+  "id": string;
+}
+
 export type FlashscoreMatchInfoResponse = CrawloraResponse<ModelFlashscoreResponseDoc>;
 export interface FlashscoreMatchInfoParams {
   "id": string;
 }
 
-export type FlashscoreMatchLineupsResponse = CrawloraResponse<ModelFlashscoreResponseDoc>;
+export type FlashscoreMatchLineupsResponse = CrawloraResponse<ModelFlashscoreMatchLineupsResponseDoc>;
 export interface FlashscoreMatchLineupsParams {
   "id": string;
 }
@@ -1506,6 +1710,11 @@ export interface FlashscoreMatchPointByPointParams {
 
 export type FlashscoreMatchPredictedLineupsResponse = CrawloraResponse<ModelFlashscoreMatchPredictedLineupsResponseDoc>;
 export interface FlashscoreMatchPredictedLineupsParams {
+  "id": string;
+}
+
+export type FlashscoreMatchPrematchScorersResponse = CrawloraResponse<ModelAppResponse & { "data"?: ModelFlashscorePrematchScorersResponse }>;
+export interface FlashscoreMatchPrematchScorersParams {
   "id": string;
 }
 
@@ -1681,6 +1890,12 @@ export interface FlashscoreTournamentArchiveSeasonsParams {
   "stage_id": string;
 }
 
+export type FlashscoreTournamentDrawResponse = CrawloraResponse<ModelAppResponse & { "data"?: ModelFlashscoreTournamentDrawResponse }>;
+export interface FlashscoreTournamentDrawParams {
+  "tournament_id": string;
+  "stage_id": string;
+}
+
 export type FlashscoreTournamentEventsResponse = CrawloraResponse<ModelFlashscoreTournamentEventsResponseDoc>;
 export interface FlashscoreTournamentEventsParams {
   "path": string;
@@ -1716,9 +1931,11 @@ export interface FlashscoreService {
   competitions<T = FlashscoreCompetitionsResponse>(params: FlashscoreCompetitionsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   entityNews<T = FlashscoreEntityNewsResponse>(params: FlashscoreEntityNewsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   matchBoxScore<T = FlashscoreMatchBoxScoreResponse>(params: FlashscoreMatchBoxScoreParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  matchCommentary<T = FlashscoreMatchCommentaryResponse>(params: FlashscoreMatchCommentaryParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   matchDarts<T = FlashscoreMatchDartsResponse>(params: FlashscoreMatchDartsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   matchH2h<T = FlashscoreMatchH2hResponse>(params: FlashscoreMatchH2hParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   matchHighlights<T = FlashscoreMatchHighlightsResponse>(params: FlashscoreMatchHighlightsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  matchIncidents<T = FlashscoreMatchIncidentsResponse>(params: FlashscoreMatchIncidentsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   matchInfo<T = FlashscoreMatchInfoResponse>(params: FlashscoreMatchInfoParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   matchLineups<T = FlashscoreMatchLineupsResponse>(params: FlashscoreMatchLineupsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   matchMissingPlayers<T = FlashscoreMatchMissingPlayersResponse>(params: FlashscoreMatchMissingPlayersParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
@@ -1728,6 +1945,7 @@ export interface FlashscoreService {
   matchPlayerStats<T = FlashscoreMatchPlayerStatsResponse>(params: FlashscoreMatchPlayerStatsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   matchPointByPoint<T = FlashscoreMatchPointByPointResponse>(params: FlashscoreMatchPointByPointParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   matchPredictedLineups<T = FlashscoreMatchPredictedLineupsResponse>(params: FlashscoreMatchPredictedLineupsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  matchPrematchScorers<T = FlashscoreMatchPrematchScorersResponse>(params: FlashscoreMatchPrematchScorersParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   matchReport<T = FlashscoreMatchReportResponse>(params: FlashscoreMatchReportParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   matchStandings<T = FlashscoreMatchStandingsResponse>(params: FlashscoreMatchStandingsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   matchStats<T = FlashscoreMatchStatsResponse>(params: FlashscoreMatchStatsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
@@ -1760,6 +1978,7 @@ export interface FlashscoreService {
   teamTransfers<T = FlashscoreTeamTransfersResponse>(params: FlashscoreTeamTransfersParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   topSearch<T = FlashscoreTopSearchResponse>(params?: FlashscoreTopSearchParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   tournamentArchiveSeasons<T = FlashscoreTournamentArchiveSeasonsResponse>(params: FlashscoreTournamentArchiveSeasonsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  tournamentDraw<T = FlashscoreTournamentDrawResponse>(params: FlashscoreTournamentDrawParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   tournamentEvents<T = FlashscoreTournamentEventsResponse>(params: FlashscoreTournamentEventsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   tournamentOutrightOdds<T = FlashscoreTournamentOutrightOddsResponse>(params: FlashscoreTournamentOutrightOddsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   tournamentSeasons<T = FlashscoreTournamentSeasonsResponse>(params: FlashscoreTournamentSeasonsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
@@ -1777,9 +1996,11 @@ export interface OperationParamsMap {
   "flashscore-competitions": FlashscoreCompetitionsParams;
   "flashscore-entity-news": FlashscoreEntityNewsParams;
   "flashscore-match-box-score": FlashscoreMatchBoxScoreParams;
+  "flashscore-match-commentary": FlashscoreMatchCommentaryParams;
   "flashscore-match-darts": FlashscoreMatchDartsParams;
   "flashscore-match-h2h": FlashscoreMatchH2hParams;
   "flashscore-match-highlights": FlashscoreMatchHighlightsParams;
+  "flashscore-match-incidents": FlashscoreMatchIncidentsParams;
   "flashscore-match-info": FlashscoreMatchInfoParams;
   "flashscore-match-lineups": FlashscoreMatchLineupsParams;
   "flashscore-match-missing-players": FlashscoreMatchMissingPlayersParams;
@@ -1789,6 +2010,7 @@ export interface OperationParamsMap {
   "flashscore-match-player-stats": FlashscoreMatchPlayerStatsParams;
   "flashscore-match-point-by-point": FlashscoreMatchPointByPointParams;
   "flashscore-match-predicted-lineups": FlashscoreMatchPredictedLineupsParams;
+  "flashscore-match-prematch-scorers": FlashscoreMatchPrematchScorersParams;
   "flashscore-match-report": FlashscoreMatchReportParams;
   "flashscore-match-standings": FlashscoreMatchStandingsParams;
   "flashscore-match-stats": FlashscoreMatchStatsParams;
@@ -1821,6 +2043,7 @@ export interface OperationParamsMap {
   "flashscore-team-transfers": FlashscoreTeamTransfersParams;
   "flashscore-top-search": FlashscoreTopSearchParams;
   "flashscore-tournament-archive-seasons": FlashscoreTournamentArchiveSeasonsParams;
+  "flashscore-tournament-draw": FlashscoreTournamentDrawParams;
   "flashscore-tournament-events": FlashscoreTournamentEventsParams;
   "flashscore-tournament-outright-odds": FlashscoreTournamentOutrightOddsParams;
   "flashscore-tournament-seasons": FlashscoreTournamentSeasonsParams;
@@ -1834,9 +2057,11 @@ export interface OperationResponseMap {
   "flashscore-competitions": FlashscoreCompetitionsResponse;
   "flashscore-entity-news": FlashscoreEntityNewsResponse;
   "flashscore-match-box-score": FlashscoreMatchBoxScoreResponse;
+  "flashscore-match-commentary": FlashscoreMatchCommentaryResponse;
   "flashscore-match-darts": FlashscoreMatchDartsResponse;
   "flashscore-match-h2h": FlashscoreMatchH2hResponse;
   "flashscore-match-highlights": FlashscoreMatchHighlightsResponse;
+  "flashscore-match-incidents": FlashscoreMatchIncidentsResponse;
   "flashscore-match-info": FlashscoreMatchInfoResponse;
   "flashscore-match-lineups": FlashscoreMatchLineupsResponse;
   "flashscore-match-missing-players": FlashscoreMatchMissingPlayersResponse;
@@ -1846,6 +2071,7 @@ export interface OperationResponseMap {
   "flashscore-match-player-stats": FlashscoreMatchPlayerStatsResponse;
   "flashscore-match-point-by-point": FlashscoreMatchPointByPointResponse;
   "flashscore-match-predicted-lineups": FlashscoreMatchPredictedLineupsResponse;
+  "flashscore-match-prematch-scorers": FlashscoreMatchPrematchScorersResponse;
   "flashscore-match-report": FlashscoreMatchReportResponse;
   "flashscore-match-standings": FlashscoreMatchStandingsResponse;
   "flashscore-match-stats": FlashscoreMatchStatsResponse;
@@ -1878,6 +2104,7 @@ export interface OperationResponseMap {
   "flashscore-team-transfers": FlashscoreTeamTransfersResponse;
   "flashscore-top-search": FlashscoreTopSearchResponse;
   "flashscore-tournament-archive-seasons": FlashscoreTournamentArchiveSeasonsResponse;
+  "flashscore-tournament-draw": FlashscoreTournamentDrawResponse;
   "flashscore-tournament-events": FlashscoreTournamentEventsResponse;
   "flashscore-tournament-outright-odds": FlashscoreTournamentOutrightOddsResponse;
   "flashscore-tournament-seasons": FlashscoreTournamentSeasonsResponse;
@@ -1891,9 +2118,11 @@ export interface OperationRequiredParamsMap {
   "flashscore-competitions": true;
   "flashscore-entity-news": true;
   "flashscore-match-box-score": true;
+  "flashscore-match-commentary": true;
   "flashscore-match-darts": true;
   "flashscore-match-h2h": true;
   "flashscore-match-highlights": true;
+  "flashscore-match-incidents": true;
   "flashscore-match-info": true;
   "flashscore-match-lineups": true;
   "flashscore-match-missing-players": true;
@@ -1903,6 +2132,7 @@ export interface OperationRequiredParamsMap {
   "flashscore-match-player-stats": true;
   "flashscore-match-point-by-point": true;
   "flashscore-match-predicted-lineups": true;
+  "flashscore-match-prematch-scorers": true;
   "flashscore-match-report": true;
   "flashscore-match-standings": true;
   "flashscore-match-stats": true;
@@ -1935,6 +2165,7 @@ export interface OperationRequiredParamsMap {
   "flashscore-team-transfers": true;
   "flashscore-top-search": false;
   "flashscore-tournament-archive-seasons": true;
+  "flashscore-tournament-draw": true;
   "flashscore-tournament-events": true;
   "flashscore-tournament-outright-odds": true;
   "flashscore-tournament-seasons": true;
@@ -1955,9 +2186,11 @@ export type OperationIdLiteral =
   | "flashscore-competitions"
   | "flashscore-entity-news"
   | "flashscore-match-box-score"
+  | "flashscore-match-commentary"
   | "flashscore-match-darts"
   | "flashscore-match-h2h"
   | "flashscore-match-highlights"
+  | "flashscore-match-incidents"
   | "flashscore-match-info"
   | "flashscore-match-lineups"
   | "flashscore-match-missing-players"
@@ -1967,6 +2200,7 @@ export type OperationIdLiteral =
   | "flashscore-match-player-stats"
   | "flashscore-match-point-by-point"
   | "flashscore-match-predicted-lineups"
+  | "flashscore-match-prematch-scorers"
   | "flashscore-match-report"
   | "flashscore-match-standings"
   | "flashscore-match-stats"
@@ -1999,6 +2233,7 @@ export type OperationIdLiteral =
   | "flashscore-team-transfers"
   | "flashscore-top-search"
   | "flashscore-tournament-archive-seasons"
+  | "flashscore-tournament-draw"
   | "flashscore-tournament-events"
   | "flashscore-tournament-outright-odds"
   | "flashscore-tournament-seasons"
@@ -2011,9 +2246,11 @@ export declare const OperationIds: Readonly<{
   FlashscoreCompetitions: "flashscore-competitions";
   FlashscoreEntityNews: "flashscore-entity-news";
   FlashscoreMatchBoxScore: "flashscore-match-box-score";
+  FlashscoreMatchCommentary: "flashscore-match-commentary";
   FlashscoreMatchDarts: "flashscore-match-darts";
   FlashscoreMatchH2h: "flashscore-match-h2h";
   FlashscoreMatchHighlights: "flashscore-match-highlights";
+  FlashscoreMatchIncidents: "flashscore-match-incidents";
   FlashscoreMatchInfo: "flashscore-match-info";
   FlashscoreMatchLineups: "flashscore-match-lineups";
   FlashscoreMatchMissingPlayers: "flashscore-match-missing-players";
@@ -2023,6 +2260,7 @@ export declare const OperationIds: Readonly<{
   FlashscoreMatchPlayerStats: "flashscore-match-player-stats";
   FlashscoreMatchPointByPoint: "flashscore-match-point-by-point";
   FlashscoreMatchPredictedLineups: "flashscore-match-predicted-lineups";
+  FlashscoreMatchPrematchScorers: "flashscore-match-prematch-scorers";
   FlashscoreMatchReport: "flashscore-match-report";
   FlashscoreMatchStandings: "flashscore-match-standings";
   FlashscoreMatchStats: "flashscore-match-stats";
@@ -2055,6 +2293,7 @@ export declare const OperationIds: Readonly<{
   FlashscoreTeamTransfers: "flashscore-team-transfers";
   FlashscoreTopSearch: "flashscore-top-search";
   FlashscoreTournamentArchiveSeasons: "flashscore-tournament-archive-seasons";
+  FlashscoreTournamentDraw: "flashscore-tournament-draw";
   FlashscoreTournamentEvents: "flashscore-tournament-events";
   FlashscoreTournamentOutrightOdds: "flashscore-tournament-outright-odds";
   FlashscoreTournamentSeasons: "flashscore-tournament-seasons";

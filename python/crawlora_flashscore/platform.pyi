@@ -120,6 +120,49 @@ ModelFlashscoreTournamentEventsDataDoc = TypedDict('ModelFlashscoreTournamentEve
     'total_events': NotRequired[int],
 }, total=False)
 
+ModelFlashscoreTournamentDrawResponse = TypedDict('ModelFlashscoreTournamentDrawResponse', {
+    'participants': NotRequired[list[ModelFlashscoreTournamentDrawParticipant]],
+    'rounds': NotRequired[list[ModelFlashscoreTournamentDrawRound]],
+    'source_url': NotRequired[str],
+    'stage_id': NotRequired[str],
+    'tournament_id': NotRequired[str],
+}, total=False)
+
+ModelFlashscoreTournamentDrawRound = TypedDict('ModelFlashscoreTournamentDrawRound', {
+    'id': NotRequired[int],
+    'name': NotRequired[str],
+    'slots': NotRequired[list[ModelFlashscoreTournamentDrawSlot]],
+}, total=False)
+
+ModelFlashscoreTournamentDrawSlot = TypedDict('ModelFlashscoreTournamentDrawSlot', {
+    'away_index': NotRequired[int],
+    'away_seed': NotRequired[str],
+    'home_index': NotRequired[int],
+    'home_seed': NotRequired[str],
+    'matches': NotRequired[list[ModelFlashscoreTournamentDrawMatch]],
+    'winner_side': NotRequired[Literal['home', 'away']],
+}, total=False)
+
+ModelFlashscoreTournamentDrawMatch = TypedDict('ModelFlashscoreTournamentDrawMatch', {
+    'away_extra_time_score': NotRequired[int],
+    'away_index': NotRequired[int],
+    'away_penalty_score': NotRequired[int],
+    'away_regular_score': NotRequired[int],
+    'event_id': NotRequired[str],
+    'home_extra_time_score': NotRequired[int],
+    'home_index': NotRequired[int],
+    'home_penalty_score': NotRequired[int],
+    'home_regular_score': NotRequired[int],
+    'score': NotRequired[str],
+    'start_time': NotRequired[int],
+}, total=False)
+
+ModelFlashscoreTournamentDrawParticipant = TypedDict('ModelFlashscoreTournamentDrawParticipant', {
+    'index': NotRequired[int],
+    'member_ids': NotRequired[list[str]],
+    'name': NotRequired[str],
+}, total=False)
+
 ModelFlashscoreTournamentArchiveSeasonsResponse = TypedDict('ModelFlashscoreTournamentArchiveSeasonsResponse', {
     'league_key': NotRequired[str],
     'season_count': NotRequired[int],
@@ -924,6 +967,50 @@ ModelFlashscoreReportLinkDoc = TypedDict('ModelFlashscoreReportLinkDoc', {
     'url': NotRequired[str],
 }, total=False)
 
+ModelFlashscorePrematchScorersResponse = TypedDict('ModelFlashscorePrematchScorersResponse', {
+    'match_id': NotRequired[str],
+    'source_url': NotRequired[str],
+    'stat_types': NotRequired[list[ModelFlashscoreScorerStatType]],
+    'teams': NotRequired[list[ModelFlashscorePrematchScorerTeam]],
+}, total=False)
+
+ModelFlashscorePrematchScorerTeam = TypedDict('ModelFlashscorePrematchScorerTeam', {
+    'competition_stats': NotRequired[list[ModelFlashscorePrematchScorerStat]],
+    'name': NotRequired[str],
+    'recent_matches': NotRequired[list[ModelFlashscorePrematchScorerMatch]],
+    'recent_stats': NotRequired[list[ModelFlashscorePrematchScorerStat]],
+    'side': NotRequired[Literal['home', 'away']],
+    'top_scorers': NotRequired[list[ModelFlashscorePrematchScorer]],
+}, total=False)
+
+ModelFlashscorePrematchScorer = TypedDict('ModelFlashscorePrematchScorer', {
+    'goals': NotRequired[int],
+    'name': NotRequired[str],
+    'player_id': NotRequired[str],
+}, total=False)
+
+ModelFlashscorePrematchScorerStat = TypedDict('ModelFlashscorePrematchScorerStat', {
+    'raw_value': NotRequired[str],
+    'type_id': NotRequired[str],
+    'value': NotRequired[str],
+}, total=False)
+
+ModelFlashscorePrematchScorerMatch = TypedDict('ModelFlashscorePrematchScorerMatch', {
+    'id': NotRequired[str],
+    'player_goals': NotRequired[list[ModelFlashscorePrematchScorerGoal]],
+    'start_time': NotRequired[int],
+}, total=False)
+
+ModelFlashscorePrematchScorerGoal = TypedDict('ModelFlashscorePrematchScorerGoal', {
+    'goals': NotRequired[int],
+    'player_id': NotRequired[str],
+}, total=False)
+
+ModelFlashscoreScorerStatType = TypedDict('ModelFlashscoreScorerStatType', {
+    'id': NotRequired[str],
+    'label': NotRequired[str],
+}, total=False)
+
 ModelFlashscoreMatchPredictedLineupsResponseDoc = TypedDict('ModelFlashscoreMatchPredictedLineupsResponseDoc', {
     'code': NotRequired[int],
     'data': NotRequired[ModelFlashscoreMatchPredictedLineupsDataDoc],
@@ -1273,6 +1360,92 @@ ModelFlashscoreMissingPlayerDoc = TypedDict('ModelFlashscoreMissingPlayerDoc', {
     'slug': NotRequired[str],
 }, total=False)
 
+ModelFlashscoreMatchLineupsResponseDoc = TypedDict('ModelFlashscoreMatchLineupsResponseDoc', {
+    'code': NotRequired[int],
+    'data': NotRequired[ModelFlashscoreMatchLineupsDataDoc],
+    'msg': NotRequired[str],
+}, total=False)
+
+ModelFlashscoreMatchLineupsDataDoc = TypedDict('ModelFlashscoreMatchLineupsDataDoc', {
+    'match_id': NotRequired[str],
+    'source_url': NotRequired[str],
+    'teams': NotRequired[list[ModelFlashscoreMatchLineupTeamDoc]],
+}, total=False)
+
+ModelFlashscoreMatchLineupTeamDoc = TypedDict('ModelFlashscoreMatchLineupTeamDoc', {
+    'aggregated_stats': NotRequired[ModelFlashscoreLineupAggregatedStatsDoc],
+    'average_rating': NotRequired[float],
+    'coaches': NotRequired[list[ModelFlashscoreLineupPlayerDoc]],
+    'formation': NotRequired[ModelFlashscorePredictedFormationDoc],
+    'groups': NotRequired[list[ModelFlashscoreLineupGroupDoc]],
+    'name': NotRequired[str],
+    'participant_id': NotRequired[str],
+    'players': NotRequired[list[ModelFlashscoreMatchLineupPlayerDoc]],
+    'side': NotRequired[Literal['home', 'away']],
+    'substitutions': NotRequired[list[ModelFlashscoreLineupSubstitutionDoc]],
+}, total=False)
+
+ModelFlashscoreLineupSubstitutionDoc = TypedDict('ModelFlashscoreLineupSubstitutionDoc', {
+    'id': NotRequired[str],
+    'minute': NotRequired[str],
+    'player_in_id': NotRequired[str],
+    'player_out_id': NotRequired[str],
+}, total=False)
+
+ModelFlashscoreMatchLineupPlayerDoc = TypedDict('ModelFlashscoreMatchLineupPlayerDoc', {
+    'age': NotRequired[float],
+    'average_rating': NotRequired[float],
+    'country': NotRequired[str],
+    'height_cm': NotRequired[float],
+    'id': NotRequired[str],
+    'incidents': NotRequired[list[ModelFlashscoreLineupIncidentDoc]],
+    'list_name': NotRequired[str],
+    'market_value': NotRequired[float],
+    'name': NotRequired[str],
+    'number': NotRequired[str],
+    'rating': NotRequired[ModelFlashscoreLineupRatingDoc],
+    'roles': NotRequired[list[ModelFlashscoreLineupRoleDoc]],
+    'slug': NotRequired[str],
+}, total=False)
+
+ModelFlashscoreLineupRatingDoc = TypedDict('ModelFlashscoreLineupRatingDoc', {
+    'is_best': NotRequired[bool],
+    'value': NotRequired[float],
+}, total=False)
+
+ModelFlashscoreLineupIncidentDoc = TypedDict('ModelFlashscoreLineupIncidentDoc', {
+    'hidden': NotRequired[bool],
+    'minute': NotRequired[str],
+    'player_in_id': NotRequired[str],
+    'reasons': NotRequired[list[str]],
+    'type': NotRequired[str],
+}, total=False)
+
+ModelFlashscoreMatchIncidentsResponse = TypedDict('ModelFlashscoreMatchIncidentsResponse', {
+    'incidents': NotRequired[list[ModelFlashscoreMatchIncident]],
+    'match_id': NotRequired[str],
+    'source_url': NotRequired[str],
+}, total=False)
+
+ModelFlashscoreMatchIncident = TypedDict('ModelFlashscoreMatchIncident', {
+    'actions': NotRequired[list[ModelFlashscoreIncidentAction]],
+    'id': NotRequired[str],
+    'period': NotRequired[str],
+    'side': NotRequired[Literal['home', 'away']],
+    'time': NotRequired[str],
+}, total=False)
+
+ModelFlashscoreIncidentAction = TypedDict('ModelFlashscoreIncidentAction', {
+    'away_score': NotRequired[int],
+    'home_score': NotRequired[int],
+    'label': NotRequired[str],
+    'player': NotRequired[str],
+    'player_id': NotRequired[str],
+    'player_path': NotRequired[str],
+    'reason': NotRequired[str],
+    'type_code': NotRequired[int],
+}, total=False)
+
 ModelFlashscoreMatchDartsResponseDoc = TypedDict('ModelFlashscoreMatchDartsResponseDoc', {
     'code': NotRequired[int],
     'data': NotRequired[ModelFlashscoreMatchDartsDataDoc],
@@ -1282,6 +1455,7 @@ ModelFlashscoreMatchDartsResponseDoc = TypedDict('ModelFlashscoreMatchDartsRespo
 ModelFlashscoreMatchDartsDataDoc = TypedDict('ModelFlashscoreMatchDartsDataDoc', {
     'legs': NotRequired[list[ModelFlashscoreDartsLegDoc]],
     'match_id': NotRequired[str],
+    'set_statistics': NotRequired[list[ModelFlashscoreDartsSetStatisticsDoc]],
     'source_url': NotRequired[str],
     'statistics': NotRequired[list[ModelFlashscoreDartsStatisticDoc]],
     'statistics_url': NotRequired[str],
@@ -1291,15 +1465,22 @@ ModelFlashscoreDartsStatisticDoc = TypedDict('ModelFlashscoreDartsStatisticDoc',
     'away': NotRequired[str],
     'home': NotRequired[str],
     'id': NotRequired[str],
-    'key': NotRequired[Literal['average_3_darts', '180_thrown', '140_plus_thrown', '100_plus_thrown', 'checkouts', 'checkouts_100_plus', 'highest_checkout']],
+    'key': NotRequired[Literal['average_3_darts', '180_thrown', '140_plus_thrown', '100_plus_thrown', 'checkouts', 'checkouts_100_plus', 'highest_checkout', 'legs_won']],
     'name': NotRequired[str],
+}, total=False)
+
+ModelFlashscoreDartsSetStatisticsDoc = TypedDict('ModelFlashscoreDartsSetStatisticsDoc', {
+    'set': NotRequired[int],
+    'statistics': NotRequired[list[ModelFlashscoreDartsStatisticDoc]],
 }, total=False)
 
 ModelFlashscoreDartsLegDoc = TypedDict('ModelFlashscoreDartsLegDoc', {
     'away_legs': NotRequired[int],
     'checkout': NotRequired[int],
     'home_legs': NotRequired[int],
+    'in_progress': NotRequired[bool],
     'number': NotRequired[int],
+    'set': NotRequired[int],
     'start_score': NotRequired[int],
     'starter': NotRequired[Literal['home', 'away']],
     'visits': NotRequired[list[ModelFlashscoreDartsVisitDoc]],
@@ -1312,6 +1493,19 @@ ModelFlashscoreDartsVisitDoc = TypedDict('ModelFlashscoreDartsVisitDoc', {
     'remaining': NotRequired[int],
     'scored': NotRequired[int],
     'side': NotRequired[Literal['home', 'away']],
+}, total=False)
+
+ModelFlashscoreMatchCommentaryResponse = TypedDict('ModelFlashscoreMatchCommentaryResponse', {
+    'comments': NotRequired[list[ModelFlashscoreCommentaryLine]],
+    'match_id': NotRequired[str],
+    'source_url': NotRequired[str],
+}, total=False)
+
+ModelFlashscoreCommentaryLine = TypedDict('ModelFlashscoreCommentaryLine', {
+    'clock': NotRequired[str],
+    'minute': NotRequired[str],
+    'text': NotRequired[str],
+    'type': NotRequired[str],
 }, total=False)
 
 ModelFlashscoreMatchBoxScoreResponseDoc = TypedDict('ModelFlashscoreMatchBoxScoreResponseDoc', {
@@ -1483,6 +1677,14 @@ FlashscoreMatchBoxScoreParams = TypedDict('FlashscoreMatchBoxScoreParams', {
     'id': Required[str],
 }, total=False)
 
+FlashscoreMatchCommentaryResponse = Any
+FlashscoreMatchCommentaryParams = TypedDict('FlashscoreMatchCommentaryParams', {
+    '_response_type': NotRequired[ResponseType],
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    'id': Required[str],
+}, total=False)
+
 FlashscoreMatchDartsResponse = ModelFlashscoreMatchDartsResponseDoc
 FlashscoreMatchDartsParams = TypedDict('FlashscoreMatchDartsParams', {
     '_response_type': NotRequired[ResponseType],
@@ -1507,6 +1709,14 @@ FlashscoreMatchHighlightsParams = TypedDict('FlashscoreMatchHighlightsParams', {
     'id': Required[str],
 }, total=False)
 
+FlashscoreMatchIncidentsResponse = Any
+FlashscoreMatchIncidentsParams = TypedDict('FlashscoreMatchIncidentsParams', {
+    '_response_type': NotRequired[ResponseType],
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    'id': Required[str],
+}, total=False)
+
 FlashscoreMatchInfoResponse = ModelFlashscoreResponseDoc
 FlashscoreMatchInfoParams = TypedDict('FlashscoreMatchInfoParams', {
     '_response_type': NotRequired[ResponseType],
@@ -1515,7 +1725,7 @@ FlashscoreMatchInfoParams = TypedDict('FlashscoreMatchInfoParams', {
     'id': Required[str],
 }, total=False)
 
-FlashscoreMatchLineupsResponse = ModelFlashscoreResponseDoc
+FlashscoreMatchLineupsResponse = ModelFlashscoreMatchLineupsResponseDoc
 FlashscoreMatchLineupsParams = TypedDict('FlashscoreMatchLineupsParams', {
     '_response_type': NotRequired[ResponseType],
     '_timeout': NotRequired[float],
@@ -1579,6 +1789,14 @@ FlashscoreMatchPointByPointParams = TypedDict('FlashscoreMatchPointByPointParams
 
 FlashscoreMatchPredictedLineupsResponse = ModelFlashscoreMatchPredictedLineupsResponseDoc
 FlashscoreMatchPredictedLineupsParams = TypedDict('FlashscoreMatchPredictedLineupsParams', {
+    '_response_type': NotRequired[ResponseType],
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    'id': Required[str],
+}, total=False)
+
+FlashscoreMatchPrematchScorersResponse = Any
+FlashscoreMatchPrematchScorersParams = TypedDict('FlashscoreMatchPrematchScorersParams', {
     '_response_type': NotRequired[ResponseType],
     '_timeout': NotRequired[float],
     '_headers': NotRequired[Mapping[str, str]],
@@ -1853,6 +2071,15 @@ FlashscoreTournamentArchiveSeasonsParams = TypedDict('FlashscoreTournamentArchiv
     'stage_id': Required[str],
 }, total=False)
 
+FlashscoreTournamentDrawResponse = Any
+FlashscoreTournamentDrawParams = TypedDict('FlashscoreTournamentDrawParams', {
+    '_response_type': NotRequired[ResponseType],
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    'tournament_id': Required[str],
+    'stage_id': Required[str],
+}, total=False)
+
 FlashscoreTournamentEventsResponse = ModelFlashscoreTournamentEventsResponseDoc
 FlashscoreTournamentEventsParams = TypedDict('FlashscoreTournamentEventsParams', {
     '_response_type': NotRequired[ResponseType],
@@ -1929,6 +2156,12 @@ class FlashscoreGroup:
     @overload
     def match_box_score(self, **params: Unpack[FlashscoreMatchBoxScoreDefaultParams]) -> FlashscoreMatchBoxScoreResponse: ...
     @overload
+    def match_commentary(self, **params: Unpack[FlashscoreMatchCommentaryStreamParams]) -> BinaryIO: ...
+    @overload
+    def match_commentary(self, **params: Unpack[FlashscoreMatchCommentaryTextResponseParams]) -> str: ...
+    @overload
+    def match_commentary(self, **params: Unpack[FlashscoreMatchCommentaryDefaultParams]) -> FlashscoreMatchCommentaryResponse: ...
+    @overload
     def match_darts(self, **params: Unpack[FlashscoreMatchDartsStreamParams]) -> BinaryIO: ...
     @overload
     def match_darts(self, **params: Unpack[FlashscoreMatchDartsTextResponseParams]) -> str: ...
@@ -1946,6 +2179,12 @@ class FlashscoreGroup:
     def match_highlights(self, **params: Unpack[FlashscoreMatchHighlightsTextResponseParams]) -> str: ...
     @overload
     def match_highlights(self, **params: Unpack[FlashscoreMatchHighlightsDefaultParams]) -> FlashscoreMatchHighlightsResponse: ...
+    @overload
+    def match_incidents(self, **params: Unpack[FlashscoreMatchIncidentsStreamParams]) -> BinaryIO: ...
+    @overload
+    def match_incidents(self, **params: Unpack[FlashscoreMatchIncidentsTextResponseParams]) -> str: ...
+    @overload
+    def match_incidents(self, **params: Unpack[FlashscoreMatchIncidentsDefaultParams]) -> FlashscoreMatchIncidentsResponse: ...
     @overload
     def match_info(self, **params: Unpack[FlashscoreMatchInfoStreamParams]) -> BinaryIO: ...
     @overload
@@ -2000,6 +2239,12 @@ class FlashscoreGroup:
     def match_predicted_lineups(self, **params: Unpack[FlashscoreMatchPredictedLineupsTextResponseParams]) -> str: ...
     @overload
     def match_predicted_lineups(self, **params: Unpack[FlashscoreMatchPredictedLineupsDefaultParams]) -> FlashscoreMatchPredictedLineupsResponse: ...
+    @overload
+    def match_prematch_scorers(self, **params: Unpack[FlashscoreMatchPrematchScorersStreamParams]) -> BinaryIO: ...
+    @overload
+    def match_prematch_scorers(self, **params: Unpack[FlashscoreMatchPrematchScorersTextResponseParams]) -> str: ...
+    @overload
+    def match_prematch_scorers(self, **params: Unpack[FlashscoreMatchPrematchScorersDefaultParams]) -> FlashscoreMatchPrematchScorersResponse: ...
     @overload
     def match_report(self, **params: Unpack[FlashscoreMatchReportStreamParams]) -> BinaryIO: ...
     @overload
@@ -2193,6 +2438,12 @@ class FlashscoreGroup:
     @overload
     def tournament_archive_seasons(self, **params: Unpack[FlashscoreTournamentArchiveSeasonsDefaultParams]) -> FlashscoreTournamentArchiveSeasonsResponse: ...
     @overload
+    def tournament_draw(self, **params: Unpack[FlashscoreTournamentDrawStreamParams]) -> BinaryIO: ...
+    @overload
+    def tournament_draw(self, **params: Unpack[FlashscoreTournamentDrawTextResponseParams]) -> str: ...
+    @overload
+    def tournament_draw(self, **params: Unpack[FlashscoreTournamentDrawDefaultParams]) -> FlashscoreTournamentDrawResponse: ...
+    @overload
     def tournament_events(self, **params: Unpack[FlashscoreTournamentEventsStreamParams]) -> BinaryIO: ...
     @overload
     def tournament_events(self, **params: Unpack[FlashscoreTournamentEventsTextResponseParams]) -> str: ...
@@ -2229,9 +2480,11 @@ OperationId = Literal[
     'flashscore-competitions',
     'flashscore-entity-news',
     'flashscore-match-box-score',
+    'flashscore-match-commentary',
     'flashscore-match-darts',
     'flashscore-match-h2h',
     'flashscore-match-highlights',
+    'flashscore-match-incidents',
     'flashscore-match-info',
     'flashscore-match-lineups',
     'flashscore-match-missing-players',
@@ -2241,6 +2494,7 @@ OperationId = Literal[
     'flashscore-match-player-stats',
     'flashscore-match-point-by-point',
     'flashscore-match-predicted-lineups',
+    'flashscore-match-prematch-scorers',
     'flashscore-match-report',
     'flashscore-match-standings',
     'flashscore-match-stats',
@@ -2273,6 +2527,7 @@ OperationId = Literal[
     'flashscore-team-transfers',
     'flashscore-top-search',
     'flashscore-tournament-archive-seasons',
+    'flashscore-tournament-draw',
     'flashscore-tournament-events',
     'flashscore-tournament-outright-odds',
     'flashscore-tournament-seasons',
@@ -2425,6 +2680,18 @@ class CrawloraClient:
     @overload
     def operation(
         self,
+        operation_id: Literal['flashscore-match-commentary'],
+        params: FlashscoreMatchCommentaryParams,
+        *,
+        response_type: ResponseType = ...,
+        timeout: float | None = ...,
+        headers: Mapping[str, str] | None = ...,
+        retries: int | None = ...,
+        retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
+    ) -> FlashscoreMatchCommentaryResponse: ...
+    @overload
+    def operation(
+        self,
         operation_id: Literal['flashscore-match-darts'],
         params: FlashscoreMatchDartsParams,
         *,
@@ -2458,6 +2725,18 @@ class CrawloraClient:
         retries: int | None = ...,
         retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
     ) -> FlashscoreMatchHighlightsResponse: ...
+    @overload
+    def operation(
+        self,
+        operation_id: Literal['flashscore-match-incidents'],
+        params: FlashscoreMatchIncidentsParams,
+        *,
+        response_type: ResponseType = ...,
+        timeout: float | None = ...,
+        headers: Mapping[str, str] | None = ...,
+        retries: int | None = ...,
+        retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
+    ) -> FlashscoreMatchIncidentsResponse: ...
     @overload
     def operation(
         self,
@@ -2566,6 +2845,18 @@ class CrawloraClient:
         retries: int | None = ...,
         retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
     ) -> FlashscoreMatchPredictedLineupsResponse: ...
+    @overload
+    def operation(
+        self,
+        operation_id: Literal['flashscore-match-prematch-scorers'],
+        params: FlashscoreMatchPrematchScorersParams,
+        *,
+        response_type: ResponseType = ...,
+        timeout: float | None = ...,
+        headers: Mapping[str, str] | None = ...,
+        retries: int | None = ...,
+        retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
+    ) -> FlashscoreMatchPrematchScorersResponse: ...
     @overload
     def operation(
         self,
@@ -2950,6 +3241,18 @@ class CrawloraClient:
         retries: int | None = ...,
         retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
     ) -> FlashscoreTournamentArchiveSeasonsResponse: ...
+    @overload
+    def operation(
+        self,
+        operation_id: Literal['flashscore-tournament-draw'],
+        params: FlashscoreTournamentDrawParams,
+        *,
+        response_type: ResponseType = ...,
+        timeout: float | None = ...,
+        headers: Mapping[str, str] | None = ...,
+        retries: int | None = ...,
+        retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
+    ) -> FlashscoreTournamentDrawResponse: ...
     @overload
     def operation(
         self,
@@ -3085,6 +3388,18 @@ class CrawloraClient:
     @overload
     def request(
         self,
+        operation_id: Literal['flashscore-match-commentary'],
+        params: FlashscoreMatchCommentaryParams,
+        *,
+        response_type: ResponseType = ...,
+        timeout: float | None = ...,
+        headers: Mapping[str, str] | None = ...,
+        retries: int | None = ...,
+        retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
+    ) -> FlashscoreMatchCommentaryResponse: ...
+    @overload
+    def request(
+        self,
         operation_id: Literal['flashscore-match-darts'],
         params: FlashscoreMatchDartsParams,
         *,
@@ -3118,6 +3433,18 @@ class CrawloraClient:
         retries: int | None = ...,
         retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
     ) -> FlashscoreMatchHighlightsResponse: ...
+    @overload
+    def request(
+        self,
+        operation_id: Literal['flashscore-match-incidents'],
+        params: FlashscoreMatchIncidentsParams,
+        *,
+        response_type: ResponseType = ...,
+        timeout: float | None = ...,
+        headers: Mapping[str, str] | None = ...,
+        retries: int | None = ...,
+        retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
+    ) -> FlashscoreMatchIncidentsResponse: ...
     @overload
     def request(
         self,
@@ -3226,6 +3553,18 @@ class CrawloraClient:
         retries: int | None = ...,
         retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
     ) -> FlashscoreMatchPredictedLineupsResponse: ...
+    @overload
+    def request(
+        self,
+        operation_id: Literal['flashscore-match-prematch-scorers'],
+        params: FlashscoreMatchPrematchScorersParams,
+        *,
+        response_type: ResponseType = ...,
+        timeout: float | None = ...,
+        headers: Mapping[str, str] | None = ...,
+        retries: int | None = ...,
+        retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
+    ) -> FlashscoreMatchPrematchScorersResponse: ...
     @overload
     def request(
         self,
@@ -3613,6 +3952,18 @@ class CrawloraClient:
     @overload
     def request(
         self,
+        operation_id: Literal['flashscore-tournament-draw'],
+        params: FlashscoreTournamentDrawParams,
+        *,
+        response_type: ResponseType = ...,
+        timeout: float | None = ...,
+        headers: Mapping[str, str] | None = ...,
+        retries: int | None = ...,
+        retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
+    ) -> FlashscoreTournamentDrawResponse: ...
+    @overload
+    def request(
+        self,
         operation_id: Literal['flashscore-tournament-events'],
         params: FlashscoreTournamentEventsParams,
         *,
@@ -3740,6 +4091,12 @@ class FlashscoreClient(CrawloraClient):
     @overload
     def match_box_score(self, **params: Unpack[FlashscoreMatchBoxScoreDefaultParams]) -> FlashscoreMatchBoxScoreResponse: ...
     @overload
+    def match_commentary(self, **params: Unpack[FlashscoreMatchCommentaryStreamParams]) -> BinaryIO: ...
+    @overload
+    def match_commentary(self, **params: Unpack[FlashscoreMatchCommentaryTextResponseParams]) -> str: ...
+    @overload
+    def match_commentary(self, **params: Unpack[FlashscoreMatchCommentaryDefaultParams]) -> FlashscoreMatchCommentaryResponse: ...
+    @overload
     def match_darts(self, **params: Unpack[FlashscoreMatchDartsStreamParams]) -> BinaryIO: ...
     @overload
     def match_darts(self, **params: Unpack[FlashscoreMatchDartsTextResponseParams]) -> str: ...
@@ -3757,6 +4114,12 @@ class FlashscoreClient(CrawloraClient):
     def match_highlights(self, **params: Unpack[FlashscoreMatchHighlightsTextResponseParams]) -> str: ...
     @overload
     def match_highlights(self, **params: Unpack[FlashscoreMatchHighlightsDefaultParams]) -> FlashscoreMatchHighlightsResponse: ...
+    @overload
+    def match_incidents(self, **params: Unpack[FlashscoreMatchIncidentsStreamParams]) -> BinaryIO: ...
+    @overload
+    def match_incidents(self, **params: Unpack[FlashscoreMatchIncidentsTextResponseParams]) -> str: ...
+    @overload
+    def match_incidents(self, **params: Unpack[FlashscoreMatchIncidentsDefaultParams]) -> FlashscoreMatchIncidentsResponse: ...
     @overload
     def match_info(self, **params: Unpack[FlashscoreMatchInfoStreamParams]) -> BinaryIO: ...
     @overload
@@ -3811,6 +4174,12 @@ class FlashscoreClient(CrawloraClient):
     def match_predicted_lineups(self, **params: Unpack[FlashscoreMatchPredictedLineupsTextResponseParams]) -> str: ...
     @overload
     def match_predicted_lineups(self, **params: Unpack[FlashscoreMatchPredictedLineupsDefaultParams]) -> FlashscoreMatchPredictedLineupsResponse: ...
+    @overload
+    def match_prematch_scorers(self, **params: Unpack[FlashscoreMatchPrematchScorersStreamParams]) -> BinaryIO: ...
+    @overload
+    def match_prematch_scorers(self, **params: Unpack[FlashscoreMatchPrematchScorersTextResponseParams]) -> str: ...
+    @overload
+    def match_prematch_scorers(self, **params: Unpack[FlashscoreMatchPrematchScorersDefaultParams]) -> FlashscoreMatchPrematchScorersResponse: ...
     @overload
     def match_report(self, **params: Unpack[FlashscoreMatchReportStreamParams]) -> BinaryIO: ...
     @overload
@@ -4004,6 +4373,12 @@ class FlashscoreClient(CrawloraClient):
     @overload
     def tournament_archive_seasons(self, **params: Unpack[FlashscoreTournamentArchiveSeasonsDefaultParams]) -> FlashscoreTournamentArchiveSeasonsResponse: ...
     @overload
+    def tournament_draw(self, **params: Unpack[FlashscoreTournamentDrawStreamParams]) -> BinaryIO: ...
+    @overload
+    def tournament_draw(self, **params: Unpack[FlashscoreTournamentDrawTextResponseParams]) -> str: ...
+    @overload
+    def tournament_draw(self, **params: Unpack[FlashscoreTournamentDrawDefaultParams]) -> FlashscoreTournamentDrawResponse: ...
+    @overload
     def tournament_events(self, **params: Unpack[FlashscoreTournamentEventsStreamParams]) -> BinaryIO: ...
     @overload
     def tournament_events(self, **params: Unpack[FlashscoreTournamentEventsTextResponseParams]) -> str: ...
@@ -4068,6 +4443,12 @@ class AsyncFlashscoreClient(AsyncCrawloraClient):
     @overload
     async def match_box_score(self, **params: Unpack[FlashscoreMatchBoxScoreDefaultParams]) -> FlashscoreMatchBoxScoreResponse: ...
     @overload
+    async def match_commentary(self, **params: Unpack[FlashscoreMatchCommentaryStreamParams]) -> BinaryIO: ...
+    @overload
+    async def match_commentary(self, **params: Unpack[FlashscoreMatchCommentaryTextResponseParams]) -> str: ...
+    @overload
+    async def match_commentary(self, **params: Unpack[FlashscoreMatchCommentaryDefaultParams]) -> FlashscoreMatchCommentaryResponse: ...
+    @overload
     async def match_darts(self, **params: Unpack[FlashscoreMatchDartsStreamParams]) -> BinaryIO: ...
     @overload
     async def match_darts(self, **params: Unpack[FlashscoreMatchDartsTextResponseParams]) -> str: ...
@@ -4085,6 +4466,12 @@ class AsyncFlashscoreClient(AsyncCrawloraClient):
     async def match_highlights(self, **params: Unpack[FlashscoreMatchHighlightsTextResponseParams]) -> str: ...
     @overload
     async def match_highlights(self, **params: Unpack[FlashscoreMatchHighlightsDefaultParams]) -> FlashscoreMatchHighlightsResponse: ...
+    @overload
+    async def match_incidents(self, **params: Unpack[FlashscoreMatchIncidentsStreamParams]) -> BinaryIO: ...
+    @overload
+    async def match_incidents(self, **params: Unpack[FlashscoreMatchIncidentsTextResponseParams]) -> str: ...
+    @overload
+    async def match_incidents(self, **params: Unpack[FlashscoreMatchIncidentsDefaultParams]) -> FlashscoreMatchIncidentsResponse: ...
     @overload
     async def match_info(self, **params: Unpack[FlashscoreMatchInfoStreamParams]) -> BinaryIO: ...
     @overload
@@ -4139,6 +4526,12 @@ class AsyncFlashscoreClient(AsyncCrawloraClient):
     async def match_predicted_lineups(self, **params: Unpack[FlashscoreMatchPredictedLineupsTextResponseParams]) -> str: ...
     @overload
     async def match_predicted_lineups(self, **params: Unpack[FlashscoreMatchPredictedLineupsDefaultParams]) -> FlashscoreMatchPredictedLineupsResponse: ...
+    @overload
+    async def match_prematch_scorers(self, **params: Unpack[FlashscoreMatchPrematchScorersStreamParams]) -> BinaryIO: ...
+    @overload
+    async def match_prematch_scorers(self, **params: Unpack[FlashscoreMatchPrematchScorersTextResponseParams]) -> str: ...
+    @overload
+    async def match_prematch_scorers(self, **params: Unpack[FlashscoreMatchPrematchScorersDefaultParams]) -> FlashscoreMatchPrematchScorersResponse: ...
     @overload
     async def match_report(self, **params: Unpack[FlashscoreMatchReportStreamParams]) -> BinaryIO: ...
     @overload
@@ -4331,6 +4724,12 @@ class AsyncFlashscoreClient(AsyncCrawloraClient):
     async def tournament_archive_seasons(self, **params: Unpack[FlashscoreTournamentArchiveSeasonsTextResponseParams]) -> str: ...
     @overload
     async def tournament_archive_seasons(self, **params: Unpack[FlashscoreTournamentArchiveSeasonsDefaultParams]) -> FlashscoreTournamentArchiveSeasonsResponse: ...
+    @overload
+    async def tournament_draw(self, **params: Unpack[FlashscoreTournamentDrawStreamParams]) -> BinaryIO: ...
+    @overload
+    async def tournament_draw(self, **params: Unpack[FlashscoreTournamentDrawTextResponseParams]) -> str: ...
+    @overload
+    async def tournament_draw(self, **params: Unpack[FlashscoreTournamentDrawDefaultParams]) -> FlashscoreTournamentDrawResponse: ...
     @overload
     async def tournament_events(self, **params: Unpack[FlashscoreTournamentEventsStreamParams]) -> BinaryIO: ...
     @overload
@@ -4394,6 +4793,12 @@ class _AsyncFlashscoreGroup:
     @overload
     async def match_box_score(self, **params: Unpack[FlashscoreMatchBoxScoreDefaultParams]) -> FlashscoreMatchBoxScoreResponse: ...
     @overload
+    async def match_commentary(self, **params: Unpack[FlashscoreMatchCommentaryStreamParams]) -> BinaryIO: ...
+    @overload
+    async def match_commentary(self, **params: Unpack[FlashscoreMatchCommentaryTextResponseParams]) -> str: ...
+    @overload
+    async def match_commentary(self, **params: Unpack[FlashscoreMatchCommentaryDefaultParams]) -> FlashscoreMatchCommentaryResponse: ...
+    @overload
     async def match_darts(self, **params: Unpack[FlashscoreMatchDartsStreamParams]) -> BinaryIO: ...
     @overload
     async def match_darts(self, **params: Unpack[FlashscoreMatchDartsTextResponseParams]) -> str: ...
@@ -4411,6 +4816,12 @@ class _AsyncFlashscoreGroup:
     async def match_highlights(self, **params: Unpack[FlashscoreMatchHighlightsTextResponseParams]) -> str: ...
     @overload
     async def match_highlights(self, **params: Unpack[FlashscoreMatchHighlightsDefaultParams]) -> FlashscoreMatchHighlightsResponse: ...
+    @overload
+    async def match_incidents(self, **params: Unpack[FlashscoreMatchIncidentsStreamParams]) -> BinaryIO: ...
+    @overload
+    async def match_incidents(self, **params: Unpack[FlashscoreMatchIncidentsTextResponseParams]) -> str: ...
+    @overload
+    async def match_incidents(self, **params: Unpack[FlashscoreMatchIncidentsDefaultParams]) -> FlashscoreMatchIncidentsResponse: ...
     @overload
     async def match_info(self, **params: Unpack[FlashscoreMatchInfoStreamParams]) -> BinaryIO: ...
     @overload
@@ -4465,6 +4876,12 @@ class _AsyncFlashscoreGroup:
     async def match_predicted_lineups(self, **params: Unpack[FlashscoreMatchPredictedLineupsTextResponseParams]) -> str: ...
     @overload
     async def match_predicted_lineups(self, **params: Unpack[FlashscoreMatchPredictedLineupsDefaultParams]) -> FlashscoreMatchPredictedLineupsResponse: ...
+    @overload
+    async def match_prematch_scorers(self, **params: Unpack[FlashscoreMatchPrematchScorersStreamParams]) -> BinaryIO: ...
+    @overload
+    async def match_prematch_scorers(self, **params: Unpack[FlashscoreMatchPrematchScorersTextResponseParams]) -> str: ...
+    @overload
+    async def match_prematch_scorers(self, **params: Unpack[FlashscoreMatchPrematchScorersDefaultParams]) -> FlashscoreMatchPrematchScorersResponse: ...
     @overload
     async def match_report(self, **params: Unpack[FlashscoreMatchReportStreamParams]) -> BinaryIO: ...
     @overload
@@ -4657,6 +5074,12 @@ class _AsyncFlashscoreGroup:
     async def tournament_archive_seasons(self, **params: Unpack[FlashscoreTournamentArchiveSeasonsTextResponseParams]) -> str: ...
     @overload
     async def tournament_archive_seasons(self, **params: Unpack[FlashscoreTournamentArchiveSeasonsDefaultParams]) -> FlashscoreTournamentArchiveSeasonsResponse: ...
+    @overload
+    async def tournament_draw(self, **params: Unpack[FlashscoreTournamentDrawStreamParams]) -> BinaryIO: ...
+    @overload
+    async def tournament_draw(self, **params: Unpack[FlashscoreTournamentDrawTextResponseParams]) -> str: ...
+    @overload
+    async def tournament_draw(self, **params: Unpack[FlashscoreTournamentDrawDefaultParams]) -> FlashscoreTournamentDrawResponse: ...
     @overload
     async def tournament_events(self, **params: Unpack[FlashscoreTournamentEventsStreamParams]) -> BinaryIO: ...
     @overload
@@ -4796,6 +5219,27 @@ FlashscoreMatchBoxScoreStreamParams = TypedDict('FlashscoreMatchBoxScoreStreamPa
     'id': Required[str],
 }, total=False)
 
+FlashscoreMatchCommentaryDefaultParams = TypedDict('FlashscoreMatchCommentaryDefaultParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': NotRequired[Literal["auto", "json"]],
+    'id': Required[str],
+}, total=False)
+
+FlashscoreMatchCommentaryTextResponseParams = TypedDict('FlashscoreMatchCommentaryTextResponseParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': Required[Literal["text"]],
+    'id': Required[str],
+}, total=False)
+
+FlashscoreMatchCommentaryStreamParams = TypedDict('FlashscoreMatchCommentaryStreamParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': Required[Literal["stream"]],
+    'id': Required[str],
+}, total=False)
+
 FlashscoreMatchDartsDefaultParams = TypedDict('FlashscoreMatchDartsDefaultParams', {
     '_timeout': NotRequired[float],
     '_headers': NotRequired[Mapping[str, str]],
@@ -4853,6 +5297,27 @@ FlashscoreMatchHighlightsTextResponseParams = TypedDict('FlashscoreMatchHighligh
 }, total=False)
 
 FlashscoreMatchHighlightsStreamParams = TypedDict('FlashscoreMatchHighlightsStreamParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': Required[Literal["stream"]],
+    'id': Required[str],
+}, total=False)
+
+FlashscoreMatchIncidentsDefaultParams = TypedDict('FlashscoreMatchIncidentsDefaultParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': NotRequired[Literal["auto", "json"]],
+    'id': Required[str],
+}, total=False)
+
+FlashscoreMatchIncidentsTextResponseParams = TypedDict('FlashscoreMatchIncidentsTextResponseParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': Required[Literal["text"]],
+    'id': Required[str],
+}, total=False)
+
+FlashscoreMatchIncidentsStreamParams = TypedDict('FlashscoreMatchIncidentsStreamParams', {
     '_timeout': NotRequired[float],
     '_headers': NotRequired[Mapping[str, str]],
     '_response_type': Required[Literal["stream"]],
@@ -5060,6 +5525,27 @@ FlashscoreMatchPredictedLineupsTextResponseParams = TypedDict('FlashscoreMatchPr
 }, total=False)
 
 FlashscoreMatchPredictedLineupsStreamParams = TypedDict('FlashscoreMatchPredictedLineupsStreamParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': Required[Literal["stream"]],
+    'id': Required[str],
+}, total=False)
+
+FlashscoreMatchPrematchScorersDefaultParams = TypedDict('FlashscoreMatchPrematchScorersDefaultParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': NotRequired[Literal["auto", "json"]],
+    'id': Required[str],
+}, total=False)
+
+FlashscoreMatchPrematchScorersTextResponseParams = TypedDict('FlashscoreMatchPrematchScorersTextResponseParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': Required[Literal["text"]],
+    'id': Required[str],
+}, total=False)
+
+FlashscoreMatchPrematchScorersStreamParams = TypedDict('FlashscoreMatchPrematchScorersStreamParams', {
     '_timeout': NotRequired[float],
     '_headers': NotRequired[Mapping[str, str]],
     '_response_type': Required[Literal["stream"]],
@@ -5771,6 +6257,30 @@ FlashscoreTournamentArchiveSeasonsStreamParams = TypedDict('FlashscoreTournament
     '_timeout': NotRequired[float],
     '_headers': NotRequired[Mapping[str, str]],
     '_response_type': Required[Literal["stream"]],
+    'stage_id': Required[str],
+}, total=False)
+
+FlashscoreTournamentDrawDefaultParams = TypedDict('FlashscoreTournamentDrawDefaultParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': NotRequired[Literal["auto", "json"]],
+    'tournament_id': Required[str],
+    'stage_id': Required[str],
+}, total=False)
+
+FlashscoreTournamentDrawTextResponseParams = TypedDict('FlashscoreTournamentDrawTextResponseParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': Required[Literal["text"]],
+    'tournament_id': Required[str],
+    'stage_id': Required[str],
+}, total=False)
+
+FlashscoreTournamentDrawStreamParams = TypedDict('FlashscoreTournamentDrawStreamParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': Required[Literal["stream"]],
+    'tournament_id': Required[str],
     'stage_id': Required[str],
 }, total=False)
 

@@ -22,16 +22,18 @@ import java.util.TreeSet;
 /** Client for the Flashscore endpoints hosted by Crawlora. */
 public final class Client implements AutoCloseable {
     public static final String DEFAULT_BASE_URL = "https://api.crawlora.net/api/v1";
-    public static final int OPERATION_COUNT = 54;
+    public static final int OPERATION_COUNT = 58;
     public static final List<String> OPERATION_IDS = List.of(
             "flashscore-calendar",
             "flashscore-calendar-categories",
             "flashscore-competitions",
             "flashscore-entity-news",
             "flashscore-match-box-score",
+            "flashscore-match-commentary",
             "flashscore-match-darts",
             "flashscore-match-h2h",
             "flashscore-match-highlights",
+            "flashscore-match-incidents",
             "flashscore-match-info",
             "flashscore-match-lineups",
             "flashscore-match-missing-players",
@@ -41,6 +43,7 @@ public final class Client implements AutoCloseable {
             "flashscore-match-player-stats",
             "flashscore-match-point-by-point",
             "flashscore-match-predicted-lineups",
+            "flashscore-match-prematch-scorers",
             "flashscore-match-report",
             "flashscore-match-standings",
             "flashscore-match-stats",
@@ -73,6 +76,7 @@ public final class Client implements AutoCloseable {
             "flashscore-team-transfers",
             "flashscore-top-search",
             "flashscore-tournament-archive-seasons",
+            "flashscore-tournament-draw",
             "flashscore-tournament-events",
             "flashscore-tournament-outright-odds",
             "flashscore-tournament-seasons",
@@ -88,9 +92,11 @@ public final class Client implements AutoCloseable {
         operations.put("flashscore-competitions", new Operation("flashscore-competitions", "GET", "/flashscore/competitions", Map.ofEntries(Map.entry("sport", new Param("sport", "query", true, "string", List.of("football", "tennis", "basketball", "hockey", "golf", "formula-1", "baseball", "snooker", "american-football", "aussie-rules", "badminton", "bandy", "beach-soccer", "beach-volleyball", "boxing", "cricket", "cycling", "darts", "esports", "field-hockey", "floorball", "futsal", "handball", "horse-racing", "kabaddi", "mma", "motorsport", "netball", "pesapallo", "rugby-league", "rugby-union", "table-tennis", "volleyball", "water-polo", "winter-sports", "moto-racing", "ski-jumping", "alpine-skiing", "cross-country-skiing", "biathlon"), "csv")), Map.entry("day_offset", new Param("day_offset", "query", false, "integer", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-entity-news", new Operation("flashscore-entity-news", "GET", "/flashscore/entity-news", Map.ofEntries(Map.entry("type", new Param("type", "query", true, "string", List.of("team", "player", "tournament", "sport"), "csv")), Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-match-box-score", new Operation("flashscore-match-box-score", "GET", "/flashscore/match-box-score", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("flashscore-match-commentary", new Operation("flashscore-match-commentary", "GET", "/flashscore/match-commentary", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-match-darts", new Operation("flashscore-match-darts", "GET", "/flashscore/match-darts", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-match-h2h", new Operation("flashscore-match-h2h", "GET", "/flashscore/match-h2h", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-match-highlights", new Operation("flashscore-match-highlights", "GET", "/flashscore/match-highlights", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("flashscore-match-incidents", new Operation("flashscore-match-incidents", "GET", "/flashscore/match-incidents", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-match-info", new Operation("flashscore-match-info", "GET", "/flashscore/match-info", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-match-lineups", new Operation("flashscore-match-lineups", "GET", "/flashscore/match-lineups", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-match-missing-players", new Operation("flashscore-match-missing-players", "GET", "/flashscore/match-missing-players", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
@@ -100,6 +106,7 @@ public final class Client implements AutoCloseable {
         operations.put("flashscore-match-player-stats", new Operation("flashscore-match-player-stats", "GET", "/flashscore/match-player-stats", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("player_id", new Param("player_id", "query", false, "string", List.of(), "csv")), Map.entry("group", new Param("group", "query", false, "string", List.of("top_stats", "shots", "attack", "passes", "defense", "goalkeeping", "general"), "csv"))), List.of("application/json")));
         operations.put("flashscore-match-point-by-point", new Operation("flashscore-match-point-by-point", "GET", "/flashscore/match-point-by-point", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-match-predicted-lineups", new Operation("flashscore-match-predicted-lineups", "GET", "/flashscore/match-predicted-lineups", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("flashscore-match-prematch-scorers", new Operation("flashscore-match-prematch-scorers", "GET", "/flashscore/match-prematch-scorers", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-match-report", new Operation("flashscore-match-report", "GET", "/flashscore/match-report", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-match-standings", new Operation("flashscore-match-standings", "GET", "/flashscore/match-standings", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("view", new Param("view", "query", false, "string", List.of("overall", "home", "away", "form_overall", "overunder_overall", "form_home", "form_away", "top_scorers", "htft_overall", "htft_home", "htft_away", "live_overall", "overunder_home", "overunder_away"), "csv"))), List.of("application/json")));
         operations.put("flashscore-match-stats", new Operation("flashscore-match-stats", "GET", "/flashscore/match-stats", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
@@ -132,6 +139,7 @@ public final class Client implements AutoCloseable {
         operations.put("flashscore-team-transfers", new Operation("flashscore-team-transfers", "GET", "/flashscore/team-transfers", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("type", new Param("type", "query", false, "string", List.of("all", "arrivals", "departures"), "csv")), Map.entry("page", new Param("page", "query", false, "integer", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-top-search", new Operation("flashscore-top-search", "GET", "/flashscore/top-search", Map.of(), List.of("application/json")));
         operations.put("flashscore-tournament-archive-seasons", new Operation("flashscore-tournament-archive-seasons", "GET", "/flashscore/tournament-archive-seasons", Map.ofEntries(Map.entry("stage_id", new Param("stage_id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("flashscore-tournament-draw", new Operation("flashscore-tournament-draw", "GET", "/flashscore/tournament-draw", Map.ofEntries(Map.entry("tournament_id", new Param("tournament_id", "query", true, "string", List.of(), "csv")), Map.entry("stage_id", new Param("stage_id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-tournament-events", new Operation("flashscore-tournament-events", "GET", "/flashscore/tournament-events", Map.ofEntries(Map.entry("path", new Param("path", "query", true, "string", List.of(), "csv")), Map.entry("page", new Param("page", "query", false, "integer", List.of(), "csv"))), List.of("application/json")));
         operations.put("flashscore-tournament-outright-odds", new Operation("flashscore-tournament-outright-odds", "GET", "/flashscore/tournament-outright-odds", Map.ofEntries(Map.entry("tournament_id", new Param("tournament_id", "query", true, "string", List.of(), "csv")), Map.entry("geo", new Param("geo", "query", false, "string", List.of("AE", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BD", "BE", "BG", "BO", "BR", "BY", "CA", "CH", "CI", "CL", "CM", "CN", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "ET", "FI", "FR", "GB", "GE", "GH", "GR", "GT", "HK", "HN", "HR", "HU", "ID", "IE", "IL", "IN", "IQ", "IR", "IS", "IT", "JO", "JP", "KE", "KG", "KH", "KR", "KW", "KZ", "LA", "LB", "LK", "LT", "LU", "LV", "LY", "MA", "MD", "ME", "MK", "MM", "MN", "MT", "MX", "MY", "NG", "NI", "NL", "NO", "NP", "NZ", "PA", "PE", "PH", "PK", "PL", "PT", "PY", "QA", "RO", "RS", "RU", "SA", "SD", "SE", "SG", "SI", "SK", "SN", "SV", "TH", "TN", "TR", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VE", "VN", "XK", "ZA", "ZM", "ZW"), "csv")), Map.entry("subdivision", new Param("subdivision", "query", false, "string", List.of("AB", "AK", "AL", "AR", "AZ", "BC", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MB", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NB", "NC", "ND", "NE", "NH", "NJ", "NL", "NM", "NS", "NT", "NU", "NV", "NY", "OH", "OK", "ON", "OR", "PA", "PE", "QC", "RI", "SC", "SD", "SK", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY", "YT"), "csv"))), List.of("application/json")));
         operations.put("flashscore-tournament-seasons", new Operation("flashscore-tournament-seasons", "GET", "/flashscore/tournament-seasons", Map.ofEntries(Map.entry("path", new Param("path", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
@@ -248,9 +256,11 @@ public final class Client implements AutoCloseable {
     public Object competitions(Map<String, ?> params) { return request("flashscore-competitions", params); }
     public Object entityNews(Map<String, ?> params) { return request("flashscore-entity-news", params); }
     public Object matchBoxScore(Map<String, ?> params) { return request("flashscore-match-box-score", params); }
+    public Object matchCommentary(Map<String, ?> params) { return request("flashscore-match-commentary", params); }
     public Object matchDarts(Map<String, ?> params) { return request("flashscore-match-darts", params); }
     public Object matchH2h(Map<String, ?> params) { return request("flashscore-match-h2h", params); }
     public Object matchHighlights(Map<String, ?> params) { return request("flashscore-match-highlights", params); }
+    public Object matchIncidents(Map<String, ?> params) { return request("flashscore-match-incidents", params); }
     public Object matchInfo(Map<String, ?> params) { return request("flashscore-match-info", params); }
     public Object matchLineups(Map<String, ?> params) { return request("flashscore-match-lineups", params); }
     public Object matchMissingPlayers(Map<String, ?> params) { return request("flashscore-match-missing-players", params); }
@@ -260,6 +270,7 @@ public final class Client implements AutoCloseable {
     public Object matchPlayerStats(Map<String, ?> params) { return request("flashscore-match-player-stats", params); }
     public Object matchPointByPoint(Map<String, ?> params) { return request("flashscore-match-point-by-point", params); }
     public Object matchPredictedLineups(Map<String, ?> params) { return request("flashscore-match-predicted-lineups", params); }
+    public Object matchPrematchScorers(Map<String, ?> params) { return request("flashscore-match-prematch-scorers", params); }
     public Object matchReport(Map<String, ?> params) { return request("flashscore-match-report", params); }
     public Object matchStandings(Map<String, ?> params) { return request("flashscore-match-standings", params); }
     public Object matchStats(Map<String, ?> params) { return request("flashscore-match-stats", params); }
@@ -292,6 +303,7 @@ public final class Client implements AutoCloseable {
     public Object teamTransfers(Map<String, ?> params) { return request("flashscore-team-transfers", params); }
     public Object topSearch(Map<String, ?> params) { return request("flashscore-top-search", params); }
     public Object tournamentArchiveSeasons(Map<String, ?> params) { return request("flashscore-tournament-archive-seasons", params); }
+    public Object tournamentDraw(Map<String, ?> params) { return request("flashscore-tournament-draw", params); }
     public Object tournamentEvents(Map<String, ?> params) { return request("flashscore-tournament-events", params); }
     public Object tournamentOutrightOdds(Map<String, ?> params) { return request("flashscore-tournament-outright-odds", params); }
     public Object tournamentSeasons(Map<String, ?> params) { return request("flashscore-tournament-seasons", params); }

@@ -190,6 +190,32 @@ export const operations = {
       "ApiKeyAuth"
     ]
   },
+  "flashscore-match-commentary": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "flashscore-match-commentary",
+    "method": "GET",
+    "path": "/flashscore/match-commentary",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
   "flashscore-match-darts": {
     "bodyParam": null,
     "bodyRequired": false,
@@ -252,6 +278,32 @@ export const operations = {
     "id": "flashscore-match-highlights",
     "method": "GET",
     "path": "/flashscore/match-highlights",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "flashscore-match-incidents": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "flashscore-match-incidents",
+    "method": "GET",
+    "path": "/flashscore/match-incidents",
     "pathParams": [],
     "produces": [
       "application/json"
@@ -739,6 +791,32 @@ export const operations = {
     "id": "flashscore-match-predicted-lineups",
     "method": "GET",
     "path": "/flashscore/match-predicted-lineups",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "flashscore-match-prematch-scorers": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "flashscore-match-prematch-scorers",
+    "method": "GET",
+    "path": "/flashscore/match-prematch-scorers",
     "pathParams": [],
     "produces": [
       "application/json"
@@ -2088,6 +2166,38 @@ export const operations = {
       "ApiKeyAuth"
     ]
   },
+  "flashscore-tournament-draw": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "flashscore-tournament-draw",
+    "method": "GET",
+    "path": "/flashscore/tournament-draw",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "tournament_id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "stage_id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
   "flashscore-tournament-events": {
     "bodyParam": null,
     "bodyRequired": false,
@@ -2449,9 +2559,11 @@ export const groups = {
     "competitions": "flashscore-competitions",
     "entityNews": "flashscore-entity-news",
     "matchBoxScore": "flashscore-match-box-score",
+    "matchCommentary": "flashscore-match-commentary",
     "matchDarts": "flashscore-match-darts",
     "matchH2h": "flashscore-match-h2h",
     "matchHighlights": "flashscore-match-highlights",
+    "matchIncidents": "flashscore-match-incidents",
     "matchInfo": "flashscore-match-info",
     "matchLineups": "flashscore-match-lineups",
     "matchMissingPlayers": "flashscore-match-missing-players",
@@ -2461,6 +2573,7 @@ export const groups = {
     "matchPlayerStats": "flashscore-match-player-stats",
     "matchPointByPoint": "flashscore-match-point-by-point",
     "matchPredictedLineups": "flashscore-match-predicted-lineups",
+    "matchPrematchScorers": "flashscore-match-prematch-scorers",
     "matchReport": "flashscore-match-report",
     "matchStandings": "flashscore-match-standings",
     "matchStats": "flashscore-match-stats",
@@ -2493,6 +2606,7 @@ export const groups = {
     "teamTransfers": "flashscore-team-transfers",
     "topSearch": "flashscore-top-search",
     "tournamentArchiveSeasons": "flashscore-tournament-archive-seasons",
+    "tournamentDraw": "flashscore-tournament-draw",
     "tournamentEvents": "flashscore-tournament-events",
     "tournamentOutrightOdds": "flashscore-tournament-outright-odds",
     "tournamentSeasons": "flashscore-tournament-seasons",
@@ -2501,7 +2615,7 @@ export const groups = {
   }
 };
 
-export const operationCount = 54;
+export const operationCount = 58;
 
 export const OperationIds = Object.freeze({
   "FlashscoreCalendar": "flashscore-calendar",
@@ -2509,9 +2623,11 @@ export const OperationIds = Object.freeze({
   "FlashscoreCompetitions": "flashscore-competitions",
   "FlashscoreEntityNews": "flashscore-entity-news",
   "FlashscoreMatchBoxScore": "flashscore-match-box-score",
+  "FlashscoreMatchCommentary": "flashscore-match-commentary",
   "FlashscoreMatchDarts": "flashscore-match-darts",
   "FlashscoreMatchH2h": "flashscore-match-h2h",
   "FlashscoreMatchHighlights": "flashscore-match-highlights",
+  "FlashscoreMatchIncidents": "flashscore-match-incidents",
   "FlashscoreMatchInfo": "flashscore-match-info",
   "FlashscoreMatchLineups": "flashscore-match-lineups",
   "FlashscoreMatchMissingPlayers": "flashscore-match-missing-players",
@@ -2521,6 +2637,7 @@ export const OperationIds = Object.freeze({
   "FlashscoreMatchPlayerStats": "flashscore-match-player-stats",
   "FlashscoreMatchPointByPoint": "flashscore-match-point-by-point",
   "FlashscoreMatchPredictedLineups": "flashscore-match-predicted-lineups",
+  "FlashscoreMatchPrematchScorers": "flashscore-match-prematch-scorers",
   "FlashscoreMatchReport": "flashscore-match-report",
   "FlashscoreMatchStandings": "flashscore-match-standings",
   "FlashscoreMatchStats": "flashscore-match-stats",
@@ -2553,6 +2670,7 @@ export const OperationIds = Object.freeze({
   "FlashscoreTeamTransfers": "flashscore-team-transfers",
   "FlashscoreTopSearch": "flashscore-top-search",
   "FlashscoreTournamentArchiveSeasons": "flashscore-tournament-archive-seasons",
+  "FlashscoreTournamentDraw": "flashscore-tournament-draw",
   "FlashscoreTournamentEvents": "flashscore-tournament-events",
   "FlashscoreTournamentOutrightOdds": "flashscore-tournament-outright-odds",
   "FlashscoreTournamentSeasons": "flashscore-tournament-seasons",

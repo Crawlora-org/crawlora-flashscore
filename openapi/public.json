@@ -216,6 +216,23 @@
       },
       "type": "object"
     },
+    "flashscore.CommentaryLine": {
+      "properties": {
+        "clock": {
+          "type": "string"
+        },
+        "minute": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "flashscore.EntityNewsResponse": {
       "properties": {
         "article_count": {
@@ -345,6 +362,96 @@
           "type": "string"
         },
         "slug": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.IncidentAction": {
+      "properties": {
+        "away_score": {
+          "type": "integer"
+        },
+        "home_score": {
+          "type": "integer"
+        },
+        "label": {
+          "type": "string"
+        },
+        "player": {
+          "type": "string"
+        },
+        "player_id": {
+          "type": "string"
+        },
+        "player_path": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "type_code": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.MatchCommentaryResponse": {
+      "properties": {
+        "comments": {
+          "items": {
+            "$ref": "#/definitions/flashscore.CommentaryLine"
+          },
+          "type": "array"
+        },
+        "match_id": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.MatchIncident": {
+      "properties": {
+        "actions": {
+          "items": {
+            "$ref": "#/definitions/flashscore.IncidentAction"
+          },
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        },
+        "period": {
+          "type": "string"
+        },
+        "side": {
+          "enum": [
+            "home",
+            "away"
+          ],
+          "type": "string"
+        },
+        "time": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.MatchIncidentsResponse": {
+      "properties": {
+        "incidents": {
+          "items": {
+            "$ref": "#/definitions/flashscore.MatchIncident"
+          },
+          "type": "array"
+        },
+        "match_id": {
+          "type": "string"
+        },
+        "source_url": {
           "type": "string"
         }
       },
@@ -1085,6 +1192,135 @@
       },
       "type": "object"
     },
+    "flashscore.PrematchScorer": {
+      "properties": {
+        "goals": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "player_id": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.PrematchScorerGoal": {
+      "properties": {
+        "goals": {
+          "type": "integer"
+        },
+        "player_id": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.PrematchScorerMatch": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "player_goals": {
+          "items": {
+            "$ref": "#/definitions/flashscore.PrematchScorerGoal"
+          },
+          "type": "array"
+        },
+        "start_time": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.PrematchScorerStat": {
+      "properties": {
+        "raw_value": {
+          "type": "string"
+        },
+        "type_id": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.PrematchScorerTeam": {
+      "properties": {
+        "competition_stats": {
+          "items": {
+            "$ref": "#/definitions/flashscore.PrematchScorerStat"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "recent_matches": {
+          "items": {
+            "$ref": "#/definitions/flashscore.PrematchScorerMatch"
+          },
+          "type": "array"
+        },
+        "recent_stats": {
+          "items": {
+            "$ref": "#/definitions/flashscore.PrematchScorerStat"
+          },
+          "type": "array"
+        },
+        "side": {
+          "enum": [
+            "home",
+            "away"
+          ],
+          "type": "string"
+        },
+        "top_scorers": {
+          "items": {
+            "$ref": "#/definitions/flashscore.PrematchScorer"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.PrematchScorersResponse": {
+      "properties": {
+        "match_id": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "stat_types": {
+          "items": {
+            "$ref": "#/definitions/flashscore.ScorerStatType"
+          },
+          "type": "array"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/flashscore.PrematchScorerTeam"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.ScorerStatType": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "flashscore.SquadColumn": {
       "properties": {
         "key": {
@@ -1521,6 +1757,134 @@
       },
       "type": "object"
     },
+    "flashscore.TournamentDrawMatch": {
+      "properties": {
+        "away_extra_time_score": {
+          "type": "integer"
+        },
+        "away_index": {
+          "type": "integer"
+        },
+        "away_penalty_score": {
+          "type": "integer"
+        },
+        "away_regular_score": {
+          "type": "integer"
+        },
+        "event_id": {
+          "type": "string"
+        },
+        "home_extra_time_score": {
+          "type": "integer"
+        },
+        "home_index": {
+          "type": "integer"
+        },
+        "home_penalty_score": {
+          "type": "integer"
+        },
+        "home_regular_score": {
+          "type": "integer"
+        },
+        "score": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.TournamentDrawParticipant": {
+      "properties": {
+        "index": {
+          "type": "integer"
+        },
+        "member_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.TournamentDrawResponse": {
+      "properties": {
+        "participants": {
+          "items": {
+            "$ref": "#/definitions/flashscore.TournamentDrawParticipant"
+          },
+          "type": "array"
+        },
+        "rounds": {
+          "items": {
+            "$ref": "#/definitions/flashscore.TournamentDrawRound"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "stage_id": {
+          "type": "string"
+        },
+        "tournament_id": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.TournamentDrawRound": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "slots": {
+          "items": {
+            "$ref": "#/definitions/flashscore.TournamentDrawSlot"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.TournamentDrawSlot": {
+      "properties": {
+        "away_index": {
+          "type": "integer"
+        },
+        "away_seed": {
+          "type": "string"
+        },
+        "home_index": {
+          "type": "integer"
+        },
+        "home_seed": {
+          "type": "string"
+        },
+        "matches": {
+          "items": {
+            "$ref": "#/definitions/flashscore.TournamentDrawMatch"
+          },
+          "type": "array"
+        },
+        "winner_side": {
+          "enum": [
+            "home",
+            "away"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "flashscore.TournamentOutrightOddsResponse": {
       "properties": {
         "bookmakers": {
@@ -1824,7 +2188,17 @@
           "example": 0,
           "type": "integer"
         },
+        "in_progress": {
+          "description": "True only for the leg being played in a live match.",
+          "example": true,
+          "type": "boolean"
+        },
         "number": {
+          "example": 1,
+          "type": "integer"
+        },
+        "set": {
+          "description": "Only present for set-play matches: the set the leg belongs to.",
           "example": 1,
           "type": "integer"
         },
@@ -1847,12 +2221,28 @@
           "type": "array"
         },
         "winner": {
+          "description": "Empty while the leg is still being played.",
           "enum": [
             "home",
             "away"
           ],
           "example": "away",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.dartsSetStatisticsDoc": {
+      "properties": {
+        "set": {
+          "example": 1,
+          "type": "integer"
+        },
+        "statistics": {
+          "items": {
+            "$ref": "#/definitions/flashscore.dartsStatisticDoc"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -1879,7 +2269,8 @@
             "100_plus_thrown",
             "checkouts",
             "checkouts_100_plus",
-            "highest_checkout"
+            "highest_checkout",
+            "legs_won"
           ],
           "example": "average_3_darts",
           "type": "string"
@@ -2000,6 +2391,36 @@
       },
       "type": "object"
     },
+    "flashscore.lineupIncidentDoc": {
+      "properties": {
+        "hidden": {
+          "example": false,
+          "type": "boolean"
+        },
+        "minute": {
+          "example": "60'",
+          "type": "string"
+        },
+        "player_in_id": {
+          "example": "S4KKxXdC",
+          "type": "string"
+        },
+        "reasons": {
+          "example": [
+            "Tripping"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "type": {
+          "example": "YellowCard",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "flashscore.lineupPlayerDoc": {
       "properties": {
         "age": {
@@ -2051,6 +2472,19 @@
       },
       "type": "object"
     },
+    "flashscore.lineupRatingDoc": {
+      "properties": {
+        "is_best": {
+          "example": false,
+          "type": "boolean"
+        },
+        "value": {
+          "example": 8,
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
     "flashscore.lineupRoleDoc": {
       "properties": {
         "suffix": {
@@ -2059,6 +2493,27 @@
         },
         "title": {
           "example": "Goalkeeper",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.lineupSubstitutionDoc": {
+      "properties": {
+        "id": {
+          "example": "AkY1pAJH",
+          "type": "string"
+        },
+        "minute": {
+          "example": "46'",
+          "type": "string"
+        },
+        "player_in_id": {
+          "example": "S4KKxXdC",
+          "type": "string"
+        },
+        "player_out_id": {
+          "example": "6DGXE64C",
           "type": "string"
         }
       },
@@ -2217,6 +2672,13 @@
           "example": "KMrRR6R1",
           "type": "string"
         },
+        "set_statistics": {
+          "description": "Only present for set-play matches: the statistics of each set.",
+          "items": {
+            "$ref": "#/definitions/flashscore.dartsSetStatisticsDoc"
+          },
+          "type": "array"
+        },
         "source_url": {
           "example": "https://global.flashscore.ninja/2/x/feed/df_mhn_1_KMrRR6R1",
           "type": "string"
@@ -2242,6 +2704,156 @@
         },
         "data": {
           "$ref": "#/definitions/flashscore.matchDartsDataDoc"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.matchLineupPlayerDoc": {
+      "properties": {
+        "age": {
+          "example": 37,
+          "type": "number"
+        },
+        "average_rating": {
+          "example": 6.8,
+          "type": "number"
+        },
+        "country": {
+          "example": "Brazil",
+          "type": "string"
+        },
+        "height_cm": {
+          "example": 192,
+          "type": "number"
+        },
+        "id": {
+          "example": "Cx5lvlAM",
+          "type": "string"
+        },
+        "incidents": {
+          "items": {
+            "$ref": "#/definitions/flashscore.lineupIncidentDoc"
+          },
+          "type": "array"
+        },
+        "list_name": {
+          "example": "Rafael",
+          "type": "string"
+        },
+        "market_value": {
+          "example": 380099,
+          "type": "number"
+        },
+        "name": {
+          "example": "Rafael",
+          "type": "string"
+        },
+        "number": {
+          "example": "23",
+          "type": "string"
+        },
+        "rating": {
+          "$ref": "#/definitions/flashscore.lineupRatingDoc"
+        },
+        "roles": {
+          "items": {
+            "$ref": "#/definitions/flashscore.lineupRoleDoc"
+          },
+          "type": "array"
+        },
+        "slug": {
+          "example": "rafael",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.matchLineupTeamDoc": {
+      "properties": {
+        "aggregated_stats": {
+          "$ref": "#/definitions/flashscore.lineupAggregatedStatsDoc"
+        },
+        "average_rating": {
+          "example": 7.1,
+          "type": "number"
+        },
+        "coaches": {
+          "items": {
+            "$ref": "#/definitions/flashscore.lineupPlayerDoc"
+          },
+          "type": "array"
+        },
+        "formation": {
+          "$ref": "#/definitions/flashscore.predictedFormationDoc"
+        },
+        "groups": {
+          "items": {
+            "$ref": "#/definitions/flashscore.lineupGroupDoc"
+          },
+          "type": "array"
+        },
+        "name": {
+          "example": "Brighton",
+          "type": "string"
+        },
+        "participant_id": {
+          "example": "4zJjW8Rb",
+          "type": "string"
+        },
+        "players": {
+          "items": {
+            "$ref": "#/definitions/flashscore.matchLineupPlayerDoc"
+          },
+          "type": "array"
+        },
+        "side": {
+          "enum": [
+            "home",
+            "away"
+          ],
+          "example": "home",
+          "type": "string"
+        },
+        "substitutions": {
+          "items": {
+            "$ref": "#/definitions/flashscore.lineupSubstitutionDoc"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.matchLineupsDataDoc": {
+      "properties": {
+        "match_id": {
+          "example": "j52jHsN8",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://2.ds.lsapp.eu/pq_graphql?_hash=dlie2&eventId=j52jHsN8&projectId=2",
+          "type": "string"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/flashscore.matchLineupTeamDoc"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "flashscore.matchLineupsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/flashscore.matchLineupsDataDoc"
         },
         "msg": {
           "example": "OK",
@@ -4902,12 +5514,81 @@
         ]
       }
     },
+    "/flashscore/match-commentary": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the play-by-play text Flashscore publishes for a match, newest first. Each entry can include the displayed minute, a detailed clock and an event type. Pre-match comments may have no time. Matches without text coverage return not found.",
+        "operationId": "flashscore-match-commentary",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore match id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "Qq7RGRDF"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/flashscore.MatchCommentaryResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore match text commentary",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
     "/flashscore/match-darts": {
       "get": {
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a darts match leg by leg: who started and won each leg, the leg score, every visit with the points scored, the score remaining and 180 or 140-plus highlights, and the score the winner finished from, plus the statistics comparison (three-dart average, 180s, 140+ and 100+ visits, checkout percentage, highest checkout). Streamed events whose scoring is not tracked and non-darts matches return not found.",
+        "description": "Returns a darts match leg by leg: who started and won each leg, the leg score, every visit with the points scored, the score remaining and 180 or 140-plus highlights, and the score the winner finished from, plus the statistics comparison (three-dart average, 180s, 140+ and 100+ visits, checkout percentage, highest checkout). Set-play matches add the set of each leg, the leg score within the set and the statistics of every set; a live match includes the leg being played. Streamed events whose scoring is not tracked and non-darts matches return not found.",
         "operationId": "flashscore-match-darts",
         "parameters": [
           {
@@ -5073,6 +5754,75 @@
         ]
       }
     },
+    "/flashscore/match-incidents": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Fetch the structured Flashscore incident timeline by match ID with period, displayed clock, team side and ordered actions. An incident can group a goal and assist or both players in a substitution. Valid summaries without incidents return an empty list. Use flashscore_match_commentary for editorial text.",
+        "operationId": "flashscore-match-incidents",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore match ID",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "MF2Xj8on"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/flashscore.MatchIncidentsResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore structured match incidents",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
     "/flashscore/match-info": {
       "get": {
         "consumes": [
@@ -5135,7 +5885,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns the public starting-lineup and formation feed as the provider's raw delimited text. Matches without published lineups return not found.",
+        "description": "Returns each side's confirmed formation, starters and substitutes with positions, in-match ratings and incidents such as cards and substitutions, plus coaches and the substitutions made. Lineups usually appear shortly before kickoff for covered matches; a match with no lineup players on either side returns not found. Use flashscore-match-predicted-lineups for expected lineups before they are confirmed.",
         "operationId": "flashscore-match-lineups",
         "parameters": [
           {
@@ -5154,7 +5904,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/flashscore.responseDoc"
+              "$ref": "#/definitions/flashscore.matchLineupsResponseDoc"
             }
           },
           "400": {
@@ -5840,6 +6590,75 @@
           }
         ],
         "summary": "Flashscore predicted lineups",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/match-prematch-scorers": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Fetch the pre-match scorer panel for a Flashscore match by match ID, with each side’s leading scorers, competition and recent goal averages, and player goal counts from recent fixtures. A match without a scorer panel returns not found. Use flashscore_match_player_stats for individual performance during the selected match.",
+        "operationId": "flashscore-match-prematch-scorers",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore match ID",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "j52jHsN8"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/flashscore.PrematchScorersResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore pre-match top scorers",
         "tags": [
           "flashscore"
         ]
@@ -8302,6 +9121,83 @@
           }
         ],
         "summary": "Flashscore competition seasons by stage id",
+        "tags": [
+          "flashscore"
+        ]
+      }
+    },
+    "/flashscore/tournament-draw": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one knockout stage with its entrants and ordered bracket rounds, slots, linked match IDs, scores and winners. A slot can contain replays or have no linked match yet. Use the season tournament_id and its stage_id from flashscore-tournament-archive-seasons or the competition block of an event. A stage without a published draw returns not found.",
+        "operationId": "flashscore-tournament-draw",
+        "parameters": [
+          {
+            "description": "Eight-character Flashscore season tournament id",
+            "in": "query",
+            "name": "tournament_id",
+            "required": true,
+            "type": "string",
+            "x-example": "YaSyJqEs"
+          },
+          {
+            "description": "Eight-character Flashscore draw stage id",
+            "in": "query",
+            "name": "stage_id",
+            "required": true,
+            "type": "string",
+            "x-example": "xY6rfy4l"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/flashscore.TournamentDrawResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Flashscore tournament draw by season and stage",
         "tags": [
           "flashscore"
         ]

@@ -1,6 +1,6 @@
 # Crawlora Flashscore API client for Ruby (`crawlora-flashscore`)
 
-This Ruby gem calls Crawlora's hosted Flashscore API at `https://api.crawlora.net/api/v1`. It exposes 54 endpoints covering scores, match details, competitions, teams, players, odds, and news; it does not call or scrape Flashscore directly. Requests require your Crawlora API key and use your account's service plan.
+This Ruby gem calls Crawlora's hosted Flashscore API at `https://api.crawlora.net/api/v1`. It exposes 58 endpoints covering scores, match details, competitions, teams, players, odds, and news; it does not call or scrape Flashscore directly. Requests require your Crawlora API key and use your account's service plan.
 
 ## Install
 
@@ -20,7 +20,7 @@ puts result
 client.close
 ```
 
-Use an operation-specific method for normal calls. `request(operation_id, params = {}, response_type: :auto)` is available for every operation. `response_type: :text` returns raw response text. This gem includes 54 API operations.
+Use an operation-specific method for normal calls. `request(operation_id, params = {}, response_type: :auto)` is available for every operation. `response_type: :text` returns raw response text. This gem includes 58 API operations.
 
 ```ruby
 client = Crawlora::Flashscore::Client.new(api_key: ENV.fetch("CRAWLORA_API_KEY"), timeout: 30)
@@ -41,9 +41,11 @@ Browse every route included in this gem. The [endpoint reference](https://github
 | `GET` | `/flashscore/competitions` | `flashscore-competitions` | Flashscore competitions by sport and date |
 | `GET` | `/flashscore/entity-news` | `flashscore-entity-news` | Flashscore news for a team, player, tournament or sport |
 | `GET` | `/flashscore/match-box-score` | `flashscore-match-box-score` | Flashscore basketball, hockey and baseball box score |
+| `GET` | `/flashscore/match-commentary` | `flashscore-match-commentary` | Flashscore match text commentary |
 | `GET` | `/flashscore/match-darts` | `flashscore-match-darts` | Flashscore darts throw-by-throw and statistics |
 | `GET` | `/flashscore/match-h2h` | `flashscore-match-h2h` | Flashscore match head-to-head and recent results |
 | `GET` | `/flashscore/match-highlights` | `flashscore-match-highlights` | Flashscore match highlights |
+| `GET` | `/flashscore/match-incidents` | `flashscore-match-incidents` | Flashscore structured match incidents |
 | `GET` | `/flashscore/match-info` | `flashscore-match-info` | Flashscore match venue and broadcast information |
 | `GET` | `/flashscore/match-lineups` | `flashscore-match-lineups` | Flashscore match lineups and formations |
 | `GET` | `/flashscore/match-missing-players` | `flashscore-match-missing-players` | Flashscore missing and doubtful players |
@@ -53,6 +55,7 @@ Browse every route included in this gem. The [endpoint reference](https://github
 | `GET` | `/flashscore/match-player-stats` | `flashscore-match-player-stats` | Flashscore football player match statistics and ratings |
 | `GET` | `/flashscore/match-point-by-point` | `flashscore-match-point-by-point` | Flashscore point-by-point scoring history |
 | `GET` | `/flashscore/match-predicted-lineups` | `flashscore-match-predicted-lineups` | Flashscore predicted lineups |
+| `GET` | `/flashscore/match-prematch-scorers` | `flashscore-match-prematch-scorers` | Flashscore pre-match top scorers |
 | `GET` | `/flashscore/match-report` | `flashscore-match-report` | Flashscore editorial match report |
 | `GET` | `/flashscore/match-standings` | `flashscore-match-standings` | Flashscore match league standings |
 | `GET` | `/flashscore/match-stats` | `flashscore-match-stats` | Flashscore match statistics |
@@ -85,6 +88,7 @@ Browse every route included in this gem. The [endpoint reference](https://github
 | `GET` | `/flashscore/team-transfers` | `flashscore-team-transfers` | Flashscore team transfers |
 | `GET` | `/flashscore/top-search` | `flashscore-top-search` | Flashscore top search entities |
 | `GET` | `/flashscore/tournament-archive-seasons` | `flashscore-tournament-archive-seasons` | Flashscore competition seasons by stage id |
+| `GET` | `/flashscore/tournament-draw` | `flashscore-tournament-draw` | Flashscore tournament draw by season and stage |
 | `GET` | `/flashscore/tournament-events` | `flashscore-tournament-events` | Flashscore tournament season results or fixtures |
 | `GET` | `/flashscore/tournament-outright-odds` | `flashscore-tournament-outright-odds` | Flashscore competition winner odds |
 | `GET` | `/flashscore/tournament-seasons` | `flashscore-tournament-seasons` | Flashscore tournament archive seasons |
